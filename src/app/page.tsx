@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -12,10 +11,10 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    
+
     // TODO: Implement login logic here
     console.log('Login attempt:', { email, password })
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false)
@@ -24,7 +23,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      
+
 
       {/* Sparkling starry background */}
       <div className="absolute inset-0">
@@ -54,7 +53,7 @@ export default function LoginPage() {
         <div className="absolute top-68 right-2/5 w-1.5 h-1.5 bg-white rounded-full animate-twinkle-dot shadow-white shadow-sm" style={{ animationDelay: '2.9s' }}></div>
         <div className="absolute top-84 left-3/5 w-1.5 h-1.5 bg-white rounded-full animate-twinkle-dot shadow-white shadow-sm" style={{ animationDelay: '0.9s' }}></div>
         <div className="absolute top-100 right-3/5 w-1.5 h-1.5 bg-white rounded-full animate-twinkle-dot shadow-white shadow-sm" style={{ animationDelay: '3.1s' }}></div>
-        
+
         {/* Small dots with twinkling */}
         <div className="absolute top-24 left-1/2 w-1 h-1 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '0.3s' }}></div>
         <div className="absolute top-44 right-1/2 w-1 h-1 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.7s' }}></div>
@@ -69,7 +68,7 @@ export default function LoginPage() {
         <div className="absolute top-66 left-5/6 w-1 h-1 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '2.6s' }}></div>
         <div className="absolute top-82 right-1/9 w-1 h-1 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '0.2s' }}></div>
         <div className="absolute top-98 left-7/8 w-1 h-1 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.6s' }}></div>
-        
+
         {/* Extra tiny dots */}
         <div className="absolute top-12 left-1/4 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '0.4s' }}></div>
         <div className="absolute top-26 right-1/4 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.8s' }}></div>
@@ -79,14 +78,14 @@ export default function LoginPage() {
         <div className="absolute top-90 right-7/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '2.7s' }}></div>
         <div className="absolute top-106 left-3/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '0.1s' }}></div>
         <div className="absolute top-14 right-5/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.9s' }}></div>
-        
+
         {/* Extra small twinkling stars scattered - fixed positions */}
         {Array.from({ length: 200 }, (_, i) => {
           const top = (i * 7.3) % 100;
           const left = (i * 11.7) % 100;
           const delay = (i * 0.02) % 4;
           const opacity = 0.2 + (i % 8) * 0.1;
-          
+
           return (
             <div
               key={i}
@@ -100,7 +99,7 @@ export default function LoginPage() {
             ></div>
           );
         })}
-        
+
         {/* More twinkling dot stars */}
         {Array.from({ length: 150 }, (_, i) => {
           const top = (i * 13.1) % 100;
@@ -108,7 +107,7 @@ export default function LoginPage() {
           const delay = (i * 0.033) % 5;
           const opacity = 0.1 + (i % 9) * 0.1;
           const duration = 1.5 + (i % 5) * 0.4;
-          
+
           return (
             <div
               key={`extra-${i}`}
@@ -123,7 +122,7 @@ export default function LoginPage() {
             ></div>
           );
         })}
-        
+
         {/* Tiny twinkling stars for depth */}
         {Array.from({ length: 80 }, (_, i) => {
           const top = (i * 19.7) % 100;
@@ -131,7 +130,7 @@ export default function LoginPage() {
           const delay = (i * 0.063) % 5;
           const opacity = 0.3 + (i % 6) * 0.1;
           const duration = 2 + (i % 3) * 1;
-          
+
           return (
             <div
               key={`tiny-${i}`}
