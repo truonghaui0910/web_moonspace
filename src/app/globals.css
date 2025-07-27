@@ -34,3 +34,92 @@ body {
 .animate-twinkle {
   animation: twinkle 2s ease-in-out infinite;
 }
+
+/* Shooting star animations */
+@keyframes shootingStar1 {
+  0% { 
+    transform: translateX(0) translateY(0); 
+    opacity: 0; 
+  }
+  10% { 
+    opacity: 1; 
+  }
+  90% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateX(120vw) translateY(60vh); 
+    opacity: 0; 
+  }
+}
+
+@keyframes shootingStar2 {
+  0% { 
+    transform: translateX(0) translateY(0); 
+    opacity: 0; 
+  }
+  15% { 
+    opacity: 1; 
+  }
+  85% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateX(100vw) translateY(50vh); 
+    opacity: 0; 
+  }
+}
+
+@keyframes shootingStar3 {
+  0% { 
+    transform: translateX(0) translateY(0); 
+    opacity: 0; 
+  }
+  20% { 
+    opacity: 1; 
+  }
+  80% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateX(110vw) translateY(40vh); 
+    opacity: 0; 
+  }
+}
+
+@keyframes shootingStar4 {
+  0% { 
+    transform: translateX(0) translateY(0); 
+    opacity: 0; 
+  }
+  25% { 
+    opacity: 1; 
+  }
+  75% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateX(130vw) translateY(30vh); 
+    opacity: 0; 
+  }
+}
+
+.animate-shooting-star-1 {
+  animation: shootingStar1 4s linear infinite;
+  animation-delay: 2s;
+}
+
+.animate-shooting-star-2 {
+  animation: shootingStar2 5s linear infinite;
+  animation-delay: 6s;
+}
+
+.animate-shooting-star-3 {
+  animation: shootingStar3 3.5s linear infinite;
+  animation-delay: 10s;
+}
+
+.animate-shooting-star-4 {
+  animation: shootingStar4 4.5s linear infinite;
+  animation-delay: 14s;
+}

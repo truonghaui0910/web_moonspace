@@ -24,8 +24,23 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Starry background */}
+      {/* Shooting stars */}
       <div className="absolute inset-0">
+        {/* Shooting star 1 */}
+        <div className="absolute top-10 -left-10 w-1 h-1 bg-white rounded-full shadow-white shadow-lg animate-shooting-star-1"></div>
+        
+        {/* Shooting star 2 */}
+        <div className="absolute top-32 -left-20 w-1.5 h-1.5 bg-blue-200 rounded-full shadow-blue-200 shadow-lg animate-shooting-star-2"></div>
+        
+        {/* Shooting star 3 */}
+        <div className="absolute top-64 -left-16 w-0.5 h-0.5 bg-yellow-200 rounded-full shadow-yellow-200 shadow-sm animate-shooting-star-3"></div>
+        
+        {/* Shooting star 4 */}
+        <div className="absolute top-96 -left-12 w-1 h-1 bg-purple-200 rounded-full shadow-purple-200 shadow-md animate-shooting-star-4"></div>
+      </div>
+
+      {/* Starry background */}
+      <div className="absolute inset-0"></div>
         {/* Large bright stars */}
         <div className="absolute top-20 left-10 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm"></div>
         <div className="absolute top-32 right-20 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1s' }}></div>
@@ -105,7 +120,7 @@ export default function LoginPage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 p-8">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-white mb-2">Moonspace</h1>
-              <p className="text-gray-300">Đăng nhập vào tài khoản của bạn</p>
+              <p className="text-gray-300">Sign in to your account</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -128,7 +143,7 @@ export default function LoginPage() {
               {/* Password field */}
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-200 mb-2">
-                  Mật khẩu
+                  Password
                 </label>
                 <input
                   id="password"
@@ -148,10 +163,10 @@ export default function LoginPage() {
                     type="checkbox"
                     className="w-4 h-4 text-green-600 bg-white/10 border-white/30 rounded focus:ring-green-500 focus:ring-2"
                   />
-                  <span className="ml-2 text-sm text-gray-300">Nhớ tôi</span>
+                  <span className="ml-2 text-sm text-gray-300">Remember me</span>
                 </label>
                 <a href="#" className="text-sm text-green-400 hover:text-green-300 transition-colors">
-                  Quên mật khẩu?
+                  Forgot password?
                 </a>
               </div>
 
@@ -164,10 +179,10 @@ export default function LoginPage() {
                 {isLoading ? (
                   <div className="flex items-center justify-center">
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
-                    Đang đăng nhập...
+                    Signing in...
                   </div>
                 ) : (
-                  'Đăng nhập'
+                  'Sign In'
                 )}
               </button>
             </form>
@@ -175,9 +190,9 @@ export default function LoginPage() {
             {/* Sign up link */}
             <div className="text-center mt-6">
               <p className="text-gray-300">
-                Chưa có tài khoản?{' '}
+                Don't have an account?{' '}
                 <a href="#" className="text-green-400 hover:text-green-300 font-medium transition-colors">
-                  Đăng ký ngay
+                  Sign up now
                 </a>
               </p>
             </div>
