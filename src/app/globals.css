@@ -35,63 +35,113 @@ body {
   animation: twinkle 2s ease-in-out infinite;
 }
 
-/* Static light streak fade-in animations */
-@keyframes lightStreakFadeIn1 {
+/* Meteor shower animations from 10 o'clock to 3 o'clock direction */
+@keyframes meteorShower1 {
   0% { 
     opacity: 0;
-    transform: scale(0.5) rotate(45deg);
+    transform: translateX(-100px) translateY(-200px) rotate(35deg);
   }
-  50% { 
+  10% { 
     opacity: 1;
-    transform: scale(1) rotate(45deg);
+  }
+  90% { 
+    opacity: 1;
   }
   100% { 
     opacity: 0;
-    transform: scale(0.8) rotate(45deg);
+    transform: translateX(300px) translateY(100px) rotate(35deg);
   }
 }
 
-@keyframes lightStreakFadeIn2 {
+@keyframes meteorShower2 {
   0% { 
     opacity: 0;
-    transform: scale(0.3) rotate(-45deg);
+    transform: translateX(-150px) translateY(-250px) rotate(40deg);
   }
-  40% { 
+  15% { 
+    opacity: 0.8;
+  }
+  85% { 
+    opacity: 0.8;
+  }
+  100% { 
+    opacity: 0;
+    transform: translateX(400px) translateY(150px) rotate(40deg);
+  }
+}
+
+@keyframes meteorShower3 {
+  0% { 
+    opacity: 0;
+    transform: translateX(-80px) translateY(-180px) rotate(30deg);
+  }
+  8% { 
+    opacity: 1;
+  }
+  92% { 
+    opacity: 1;
+  }
+  100% { 
+    opacity: 0;
+    transform: translateX(350px) translateY(120px) rotate(30deg);
+  }
+}
+
+@keyframes meteorShower4 {
+  0% { 
+    opacity: 0;
+    transform: translateX(-120px) translateY(-220px) rotate(38deg);
+  }
+  12% { 
     opacity: 0.9;
-    transform: scale(1.1) rotate(-45deg);
+  }
+  88% { 
+    opacity: 0.9;
   }
   100% { 
     opacity: 0;
-    transform: scale(0.7) rotate(-45deg);
+    transform: translateX(380px) translateY(140px) rotate(38deg);
   }
 }
 
-@keyframes lightStreakFadeIn3 {
+@keyframes meteorShower5 {
   0% { 
     opacity: 0;
-    transform: scale(0.4) rotate(30deg);
+    transform: translateX(-200px) translateY(-300px) rotate(42deg);
   }
-  60% { 
-    opacity: 1;
-    transform: scale(1.2) rotate(30deg);
+  20% { 
+    opacity: 0.7;
+  }
+  80% { 
+    opacity: 0.7;
   }
   100% { 
     opacity: 0;
-    transform: scale(0.6) rotate(30deg);
+    transform: translateX(450px) translateY(200px) rotate(42deg);
   }
 }
 
-.animate-light-streak-1 {
-  animation: lightStreakFadeIn1 4s ease-in-out infinite;
-  animation-delay: 2s;
+.animate-meteor-1 {
+  animation: meteorShower1 3s linear infinite;
+  animation-delay: 1s;
 }
 
-.animate-light-streak-2 {
-  animation: lightStreakFadeIn2 5s ease-in-out infinite;
+.animate-meteor-2 {
+  animation: meteorShower2 4s linear infinite;
+  animation-delay: 3s;
+}
+
+.animate-meteor-3 {
+  animation: meteorShower3 2.5s linear infinite;
   animation-delay: 6s;
 }
 
-.animate-light-streak-3 {
-  animation: lightStreakFadeIn3 3.5s ease-in-out infinite;
-  animation-delay: 10s;
+.animate-meteor-4 {
+  animation: meteorShower4 3.5s linear infinite;
+  animation-delay: 8s;
+}
+
+.animate-meteor-5 {
+  animation: meteorShower5 4.5s linear infinite;
+  animation-delay: 12s;
 }

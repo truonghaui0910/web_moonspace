@@ -24,21 +24,29 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Static diagonal light streaks */}
-      <div className="absolute inset-0">
-        {/* Light streak 1 - White diagonal across top */}
-        <div className="absolute top-20 left-10 w-96 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 animate-light-streak-1 transform rotate-45 origin-left"></div>
+      {/* Meteor shower effects from 10 o'clock to 3 o'clock */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Meteor 1 - Bright white meteor */}
+        <div className="absolute top-20 left-20 w-32 h-0.5 bg-gradient-to-r from-white via-white to-transparent opacity-80 animate-meteor-1 shadow-white shadow-sm"></div>
         
-        {/* Light streak 2 - Blue diagonal in middle */}
-        <div className="absolute top-1/2 right-20 w-80 h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent opacity-50 animate-light-streak-2 transform -rotate-45 origin-right"></div>
+        {/* Meteor 2 - Blue meteor */}
+        <div className="absolute top-32 left-32 w-28 h-px bg-gradient-to-r from-sky-300 via-sky-300 to-transparent opacity-70 animate-meteor-2"></div>
         
-        {/* Light streak 3 - Green diagonal at bottom */}
-        <div className="absolute bottom-32 left-1/4 w-72 h-0.5 bg-gradient-to-r from-transparent via-emerald-300 to-transparent opacity-40 animate-light-streak-3 transform rotate-30 origin-left"></div>
+        {/* Meteor 3 - Green meteor */}
+        <div className="absolute top-40 left-16 w-24 h-0.5 bg-gradient-to-r from-emerald-300 via-emerald-300 to-transparent opacity-60 animate-meteor-3"></div>
         
-        {/* Additional light streaks for more depth */}
-        <div className="absolute top-1/3 left-1/3 w-64 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent opacity-30 animate-light-streak-1 transform rotate-60 origin-center" style={{ animationDelay: '4s' }}></div>
+        {/* Meteor 4 - Purple meteor */}
+        <div className="absolute top-60 left-40 w-30 h-px bg-gradient-to-r from-purple-300 via-purple-300 to-transparent opacity-50 animate-meteor-4"></div>
         
-        <div className="absolute bottom-1/4 right-1/3 w-56 h-0.5 bg-gradient-to-r from-transparent via-yellow-300 to-transparent opacity-35 animate-light-streak-2 transform -rotate-30 origin-center" style={{ animationDelay: '12s' }}></div>
+        {/* Meteor 5 - Yellow meteor */}
+        <div className="absolute top-80 left-24 w-26 h-0.5 bg-gradient-to-r from-yellow-300 via-yellow-300 to-transparent opacity-45 animate-meteor-5"></div>
+        
+        {/* Additional smaller meteors */}
+        <div className="absolute top-16 left-60 w-20 h-px bg-gradient-to-r from-white via-white to-transparent opacity-40 animate-meteor-1" style={{ animationDelay: '5s' }}></div>
+        
+        <div className="absolute top-44 left-8 w-22 h-px bg-gradient-to-r from-cyan-300 via-cyan-300 to-transparent opacity-35 animate-meteor-3" style={{ animationDelay: '9s' }}></div>
+        
+        <div className="absolute top-72 left-48 w-18 h-px bg-gradient-to-r from-pink-300 via-pink-300 to-transparent opacity-30 animate-meteor-2" style={{ animationDelay: '15s' }}></div>
       </div>
 
       {/* Starry background */}
