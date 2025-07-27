@@ -24,85 +24,29 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Realistic meteor shower effect matching reference image */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Main meteor shower - bright white */}
-        <div 
-          className="absolute animate-meteor-1"
-          style={{ top: '8%', left: '15%' }}
-        ></div>
-        
-        {/* Secondary meteors - blue tinted */}
-        <div 
-          className="absolute animate-meteor-2"
-          style={{ top: '20%', left: '35%' }}
-        ></div>
-        
-        <div 
-          className="absolute animate-meteor-2"
-          style={{ top: '45%', left: '60%', animationDelay: '2s' }}
-        ></div>
-        
-        {/* Tertiary meteors - green tinted */}
-        <div 
-          className="absolute animate-meteor-3"
-          style={{ top: '35%', left: '80%' }}
-        ></div>
-        
-        <div 
-          className="absolute animate-meteor-3"
-          style={{ top: '60%', left: '25%', animationDelay: '4s' }}
-        ></div>
-        
-        {/* Distant meteors - purple tinted */}
-        <div 
-          className="absolute animate-meteor-4"
-          style={{ top: '15%', left: '70%' }}
-        ></div>
-        
-        <div 
-          className="absolute animate-meteor-4"
-          style={{ top: '55%', left: '5%', animationDelay: '6s' }}
-        ></div>
-        
-        {/* Additional meteor streaks for richness */}
-        <div 
-          className="absolute animate-meteor-1"
-          style={{ top: '25%', left: '90%', animationDelay: '12s' }}
-        ></div>
-        
-        <div 
-          className="absolute animate-meteor-2"
-          style={{ top: '75%', left: '40%', animationDelay: '15s' }}
-        ></div>
-        
-        <div 
-          className="absolute animate-meteor-3"
-          style={{ top: '5%', left: '45%', animationDelay: '18s' }}
-        ></div>
-        
-        <div 
-          className="absolute animate-meteor-1"
-          style={{ top: '40%', left: '10%', animationDelay: '21s' }}
-        ></div>
-        
-        <div 
-          className="absolute animate-meteor-4"
-          style={{ top: '70%', left: '75%', animationDelay: '24s' }}
-        ></div>
-      </div>
+      
 
-      {/* Starry background */}
+      {/* Sparkling starry background */}
       <div className="absolute inset-0">
-        {/* Large bright stars */}
-        <div className="absolute top-20 left-10 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm"></div>
-        <div className="absolute top-32 right-20 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-48 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-64 right-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute top-80 left-1/4 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-96 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-12 left-2/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '2.3s' }}></div>
-        <div className="absolute top-28 right-1/5 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1.8s' }}></div>
+        {/* Extra bright sparkling stars */}
+        <div className="absolute top-16 left-12 w-3 h-3 bg-white rounded-full animate-sparkle shadow-white shadow-lg" style={{ filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.8))' }}></div>
+        <div className="absolute top-24 right-16 w-3 h-3 bg-blue-100 rounded-full animate-sparkle shadow-blue-100 shadow-lg" style={{ animationDelay: '1s', filter: 'drop-shadow(0 0 6px rgba(191,219,254,0.8))' }}></div>
+        <div className="absolute top-40 left-1/4 w-2.5 h-2.5 bg-yellow-100 rounded-full animate-sparkle shadow-yellow-100 shadow-lg" style={{ animationDelay: '2.5s', filter: 'drop-shadow(0 0 5px rgba(254,249,195,0.8))' }}></div>
+        <div className="absolute top-56 right-1/4 w-3 h-3 bg-purple-100 rounded-full animate-sparkle shadow-purple-100 shadow-lg" style={{ animationDelay: '0.8s', filter: 'drop-shadow(0 0 6px rgba(243,232,255,0.8))' }}></div>
+        <div className="absolute top-72 left-1/6 w-2.5 h-2.5 bg-green-100 rounded-full animate-sparkle shadow-green-100 shadow-lg" style={{ animationDelay: '1.8s', filter: 'drop-shadow(0 0 5px rgba(220,252,231,0.8))' }}></div>
+        <div className="absolute top-88 right-1/6 w-3 h-3 bg-pink-100 rounded-full animate-sparkle shadow-pink-100 shadow-lg" style={{ animationDelay: '3.2s', filter: 'drop-shadow(0 0 6px rgba(252,231,243,0.8))' }}></div>
+        <div className="absolute top-32 left-3/4 w-2.5 h-2.5 bg-cyan-100 rounded-full animate-sparkle shadow-cyan-100 shadow-lg" style={{ animationDelay: '2.1s', filter: 'drop-shadow(0 0 5px rgba(207,250,254,0.8))' }}></div>
+        <div className="absolute top-64 right-3/4 w-3 h-3 bg-white rounded-full animate-sparkle shadow-white shadow-lg" style={{ animationDelay: '4s', filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.8))' }}></div>
+        <div className="absolute top-48 left-2/3 w-2.5 h-2.5 bg-orange-100 rounded-full animate-sparkle shadow-orange-100 shadow-lg" style={{ animationDelay: '1.3s', filter: 'drop-shadow(0 0 5px rgba(255,237,213,0.8))' }}></div>
+        <div className="absolute top-80 right-2/3 w-3 h-3 bg-indigo-100 rounded-full animate-sparkle shadow-indigo-100 shadow-lg" style={{ animationDelay: '2.7s', filter: 'drop-shadow(0 0 6px rgba(224,231,255,0.8))' }}></div>
+
+        {/* Large bright twinkling stars */}
+        <div className="absolute top-20 left-10 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-36 right-20 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '1.2s' }}></div>
+        <div className="absolute top-52 left-1/3 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '2.8s' }}></div>
+        <div className="absolute top-68 right-1/3 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute top-84 left-1/4 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '1.9s' }}></div>
+        <div className="absolute top-100 right-1/4 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '3.4s' }}></div>
         
         {/* Medium stars */}
         <div className="absolute top-16 right-32 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
