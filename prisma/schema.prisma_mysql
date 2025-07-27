@@ -1,0 +1,199 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+//generator client {
+//  provider = "prisma-client-js"
+//  output   = "../src/generated/prisma"
+//}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      Role     @default(VIEWER)
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  accounts Account[]
+  sessions Session[]
+  notifications Notification[]
+  
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Channel {
+  id          String   @id @default(cuid())
+  channelId   String   @unique
+  name        String
+  description String?  @db.Text
+  thumbnail   String?
+  subscribers Int      @default(0)
+  totalViews  Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  videos    Video[]
+  analytics ChannelAnalytics[]
+  
+  @@map("channels")
+}
+
+model Video {
+  id          String   @id @default(cuid())
+  videoId     String   @unique
+  title       String
+  description String?  @db.Text
+  thumbnail   String?
+  duration    Int?
+  views       Int      @default(0)
+  likes       Int      @default(0)
+  revenue     Float    @default(0)
+  publishedAt DateTime
+  channelId   String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  analytics VideoAnalytics[]
+  musicTracks VideoMusicTrack[]
+  
+  @@map("videos")
+}
+
+model MusicTrack {
+  id       String @id @default(cuid())
+  filename String
+  title    String
+  artist   String?
+  duration Int?
+  filePath String
+  fileSize Int?
+  mimeType String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  videos VideoMusicTrack[]
+  
+  @@map("music_tracks")
+}
+
+model VideoMusicTrack {
+  id           String @id @default(cuid())
+  videoId      String
+  musicTrackId String
+  startTime    Int?   @default(0)
+  endTime      Int?
+  
+  video      Video      @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  musicTrack MusicTrack @relation(fields: [musicTrackId], references: [id], onDelete: Cascade)
+  
+  @@unique([videoId, musicTrackId])
+  @@map("video_music_tracks")
+}
+
+model ChannelAnalytics {
+  id          String   @id @default(cuid())
+  channelId   String
+  date        DateTime
+  views       Int      @default(0)
+  subscribers Int      @default(0)
+  revenue     Float    @default(0)
+  watchTime   Int      @default(0)
+  createdAt   DateTime @default(now())
+  
+  channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  
+  @@unique([channelId, date])
+  @@map("channel_analytics")
+}
+
+model VideoAnalytics {
+  id        String   @id @default(cuid())
+  videoId   String
+  date      DateTime
+  views     Int      @default(0)
+  likes     Int      @default(0)
+  comments  Int      @default(0)
+  shares    Int      @default(0)
+  revenue   Float    @default(0)
+  watchTime Int      @default(0)
+  createdAt DateTime @default(now())
+  
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  
+  @@unique([videoId, date])
+  @@map("video_analytics")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String   @db.Text
+  type      NotificationType @default(INFO)
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("notifications")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum NotificationType {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
+}
