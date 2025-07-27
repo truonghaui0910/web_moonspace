@@ -23,42 +23,71 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-900 via-blue-900 to-black">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Starry background */}
       <div className="absolute inset-0">
-        {/* Large stars */}
-        <div className="absolute top-20 left-10 w-1 h-1 bg-white rounded-full animate-pulse"></div>
-        <div className="absolute top-32 right-20 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-48 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-64 right-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute top-80 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-96 right-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
+        {/* Large bright stars */}
+        <div className="absolute top-20 left-10 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm"></div>
+        <div className="absolute top-32 right-20 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-48 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-64 right-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-80 left-1/4 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-96 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-12 left-2/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '2.3s' }}></div>
+        <div className="absolute top-28 right-1/5 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1.8s' }}></div>
         
         {/* Medium stars */}
-        <div className="absolute top-16 right-32 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute top-40 left-16 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.2s' }}></div>
-        <div className="absolute top-56 right-16 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.8s' }}></div>
-        <div className="absolute top-72 left-2/3 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.2s' }}></div>
-        <div className="absolute top-88 right-2/3 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.8s' }}></div>
+        <div className="absolute top-16 right-32 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute top-40 left-16 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.2s' }}></div>
+        <div className="absolute top-56 right-16 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute top-72 left-2/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.2s' }}></div>
+        <div className="absolute top-88 right-2/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.8s' }}></div>
+        <div className="absolute top-36 left-3/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.7s' }}></div>
+        <div className="absolute top-52 right-3/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.7s' }}></div>
+        <div className="absolute top-68 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.3s' }}></div>
+        <div className="absolute top-84 right-4/5 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.9s' }}></div>
+        <div className="absolute top-100 left-1/6 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
         
         {/* Small stars */}
-        <div className="absolute top-24 left-1/2 w-px h-px bg-white rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-        <div className="absolute top-44 right-1/2 w-px h-px bg-white rounded-full animate-pulse" style={{ animationDelay: '1.7s' }}></div>
-        <div className="absolute top-60 left-20 w-px h-px bg-white rounded-full animate-pulse" style={{ animationDelay: '2.8s' }}></div>
-        <div className="absolute top-76 right-40 w-px h-px bg-white rounded-full animate-pulse" style={{ animationDelay: '0.9s' }}></div>
-        <div className="absolute top-92 left-40 w-px h-px bg-white rounded-full animate-pulse" style={{ animationDelay: '1.4s' }}></div>
-        <div className="absolute top-104 right-24 w-px h-px bg-white rounded-full animate-pulse" style={{ animationDelay: '2.1s' }}></div>
+        <div className="absolute top-24 left-1/2 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute top-44 right-1/2 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.7s' }}></div>
+        <div className="absolute top-60 left-20 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.8s' }}></div>
+        <div className="absolute top-76 right-40 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.9s' }}></div>
+        <div className="absolute top-92 left-40 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.4s' }}></div>
+        <div className="absolute top-104 right-24 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.1s' }}></div>
+        <div className="absolute top-8 left-1/8 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.9s' }}></div>
+        <div className="absolute top-18 right-1/8 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+        <div className="absolute top-34 left-4/5 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.4s' }}></div>
+        <div className="absolute top-50 right-1/7 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.1s' }}></div>
+        <div className="absolute top-66 left-5/6 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.6s' }}></div>
+        <div className="absolute top-82 right-1/9 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+        <div className="absolute top-98 left-7/8 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.6s' }}></div>
         
-        {/* Extra small stars scattered */}
-        {Array.from({ length: 50 }, (_, i) => (
+        {/* Extra small stars scattered - more density */}
+        {Array.from({ length: 120 }, (_, i) => (
           <div
             key={i}
             className="absolute w-px h-px bg-white rounded-full animate-pulse"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              opacity: Math.random() * 0.8 + 0.2
+              animationDelay: `${Math.random() * 4}s`,
+              opacity: Math.random() * 0.9 + 0.1
+            }}
+          ></div>
+        ))}
+        
+        {/* Tiny twinkling stars for depth */}
+        {Array.from({ length: 80 }, (_, i) => (
+          <div
+            key={`tiny-${i}`}
+            className="absolute w-0.5 h-0.5 bg-blue-100 rounded-full animate-pulse"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              opacity: Math.random() * 0.6 + 0.2,
+              animationDuration: `${Math.random() * 3 + 2}s`
             }}
           ></div>
         ))}
