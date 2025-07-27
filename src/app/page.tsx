@@ -64,18 +64,6 @@ export default function LoginPage() {
         <div className="absolute top-84 left-3/5 w-1.5 h-1.5 bg-white rounded-full animate-twinkle-dot shadow-white shadow-sm" style={{ animationDelay: '0.9s' }}></div>
         <div className="absolute top-100 right-3/5 w-1.5 h-1.5 bg-white rounded-full animate-twinkle-dot shadow-white shadow-sm" style={{ animationDelay: '3.1s' }}></div>
         
-        {/* Medium stars - no animation */}
-        <div className="absolute top-16 right-32 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-40 left-16 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-56 right-16 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-72 left-2/3 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-88 right-2/3 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-36 left-3/4 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-52 right-3/4 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-68 left-1/5 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-84 right-4/5 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute top-100 left-1/6 w-2 h-2 bg-white rounded-full"></div>
-        
         {/* Small dots with twinkling */}
         <div className="absolute top-24 left-1/2 w-1 h-1 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '0.3s' }}></div>
         <div className="absolute top-44 right-1/2 w-1 h-1 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.7s' }}></div>
@@ -102,7 +90,7 @@ export default function LoginPage() {
         <div className="absolute top-14 right-5/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.9s' }}></div>
         
         {/* Extra small twinkling stars scattered - more density */}
-        {Array.from({ length: 120 }, (_, i) => (
+        {Array.from({ length: 200 }, (_, i) => (
           <div
             key={i}
             className="absolute w-px h-px bg-white rounded-full animate-twinkle-dot"
@@ -111,6 +99,21 @@ export default function LoginPage() {
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 4}s`,
               opacity: Math.random() * 0.8 + 0.2
+            }}
+          ></div>
+        ))}
+        
+        {/* More twinkling dot stars */}
+        {Array.from({ length: 150 }, (_, i) => (
+          <div
+            key={`extra-${i}`}
+            className="absolute w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              opacity: Math.random() * 0.9 + 0.1,
+              animationDuration: `${Math.random() * 2 + 1.5}s`
             }}
           ></div>
         ))}
