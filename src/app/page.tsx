@@ -29,29 +29,29 @@ export default function LoginPage() {
         {/* Shooting star 1 - White */}
         <div className="absolute top-10 -left-10 animate-shooting-star-1">
           <div className="w-2 h-2 bg-white rounded-full"></div>
-          <div className="absolute top-0.5 -left-20 w-20 h-0.5 bg-gradient-to-r from-transparent via-white to-white opacity-60"></div>
-          <div className="absolute top-0.5 -left-40 w-40 h-px bg-gradient-to-r from-transparent via-white/40 to-white/70 opacity-40"></div>
+          <div className="absolute top-0.5 -left-20 w-20 h-0.5 bg-gradient-to-r from-transparent via-white to-white opacity-60 transform -rotate-12"></div>
+          <div className="absolute top-0.5 -left-40 w-40 h-px bg-gradient-to-r from-transparent via-white/40 to-white/70 opacity-40 transform -rotate-12"></div>
         </div>
         
         {/* Shooting star 2 - Light Blue */}
         <div className="absolute top-32 -left-20 animate-shooting-star-2">
           <div className="w-2.5 h-2.5 bg-sky-200 rounded-full"></div>
-          <div className="absolute top-1 -left-24 w-24 h-0.5 bg-gradient-to-r from-transparent via-sky-200 to-sky-200 opacity-70"></div>
-          <div className="absolute top-1 -left-48 w-48 h-px bg-gradient-to-r from-transparent via-sky-200/40 to-sky-200/80 opacity-50"></div>
+          <div className="absolute top-1 -left-24 w-24 h-0.5 bg-gradient-to-r from-transparent via-sky-200 to-sky-200 opacity-70 transform -rotate-12"></div>
+          <div className="absolute top-1 -left-48 w-48 h-px bg-gradient-to-r from-transparent via-sky-200/40 to-sky-200/80 opacity-50 transform -rotate-12"></div>
         </div>
         
         {/* Shooting star 3 - Yellow */}
         <div className="absolute top-64 -left-16 animate-shooting-star-3">
           <div className="w-1.5 h-1.5 bg-yellow-200 rounded-full"></div>
-          <div className="absolute top-0.5 -left-16 w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-200 to-yellow-200 opacity-60"></div>
-          <div className="absolute top-0.5 -left-32 w-32 h-px bg-gradient-to-r from-transparent via-yellow-200/40 to-yellow-200/70 opacity-40"></div>
+          <div className="absolute top-0.5 -left-16 w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-200 to-yellow-200 opacity-60 transform -rotate-12"></div>
+          <div className="absolute top-0.5 -left-32 w-32 h-px bg-gradient-to-r from-transparent via-yellow-200/40 to-yellow-200/70 opacity-40 transform -rotate-12"></div>
         </div>
         
         {/* Shooting star 4 - Purple */}
         <div className="absolute top-96 -left-12 animate-shooting-star-4">
           <div className="w-2 h-2 bg-purple-200 rounded-full"></div>
-          <div className="absolute top-0.5 -left-28 w-28 h-0.5 bg-gradient-to-r from-transparent via-purple-200 to-purple-200 opacity-65"></div>
-          <div className="absolute top-0.5 -left-56 w-56 h-px bg-gradient-to-r from-transparent via-purple-200/40 to-purple-200/75 opacity-45"></div>
+          <div className="absolute top-0.5 -left-28 w-28 h-0.5 bg-gradient-to-r from-transparent via-purple-200 to-purple-200 opacity-65 transform -rotate-6"></div>
+          <div className="absolute top-0.5 -left-56 w-56 h-px bg-gradient-to-r from-transparent via-purple-200/40 to-purple-200/75 opacity-45 transform -rotate-6"></div>
         </div>
       </div>
 
