@@ -55,9 +55,13 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           </linearGradient>
         </defs>
 
-        {/* Rocket Body */}
-        <path
-          d="M45 25 Q50 15 55 25 L60 50 Q60 55 55 55 L45 55 Q40 55 40 50 Z"
+        {/* Rocket Body - Main cylindrical body */}
+        <rect
+          x="42"
+          y="30"
+          width="16"
+          height="35"
+          rx="2"
           fill="url(#rocketGradient)"
           className={animated ? 'animate-bounce' : ''}
           style={{
@@ -66,9 +70,9 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           }}
         />
 
-        {/* Rocket Tip */}
+        {/* Rocket Nose Cone - Sharp pointed tip */}
         <path
-          d="M45 25 Q50 10 55 25"
+          d="M42 30 L50 15 L58 30 Z"
           fill="#059669"
           className={animated ? 'animate-bounce' : ''}
           style={{
@@ -81,25 +85,17 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
         {/* Rocket Window */}
         <circle
           cx="50"
-          cy="35"
-          r="4"
+          cy="40"
+          r="3"
           fill="#dcfce7"
+          stroke="#16a34a"
+          strokeWidth="1"
           className={animated ? 'animate-pulse' : ''}
         />
 
-        {/* Rocket Fins */}
+        {/* Left Wing */}
         <path
-          d="M40 50 L35 60 L40 55 Z"
-          fill="#16a34a"
-          className={animated ? 'animate-bounce' : ''}
-          style={{
-            animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.2s' : undefined
-          }}
-        />
-        <path
-          d="M60 50 L65 60 L60 55 Z"
+          d="M42 55 L30 65 L42 65 Z"
           fill="#16a34a"
           className={animated ? 'animate-bounce' : ''}
           style={{
@@ -109,31 +105,90 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           }}
         />
 
-        {/* Rocket Flame */}
+        {/* Right Wing */}
         <path
-          d="M45 55 Q50 70 55 55 Q52 65 50 70 Q48 65 45 55"
+          d="M58 55 L70 65 L58 65 Z"
+          fill="#16a34a"
+          className={animated ? 'animate-bounce' : ''}
+          style={{
+            animationDuration: animated ? '2s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
+            animationDelay: animated ? '0.2s' : undefined
+          }}
+        />
+
+        {/* Rocket Engine Nozzles */}
+        <rect
+          x="44"
+          y="65"
+          width="4"
+          height="6"
+          fill="#15803d"
+          className={animated ? 'animate-bounce' : ''}
+          style={{
+            animationDuration: animated ? '2s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
+            animationDelay: animated ? '0.15s' : undefined
+          }}
+        />
+        <rect
+          x="52"
+          y="65"
+          width="4"
+          height="6"
+          fill="#15803d"
+          className={animated ? 'animate-bounce' : ''}
+          style={{
+            animationDuration: animated ? '2s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
+            animationDelay: animated ? '0.15s' : undefined
+          }}
+        />
+
+        {/* Rocket Flames */}
+        <path
+          d="M44 71 Q46 80 48 71 Q46 76 44 71"
           fill="url(#flameGradient)"
           className={animated ? 'animate-ping' : ''}
           style={{
-            animationDuration: animated ? '1s' : undefined,
+            animationDuration: animated ? '0.8s' : undefined,
             animationIterationCount: animated ? 'infinite' : undefined
           }}
         />
-
-        {/* Trail Effect */}
         <path
-          d="M25 75 Q35 70 45 75 Q35 80 25 85 Q30 80 25 75"
+          d="M52 71 Q54 80 56 71 Q54 76 52 71"
+          fill="url(#flameGradient)"
+          className={animated ? 'animate-ping' : ''}
+          style={{
+            animationDuration: animated ? '0.8s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
+            animationDelay: animated ? '0.2s' : undefined
+          }}
+        />
+
+        {/* Curved Trail Effects */}
+        <path
+          d="M20 75 Q30 70 40 75 Q35 78 30 80 Q25 78 20 75"
           fill="url(#trailGradient)"
           className={animated ? 'animate-pulse' : ''}
-          opacity="0.7"
+          opacity="0.6"
         />
         <path
-          d="M20 85 Q30 80 40 85 Q30 90 20 95 Q25 90 20 85"
+          d="M15 82 Q25 78 35 82 Q30 85 25 87 Q20 85 15 82"
           fill="url(#trailGradient)"
           className={animated ? 'animate-pulse' : ''}
-          opacity="0.5"
+          opacity="0.4"
           style={{
             animationDelay: animated ? '0.5s' : undefined
+          }}
+        />
+        <path
+          d="M10 88 Q20 85 30 88 Q25 90 20 92 Q15 90 10 88"
+          fill="url(#trailGradient)"
+          className={animated ? 'animate-pulse' : ''}
+          opacity="0.3"
+          style={{
+            animationDelay: animated ? '1s' : undefined
           }}
         />
 
@@ -146,14 +201,17 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
         <circle cx="85" cy="45" r="1" fill="#22c55e" className={animated ? 'animate-twinkle' : ''} 
           style={{ animationDelay: animated ? '1.5s' : undefined }} />
 
-        {/* Company Name Curve */}
-        <defs>
-          <path id="textcurve" d="M 20,90 Q 50,80 80,90" />
-        </defs>
-        <text fontSize="6" fill="#16a34a" fontFamily="Arial, sans-serif" fontWeight="bold">
-          <textPath href="#textcurve" startOffset="50%" textAnchor="middle">
-            MOONSPACE
-          </textPath>
+        {/* Company Name */}
+        <text 
+          x="50" 
+          y="95" 
+          fontSize="8" 
+          fill="#16a34a" 
+          fontFamily="Arial, sans-serif" 
+          fontWeight="bold"
+          textAnchor="middle"
+        >
+          MOONSPACE
         </text>
       </svg>
 
