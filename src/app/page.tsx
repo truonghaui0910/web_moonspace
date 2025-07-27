@@ -24,62 +24,62 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Falling stars at 25 degree angle - dot expanding to line effect */}
+      {/* Falling stars at 25 degree angle - dot expanding to long line with gradient fade effect */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Falling Star 1 - Bright white */}
         <div 
-          className="absolute bg-gradient-to-r from-white via-white to-transparent animate-falling-star-1 shadow-white shadow-sm"
+          className="absolute animate-falling-star-1 shadow-white shadow-sm"
           style={{ top: '15%', left: '20%' }}
         ></div>
         
         {/* Falling Star 2 - Blue */}
         <div 
-          className="absolute bg-gradient-to-r from-sky-400 via-sky-300 to-transparent animate-falling-star-2"
+          className="absolute animate-falling-star-2"
           style={{ top: '25%', left: '60%' }}
         ></div>
         
         {/* Falling Star 3 - Green */}
         <div 
-          className="absolute bg-gradient-to-r from-emerald-400 via-emerald-300 to-transparent animate-falling-star-3"
+          className="absolute animate-falling-star-3"
           style={{ top: '40%', left: '10%' }}
         ></div>
         
         {/* Falling Star 4 - Purple */}
         <div 
-          className="absolute bg-gradient-to-r from-purple-400 via-purple-300 to-transparent animate-falling-star-4"
+          className="absolute animate-falling-star-4"
           style={{ top: '30%', left: '80%' }}
         ></div>
         
         {/* Falling Star 5 - Yellow */}
         <div 
-          className="absolute bg-gradient-to-r from-yellow-400 via-yellow-300 to-transparent animate-falling-star-5"
+          className="absolute animate-falling-star-5"
           style={{ top: '50%', left: '35%' }}
         ></div>
         
         {/* Falling Star 6 - Cyan */}
         <div 
-          className="absolute bg-gradient-to-r from-cyan-400 via-cyan-300 to-transparent animate-falling-star-6"
+          className="absolute animate-falling-star-6"
           style={{ top: '65%', left: '70%' }}
         ></div>
         
         {/* Additional falling stars */}
         <div 
-          className="absolute bg-gradient-to-r from-white via-white to-transparent animate-falling-star-1"
+          className="absolute animate-falling-star-1"
           style={{ top: '20%', left: '90%', animationDelay: '13s' }}
         ></div>
         
         <div 
-          className="absolute bg-gradient-to-r from-pink-400 via-pink-300 to-transparent animate-falling-star-3"
+          className="absolute animate-falling-star-3"
           style={{ top: '45%', left: '5%', animationDelay: '16s' }}
         ></div>
         
         <div 
-          className="absolute bg-gradient-to-r from-indigo-400 via-indigo-300 to-transparent animate-falling-star-2"
+          className="absolute animate-falling-star-2"
           style={{ top: '70%', left: '45%', animationDelay: '19s' }}
         ></div>
         
         <div 
-          className="absolute bg-gradient-to-r from-rose-400 via-rose-300 to-transparent animate-falling-star-4"
+          className="absolute animate-falling-star-4"
           style={{ top: '10%', left: '55%', animationDelay: '22s' }}
         ></div>
       </div>
