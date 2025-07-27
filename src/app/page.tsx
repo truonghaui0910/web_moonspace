@@ -25,7 +25,7 @@ export default function LoginPage() {
 
     try {
       const result = await signIn('credentials', {
-        email,
+        emailOrUsername: email,
         password,
         redirect: false,
       })
@@ -43,13 +43,7 @@ export default function LoginPage() {
     }
   }
 
-  const handleGoogleSignIn = () => {
-    signIn('google', { callbackUrl: '/channels' })
-  }
-
-  const handleGitHubSignIn = () => {
-    signIn('github', { callbackUrl: '/channels' })
-  }
+  
 
   if (status === 'loading') {
     return (
@@ -205,20 +199,20 @@ export default function LoginPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Email field */}
+              {/* Email/Username field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
-                  Username/Email
+                <label htmlFor="emailOrUsername" className="block text-sm font-medium text-gray-200 mb-2">
+                  Email or Username
                 </label>
-                                 <input
-                   id="email"
-                   type="text"
-                   value={email}
-                   onChange={(e) => setEmail(e.target.value)}
-                   required
-                   className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none backdrop-blur-sm"
-                   placeholder="Username or email"
-                 />
+                <input
+                  id="emailOrUsername"
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none backdrop-blur-sm"
+                  placeholder="Enter email or username"
+                />
               </div>
 
               {/* Password field */}
@@ -264,33 +258,7 @@ export default function LoginPage() {
                 )}
               </button>
 
-              {/* Divider */}
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-white/30"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-black text-gray-400">Or continue with</span>
-                </div>
-              </div>
-
-              {/* Social Login Buttons */}
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={handleGoogleSignIn}
-                  className="w-full bg-white/10 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200"
-                >
-                  Google
-                </button>
-                <button
-                  type="button"
-                  onClick={handleGitHubSignIn}
-                  className="w-full bg-white/10 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200"
-                >
-                  GitHub
-                </button>
-              </div>
+              
             </form>
 
 

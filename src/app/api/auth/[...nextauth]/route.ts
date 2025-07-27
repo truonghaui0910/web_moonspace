@@ -1,8 +1,9 @@
 
+
 import NextAuth from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
-import GitHubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import bcrypt from 'bcryptjs'
+import { prisma } from '@/lib/prisma'
 
 const handler = NextAuth({
   providers: [
@@ -10,29 +11,47 @@ const handler = NextAuth({
       id: 'credentials',
       name: 'Credentials',
       credentials: {
-        email: { label: 'Email', type: 'email' },
+        emailOrUsername: { label: 'Email or Username', type: 'text' },
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        // In a real app, you would validate against your database
-        // For demo purposes, we'll accept any email/password
-        if (credentials?.email && credentials?.password) {
-          return {
-            id: '1',
-            email: credentials.email,
-            name: credentials.email.split('@')[0]
-          }
+        if (!credentials?.emailOrUsername || !credentials?.password) {
+          return null
         }
-        return null
+
+        try {
+          // Find user by email or username
+          const user = await prisma.user.findFirst({
+            where: {
+              OR: [
+                { email: credentials.emailOrUsername },
+                { username: credentials.emailOrUsername }
+              ]
+            }
+          })
+
+          if (!user) {
+            return null
+          }
+
+          // Verify password
+          const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
+          
+          if (!isPasswordValid) {
+            return null
+          }
+
+          return {
+            id: user.id,
+            email: user.email,
+            name: user.name || user.username,
+            username: user.username
+          }
+        } catch (error) {
+          console.error('Auth error:', error)
+          return null
+        }
       }
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-    }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID || '',
-      clientSecret: process.env.GITHUB_SECRET || '',
     })
   ],
   pages: {
@@ -42,12 +61,14 @@ const handler = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id
+        token.username = user.username
       }
       return token
     },
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.id
+        session.user.id = token.id as string
+        session.user.username = token.username as string
       }
       return session
     },
@@ -65,3 +86,4 @@ const handler = NextAuth({
 })
 
 export { handler as GET, handler as POST }
+
