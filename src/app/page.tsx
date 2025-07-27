@@ -1,24 +1,60 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { signIn, getSession, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import Logo from '@/components/Logo'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status === 'loading') return // Still loading
+    if (session) {
+      router.push('/channels') // Redirect if already logged in
+    }
+  }, [session, status, router])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // TODO: Implement login logic here
-    console.log('Login attempt:', { email, password })
+    try {
+      const result = await signIn('credentials', {
+        emailOrUsername: email,
+        password,
+        redirect: false,
+      })
 
-    // Simulate API call
-    setTimeout(() => {
+      if (result?.ok) {
+        router.push('/channels')
+      } else {
+        console.error('Login failed:', result?.error)
+        // You can add error handling here
+      }
+    } catch (error) {
+      console.error('Login error:', error)
+    } finally {
       setIsLoading(false)
-    }, 2000)
+    }
+  }
+
+  
+
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    )
+  }
+
+  if (session) {
+    return null // Will redirect
   }
 
   return (
@@ -163,20 +199,20 @@ export default function LoginPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Email field */}
+              {/* Email/Username field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
-                  Username/Email
+                <label htmlFor="emailOrUsername" className="block text-sm font-medium text-gray-200 mb-2">
+                  Email or Username
                 </label>
-                                 <input
-                   id="email"
-                   type="text"
-                   value={email}
-                   onChange={(e) => setEmail(e.target.value)}
-                   required
-                   className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none backdrop-blur-sm"
-                   placeholder="Username or email"
-                 />
+                <input
+                  id="emailOrUsername"
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none backdrop-blur-sm"
+                  placeholder="Enter email or username"
+                />
               </div>
 
               {/* Password field */}
@@ -221,6 +257,8 @@ export default function LoginPage() {
                   'Sign In'
                 )}
               </button>
+
+              
             </form>
 
 
