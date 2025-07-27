@@ -28,13 +28,19 @@ export default function LoginPage() {
 
       {/* Sparkling starry background */}
       <div className="absolute inset-0">
-        {/* Large 5-pointed stars - no animation */}
-        <div className="absolute top-16 left-12 star-shape">★</div>
-        <div className="absolute top-32 right-20 star-shape">★</div>
-        <div className="absolute top-48 left-1/3 star-shape">★</div>
-        <div className="absolute top-64 right-1/3 star-shape">★</div>
-        <div className="absolute top-80 left-1/4 star-shape">★</div>
-        <div className="absolute top-96 right-1/4 star-shape">★</div>
+        {/* Small 4-pointed stars - no animation */}
+        <div className="absolute top-16 left-12 star-4-point">✦</div>
+        <div className="absolute top-32 right-20 star-4-point">✦</div>
+        <div className="absolute top-48 left-1/3 star-4-point">✦</div>
+        <div className="absolute top-64 right-1/3 star-4-point">✦</div>
+        <div className="absolute top-80 left-1/4 star-4-point">✦</div>
+        <div className="absolute top-96 right-1/4 star-4-point">✦</div>
+        <div className="absolute top-24 left-2/3 star-4-point">✦</div>
+        <div className="absolute top-56 right-1/5 star-4-point">✦</div>
+        <div className="absolute top-72 left-1/6 star-4-point">✦</div>
+        <div className="absolute top-88 right-2/5 star-4-point">✦</div>
+        <div className="absolute top-104 left-3/5 star-4-point">✦</div>
+        <div className="absolute top-40 right-1/8 star-4-point">✦</div>
 
         {/* Small bright sparkling dots */}
         <div className="absolute top-24 left-16 w-1.5 h-1.5 bg-white rounded-full animate-sparkle shadow-white shadow-sm" style={{ filter: 'drop-shadow(0 0 3px rgba(255,255,255,0.8))' }}></div>

@@ -63,16 +63,12 @@ body {
   animation: sparkle 3s ease-in-out infinite;
 }
 
-/* Star shape styling - 5-pointed star */
-.star-shape {
+/* Small 4-pointed star styling */
+.star-4-point {
   color: white;
-  font-size: 20px;
-  text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6);
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.9));
-}
-
-.star-shape::before {
-  content: "★";
+  font-size: 12px;
+  text-shadow: 0 0 4px rgba(255,255,255,0.6), 0 0 6px rgba(255,255,255,0.4);
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.7));
 }
 
 /* Small sparkling dots animation */
