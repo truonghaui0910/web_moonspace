@@ -24,63 +24,71 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Falling stars at 25 degree angle - dot expanding to long line with gradient fade effect */}
+      {/* Realistic meteor shower effect matching reference image */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Falling Star 1 - Bright white */}
+        {/* Main meteor shower - bright white */}
         <div 
-          className="absolute animate-falling-star-1 shadow-white shadow-sm"
-          style={{ top: '15%', left: '20%' }}
+          className="absolute animate-meteor-1"
+          style={{ top: '8%', left: '15%' }}
         ></div>
         
-        {/* Falling Star 2 - Blue */}
+        {/* Secondary meteors - blue tinted */}
         <div 
-          className="absolute animate-falling-star-2"
-          style={{ top: '25%', left: '60%' }}
-        ></div>
-        
-        {/* Falling Star 3 - Green */}
-        <div 
-          className="absolute animate-falling-star-3"
-          style={{ top: '40%', left: '10%' }}
-        ></div>
-        
-        {/* Falling Star 4 - Purple */}
-        <div 
-          className="absolute animate-falling-star-4"
-          style={{ top: '30%', left: '80%' }}
-        ></div>
-        
-        {/* Falling Star 5 - Yellow */}
-        <div 
-          className="absolute animate-falling-star-5"
-          style={{ top: '50%', left: '35%' }}
-        ></div>
-        
-        {/* Falling Star 6 - Cyan */}
-        <div 
-          className="absolute animate-falling-star-6"
-          style={{ top: '65%', left: '70%' }}
-        ></div>
-        
-        {/* Additional falling stars */}
-        <div 
-          className="absolute animate-falling-star-1"
-          style={{ top: '20%', left: '90%', animationDelay: '13s' }}
+          className="absolute animate-meteor-2"
+          style={{ top: '20%', left: '35%' }}
         ></div>
         
         <div 
-          className="absolute animate-falling-star-3"
-          style={{ top: '45%', left: '5%', animationDelay: '16s' }}
+          className="absolute animate-meteor-2"
+          style={{ top: '45%', left: '60%', animationDelay: '2s' }}
+        ></div>
+        
+        {/* Tertiary meteors - green tinted */}
+        <div 
+          className="absolute animate-meteor-3"
+          style={{ top: '35%', left: '80%' }}
         ></div>
         
         <div 
-          className="absolute animate-falling-star-2"
-          style={{ top: '70%', left: '45%', animationDelay: '19s' }}
+          className="absolute animate-meteor-3"
+          style={{ top: '60%', left: '25%', animationDelay: '4s' }}
+        ></div>
+        
+        {/* Distant meteors - purple tinted */}
+        <div 
+          className="absolute animate-meteor-4"
+          style={{ top: '15%', left: '70%' }}
         ></div>
         
         <div 
-          className="absolute animate-falling-star-4"
-          style={{ top: '10%', left: '55%', animationDelay: '22s' }}
+          className="absolute animate-meteor-4"
+          style={{ top: '55%', left: '5%', animationDelay: '6s' }}
+        ></div>
+        
+        {/* Additional meteor streaks for richness */}
+        <div 
+          className="absolute animate-meteor-1"
+          style={{ top: '25%', left: '90%', animationDelay: '12s' }}
+        ></div>
+        
+        <div 
+          className="absolute animate-meteor-2"
+          style={{ top: '75%', left: '40%', animationDelay: '15s' }}
+        ></div>
+        
+        <div 
+          className="absolute animate-meteor-3"
+          style={{ top: '5%', left: '45%', animationDelay: '18s' }}
+        ></div>
+        
+        <div 
+          className="absolute animate-meteor-1"
+          style={{ top: '40%', left: '10%', animationDelay: '21s' }}
+        ></div>
+        
+        <div 
+          className="absolute animate-meteor-4"
+          style={{ top: '70%', left: '75%', animationDelay: '24s' }}
         ></div>
       </div>
 
