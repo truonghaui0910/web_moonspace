@@ -35,113 +35,135 @@ body {
   animation: twinkle 2s ease-in-out infinite;
 }
 
-/* Meteor shower animations from 10 o'clock to 3 o'clock direction */
-@keyframes meteorShower1 {
+/* Falling star animations at 120 degree angle (top-right to bottom-left) */
+@keyframes fallingStar1 {
   0% { 
     opacity: 0;
-    transform: translateX(-100px) translateY(-200px) rotate(35deg);
+    transform: translateX(200px) translateY(-300px) rotate(120deg);
   }
-  10% { 
+  5% { 
     opacity: 1;
   }
-  90% { 
+  95% { 
     opacity: 1;
   }
   100% { 
     opacity: 0;
-    transform: translateX(300px) translateY(100px) rotate(35deg);
+    transform: translateX(-400px) translateY(400px) rotate(120deg);
   }
 }
 
-@keyframes meteorShower2 {
+@keyframes fallingStar2 {
   0% { 
     opacity: 0;
-    transform: translateX(-150px) translateY(-250px) rotate(40deg);
-  }
-  15% { 
-    opacity: 0.8;
-  }
-  85% { 
-    opacity: 0.8;
-  }
-  100% { 
-    opacity: 0;
-    transform: translateX(400px) translateY(150px) rotate(40deg);
-  }
-}
-
-@keyframes meteorShower3 {
-  0% { 
-    opacity: 0;
-    transform: translateX(-80px) translateY(-180px) rotate(30deg);
+    transform: translateX(150px) translateY(-350px) rotate(120deg);
   }
   8% { 
-    opacity: 1;
+    opacity: 0.8;
   }
   92% { 
+    opacity: 0.8;
+  }
+  100% { 
+    opacity: 0;
+    transform: translateX(-350px) translateY(450px) rotate(120deg);
+  }
+}
+
+@keyframes fallingStar3 {
+  0% { 
+    opacity: 0;
+    transform: translateX(300px) translateY(-250px) rotate(120deg);
+  }
+  3% { 
+    opacity: 1;
+  }
+  97% { 
     opacity: 1;
   }
   100% { 
     opacity: 0;
-    transform: translateX(350px) translateY(120px) rotate(30deg);
+    transform: translateX(-300px) translateY(350px) rotate(120deg);
   }
 }
 
-@keyframes meteorShower4 {
+@keyframes fallingStar4 {
   0% { 
     opacity: 0;
-    transform: translateX(-120px) translateY(-220px) rotate(38deg);
+    transform: translateX(250px) translateY(-400px) rotate(120deg);
   }
-  12% { 
+  10% { 
     opacity: 0.9;
   }
-  88% { 
+  90% { 
     opacity: 0.9;
   }
   100% { 
     opacity: 0;
-    transform: translateX(380px) translateY(140px) rotate(38deg);
+    transform: translateX(-450px) translateY(500px) rotate(120deg);
   }
 }
 
-@keyframes meteorShower5 {
+@keyframes fallingStar5 {
   0% { 
     opacity: 0;
-    transform: translateX(-200px) translateY(-300px) rotate(42deg);
+    transform: translateX(100px) translateY(-200px) rotate(120deg);
   }
-  20% { 
+  7% { 
     opacity: 0.7;
   }
-  80% { 
+  93% { 
     opacity: 0.7;
   }
   100% { 
     opacity: 0;
-    transform: translateX(450px) translateY(200px) rotate(42deg);
+    transform: translateX(-300px) translateY(300px) rotate(120deg);
   }
 }
 
-.animate-meteor-1 {
-  animation: meteorShower1 3s linear infinite;
-  animation-delay: 1s;
+@keyframes fallingStar6 {
+  0% { 
+    opacity: 0;
+    transform: translateX(350px) translateY(-450px) rotate(120deg);
+  }
+  6% { 
+    opacity: 0.6;
+  }
+  94% { 
+    opacity: 0.6;
+  }
+  100% { 
+    opacity: 0;
+    transform: translateX(-500px) translateY(550px) rotate(120deg);
+  }
 }
 
-.animate-meteor-2 {
-  animation: meteorShower2 4s linear infinite;
-  animation-delay: 3s;
+.animate-falling-star-1 {
+  animation: fallingStar1 4s linear infinite;
+  animation-delay: 0.5s;
 }
 
-.animate-meteor-3 {
-  animation: meteorShower3 2.5s linear infinite;
+.animate-falling-star-2 {
+  animation: fallingStar2 3.5s linear infinite;
+  animation-delay: 2s;
+}
+
+.animate-falling-star-3 {
+  animation: fallingStar3 2.8s linear infinite;
+  animation-delay: 4s;
+}
+
+.animate-falling-star-4 {
+  animation: fallingStar4 4.2s linear infinite;
   animation-delay: 6s;
 }
 
-.animate-meteor-4 {
-  animation: meteorShower4 3.5s linear infinite;
+.animate-falling-star-5 {
+  animation: fallingStar5 3.2s linear infinite;
   animation-delay: 8s;
 }
 
-.animate-meteor-5 {
-  animation: meteorShower5 4.5s linear infinite;
-  animation-delay: 12s;
+.animate-falling-star-6 {
+  animation: fallingStar6 3.8s linear infinite;
+  animation-delay: 10s;
 }

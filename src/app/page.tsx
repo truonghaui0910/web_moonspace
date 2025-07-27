@@ -24,29 +24,34 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Meteor shower effects from 10 o'clock to 3 o'clock */}
+      {/* Falling stars at 120 degree angle (top-right to bottom-left) */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Meteor 1 - Bright white meteor */}
-        <div className="absolute top-20 left-20 w-32 h-0.5 bg-gradient-to-r from-white via-white to-transparent opacity-80 animate-meteor-1 shadow-white shadow-sm"></div>
+        {/* Falling Star 1 - Bright white */}
+        <div className="absolute top-0 right-20 w-40 h-0.5 bg-gradient-to-l from-white via-white to-transparent opacity-90 animate-falling-star-1 shadow-white shadow-sm"></div>
         
-        {/* Meteor 2 - Blue meteor */}
-        <div className="absolute top-32 left-32 w-28 h-px bg-gradient-to-r from-sky-300 via-sky-300 to-transparent opacity-70 animate-meteor-2"></div>
+        {/* Falling Star 2 - Blue */}
+        <div className="absolute top-0 right-40 w-35 h-px bg-gradient-to-l from-sky-400 via-sky-300 to-transparent opacity-75 animate-falling-star-2"></div>
         
-        {/* Meteor 3 - Green meteor */}
-        <div className="absolute top-40 left-16 w-24 h-0.5 bg-gradient-to-r from-emerald-300 via-emerald-300 to-transparent opacity-60 animate-meteor-3"></div>
+        {/* Falling Star 3 - Green */}
+        <div className="absolute top-0 right-60 w-32 h-0.5 bg-gradient-to-l from-emerald-400 via-emerald-300 to-transparent opacity-70 animate-falling-star-3"></div>
         
-        {/* Meteor 4 - Purple meteor */}
-        <div className="absolute top-60 left-40 w-30 h-px bg-gradient-to-r from-purple-300 via-purple-300 to-transparent opacity-50 animate-meteor-4"></div>
+        {/* Falling Star 4 - Purple */}
+        <div className="absolute top-0 right-80 w-38 h-px bg-gradient-to-l from-purple-400 via-purple-300 to-transparent opacity-60 animate-falling-star-4"></div>
         
-        {/* Meteor 5 - Yellow meteor */}
-        <div className="absolute top-80 left-24 w-26 h-0.5 bg-gradient-to-r from-yellow-300 via-yellow-300 to-transparent opacity-45 animate-meteor-5"></div>
+        {/* Falling Star 5 - Yellow */}
+        <div className="absolute top-0 right-100 w-30 h-0.5 bg-gradient-to-l from-yellow-400 via-yellow-300 to-transparent opacity-55 animate-falling-star-5"></div>
         
-        {/* Additional smaller meteors */}
-        <div className="absolute top-16 left-60 w-20 h-px bg-gradient-to-r from-white via-white to-transparent opacity-40 animate-meteor-1" style={{ animationDelay: '5s' }}></div>
+        {/* Falling Star 6 - Cyan */}
+        <div className="absolute top-0 right-120 w-42 h-px bg-gradient-to-l from-cyan-400 via-cyan-300 to-transparent opacity-50 animate-falling-star-6"></div>
         
-        <div className="absolute top-44 left-8 w-22 h-px bg-gradient-to-r from-cyan-300 via-cyan-300 to-transparent opacity-35 animate-meteor-3" style={{ animationDelay: '9s' }}></div>
+        {/* Additional smaller falling stars */}
+        <div className="absolute top-0 right-10 w-25 h-px bg-gradient-to-l from-white via-white to-transparent opacity-45 animate-falling-star-1" style={{ animationDelay: '12s' }}></div>
         
-        <div className="absolute top-72 left-48 w-18 h-px bg-gradient-to-r from-pink-300 via-pink-300 to-transparent opacity-30 animate-meteor-2" style={{ animationDelay: '15s' }}></div>
+        <div className="absolute top-0 right-140 w-28 h-px bg-gradient-to-l from-pink-400 via-pink-300 to-transparent opacity-40 animate-falling-star-3" style={{ animationDelay: '15s' }}></div>
+        
+        <div className="absolute top-0 right-160 w-22 h-px bg-gradient-to-l from-indigo-400 via-indigo-300 to-transparent opacity-35 animate-falling-star-2" style={{ animationDelay: '18s' }}></div>
+        
+        <div className="absolute top-0 right-180 w-33 h-px bg-gradient-to-l from-rose-400 via-rose-300 to-transparent opacity-30 animate-falling-star-4" style={{ animationDelay: '21s' }}></div>
       </div>
 
       {/* Starry background */}
