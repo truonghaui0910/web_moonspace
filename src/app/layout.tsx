@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Moonspace",
-  description: "A modern chat application",
+  description: "moonspace",
 };
 
 export default function RootLayout({
