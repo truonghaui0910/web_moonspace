@@ -28,25 +28,29 @@ export default function LoginPage() {
 
       {/* Sparkling starry background */}
       <div className="absolute inset-0">
-        {/* Extra bright sparkling stars */}
-        <div className="absolute top-16 left-12 w-3 h-3 bg-white rounded-full animate-sparkle shadow-white shadow-lg" style={{ filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.8))' }}></div>
-        <div className="absolute top-24 right-16 w-3 h-3 bg-blue-100 rounded-full animate-sparkle shadow-blue-100 shadow-lg" style={{ animationDelay: '1s', filter: 'drop-shadow(0 0 6px rgba(191,219,254,0.8))' }}></div>
-        <div className="absolute top-40 left-1/4 w-2.5 h-2.5 bg-yellow-100 rounded-full animate-sparkle shadow-yellow-100 shadow-lg" style={{ animationDelay: '2.5s', filter: 'drop-shadow(0 0 5px rgba(254,249,195,0.8))' }}></div>
-        <div className="absolute top-56 right-1/4 w-3 h-3 bg-purple-100 rounded-full animate-sparkle shadow-purple-100 shadow-lg" style={{ animationDelay: '0.8s', filter: 'drop-shadow(0 0 6px rgba(243,232,255,0.8))' }}></div>
-        <div className="absolute top-72 left-1/6 w-2.5 h-2.5 bg-green-100 rounded-full animate-sparkle shadow-green-100 shadow-lg" style={{ animationDelay: '1.8s', filter: 'drop-shadow(0 0 5px rgba(220,252,231,0.8))' }}></div>
-        <div className="absolute top-88 right-1/6 w-3 h-3 bg-pink-100 rounded-full animate-sparkle shadow-pink-100 shadow-lg" style={{ animationDelay: '3.2s', filter: 'drop-shadow(0 0 6px rgba(252,231,243,0.8))' }}></div>
-        <div className="absolute top-32 left-3/4 w-2.5 h-2.5 bg-cyan-100 rounded-full animate-sparkle shadow-cyan-100 shadow-lg" style={{ animationDelay: '2.1s', filter: 'drop-shadow(0 0 5px rgba(207,250,254,0.8))' }}></div>
-        <div className="absolute top-64 right-3/4 w-3 h-3 bg-white rounded-full animate-sparkle shadow-white shadow-lg" style={{ animationDelay: '4s', filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.8))' }}></div>
-        <div className="absolute top-48 left-2/3 w-2.5 h-2.5 bg-orange-100 rounded-full animate-sparkle shadow-orange-100 shadow-lg" style={{ animationDelay: '1.3s', filter: 'drop-shadow(0 0 5px rgba(255,237,213,0.8))' }}></div>
-        <div className="absolute top-80 right-2/3 w-3 h-3 bg-indigo-100 rounded-full animate-sparkle shadow-indigo-100 shadow-lg" style={{ animationDelay: '2.7s', filter: 'drop-shadow(0 0 6px rgba(224,231,255,0.8))' }}></div>
+        {/* Star-shaped stars with real star appearance */}
+        <div className="absolute top-16 left-12 star-shape animate-sparkle" style={{ animationDelay: '0.5s' }}>★</div>
+        <div className="absolute top-32 right-20 star-shape animate-sparkle" style={{ animationDelay: '1.2s' }}>★</div>
+        <div className="absolute top-48 left-1/3 star-shape animate-sparkle" style={{ animationDelay: '2.8s' }}>★</div>
+        <div className="absolute top-64 right-1/3 star-shape animate-sparkle" style={{ animationDelay: '0.8s' }}>★</div>
+        <div className="absolute top-80 left-1/4 star-shape animate-sparkle" style={{ animationDelay: '1.9s' }}>★</div>
+        <div className="absolute top-96 right-1/4 star-shape animate-sparkle" style={{ animationDelay: '3.4s' }}>★</div>
 
-        {/* Large bright twinkling stars */}
-        <div className="absolute top-20 left-10 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute top-36 right-20 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '1.2s' }}></div>
-        <div className="absolute top-52 left-1/3 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '2.8s' }}></div>
-        <div className="absolute top-68 right-1/3 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '0.3s' }}></div>
-        <div className="absolute top-84 left-1/4 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '1.9s' }}></div>
-        <div className="absolute top-100 right-1/4 w-2 h-2 bg-white rounded-full animate-twinkle shadow-white shadow-md" style={{ animationDelay: '3.4s' }}></div>
+        {/* Small bright sparkling dots */}
+        <div className="absolute top-24 left-16 w-1.5 h-1.5 bg-white rounded-full animate-sparkle shadow-white shadow-sm" style={{ filter: 'drop-shadow(0 0 3px rgba(255,255,255,0.8))' }}></div>
+        <div className="absolute top-40 right-16 w-1.5 h-1.5 bg-blue-100 rounded-full animate-sparkle shadow-blue-100 shadow-sm" style={{ animationDelay: '1s', filter: 'drop-shadow(0 0 3px rgba(191,219,254,0.8))' }}></div>
+        <div className="absolute top-56 left-1/4 w-1 h-1 bg-yellow-100 rounded-full animate-sparkle shadow-yellow-100 shadow-sm" style={{ animationDelay: '2.5s', filter: 'drop-shadow(0 0 2px rgba(254,249,195,0.8))' }}></div>
+        <div className="absolute top-72 right-1/4 w-1.5 h-1.5 bg-purple-100 rounded-full animate-sparkle shadow-purple-100 shadow-sm" style={{ animationDelay: '0.8s', filter: 'drop-shadow(0 0 3px rgba(243,232,255,0.8))' }}></div>
+        <div className="absolute top-88 left-1/6 w-1 h-1 bg-green-100 rounded-full animate-sparkle shadow-green-100 shadow-sm" style={{ animationDelay: '1.8s', filter: 'drop-shadow(0 0 2px rgba(220,252,231,0.8))' }}></div>
+        <div className="absolute top-104 right-1/6 w-1.5 h-1.5 bg-pink-100 rounded-full animate-sparkle shadow-pink-100 shadow-sm" style={{ animationDelay: '3.2s', filter: 'drop-shadow(0 0 3px rgba(252,231,243,0.8))' }}></div>
+
+        {/* Small twinkling stars */}
+        <div className="absolute top-28 left-10 w-1 h-1 bg-white rounded-full animate-twinkle shadow-white shadow-sm" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-44 right-20 w-1 h-1 bg-white rounded-full animate-twinkle shadow-white shadow-sm" style={{ animationDelay: '1.2s' }}></div>
+        <div className="absolute top-60 left-1/3 w-1 h-1 bg-white rounded-full animate-twinkle shadow-white shadow-sm" style={{ animationDelay: '2.8s' }}></div>
+        <div className="absolute top-76 right-1/3 w-1 h-1 bg-white rounded-full animate-twinkle shadow-white shadow-sm" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute top-92 left-1/4 w-1 h-1 bg-white rounded-full animate-twinkle shadow-white shadow-sm" style={{ animationDelay: '1.9s' }}></div>
+        <div className="absolute top-108 right-1/4 w-1 h-1 bg-white rounded-full animate-twinkle shadow-white shadow-sm" style={{ animationDelay: '3.4s' }}></div>
         
         {/* Medium stars */}
         <div className="absolute top-16 right-32 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
@@ -76,7 +80,7 @@ export default function LoginPage() {
         <div className="absolute top-98 left-7/8 w-0.5 h-0.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.6s' }}></div>
         
         {/* Extra small stars scattered - more density */}
-        {Array.from({ length: 120 }, (_, i) => (
+        {Array.from({ length: 80 }, (_, i) => (
           <div
             key={i}
             className="absolute w-px h-px bg-white rounded-full animate-pulse"
@@ -84,21 +88,21 @@ export default function LoginPage() {
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 4}s`,
-              opacity: Math.random() * 0.9 + 0.1
+              opacity: Math.random() * 0.7 + 0.1
             }}
           ></div>
         ))}
         
         {/* Tiny twinkling stars for depth */}
-        {Array.from({ length: 80 }, (_, i) => (
+        {Array.from({ length: 50 }, (_, i) => (
           <div
             key={`tiny-${i}`}
-            className="absolute w-0.5 h-0.5 bg-blue-100 rounded-full animate-pulse"
+            className="absolute w-px h-px bg-blue-100 rounded-full animate-pulse"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              opacity: Math.random() * 0.6 + 0.2,
+              opacity: Math.random() * 0.5 + 0.2,
               animationDuration: `${Math.random() * 3 + 2}s`
             }}
           ></div>
