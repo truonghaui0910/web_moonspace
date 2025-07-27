@@ -28,9 +28,7 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
       <svg
         viewBox="0 0 100 100"
         className={`w-full h-full transition-all duration-500 ${
-          animated ? 'hover:scale-110' : ''
-        } ${
-          animated && isHovered ? 'animate-pulse' : ''
+          animated ? 'hover:scale-105' : ''
         }`}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -55,7 +53,7 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           </linearGradient>
         </defs>
 
-        {/* Rocket Body - Main cylindrical body */}
+        {/* Rocket Body - Main cylindrical body - Static */}
         <rect
           x="42"
           y="30"
@@ -63,26 +61,15 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           height="35"
           rx="2"
           fill="url(#rocketGradient)"
-          className={animated ? 'animate-bounce' : ''}
-          style={{
-            animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined
-          }}
         />
 
-        {/* Rocket Nose Cone - Sharp pointed tip */}
+        {/* Rocket Nose Cone - Sharp pointed tip - Static */}
         <path
           d="M42 30 L50 15 L58 30 Z"
           fill="#059669"
-          className={animated ? 'animate-bounce' : ''}
-          style={{
-            animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.1s' : undefined
-          }}
         />
 
-        {/* Rocket Window */}
+        {/* Rocket Window - Static */}
         <circle
           cx="50"
           cy="40"
@@ -90,46 +77,27 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           fill="#dcfce7"
           stroke="#16a34a"
           strokeWidth="1"
-          className={animated ? 'animate-pulse' : ''}
         />
 
-        {/* Left Wing */}
+        {/* Left Wing - Static */}
         <path
           d="M42 55 L30 65 L42 65 Z"
           fill="#16a34a"
-          className={animated ? 'animate-bounce' : ''}
-          style={{
-            animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.2s' : undefined
-          }}
         />
 
-        {/* Right Wing */}
+        {/* Right Wing - Static */}
         <path
           d="M58 55 L70 65 L58 65 Z"
           fill="#16a34a"
-          className={animated ? 'animate-bounce' : ''}
-          style={{
-            animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.2s' : undefined
-          }}
         />
 
-        {/* Rocket Engine Nozzles */}
+        {/* Rocket Engine Nozzles - Static */}
         <rect
           x="44"
           y="65"
           width="4"
           height="6"
           fill="#15803d"
-          className={animated ? 'animate-bounce' : ''}
-          style={{
-            animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.15s' : undefined
-          }}
         />
         <rect
           x="52"
@@ -137,15 +105,9 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           width="4"
           height="6"
           fill="#15803d"
-          className={animated ? 'animate-bounce' : ''}
-          style={{
-            animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.15s' : undefined
-          }}
         />
 
-        {/* Rocket Flames */}
+        {/* Moving Rocket Flames */}
         <path
           d="M44 71 Q46 80 48 71 Q46 76 44 71"
           fill="url(#flameGradient)"
@@ -166,19 +128,25 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           }}
         />
 
-        {/* Curved Trail Effects */}
+        {/* Moving Air/Smoke Trail Effects */}
         <path
           d="M20 75 Q30 70 40 75 Q35 78 30 80 Q25 78 20 75"
           fill="url(#trailGradient)"
           className={animated ? 'animate-pulse' : ''}
-          opacity="0.6"
+          opacity="0.7"
+          style={{
+            animationDuration: animated ? '1.5s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined
+          }}
         />
         <path
           d="M15 82 Q25 78 35 82 Q30 85 25 87 Q20 85 15 82"
           fill="url(#trailGradient)"
           className={animated ? 'animate-pulse' : ''}
-          opacity="0.4"
+          opacity="0.5"
           style={{
+            animationDuration: animated ? '2s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
             animationDelay: animated ? '0.5s' : undefined
           }}
         />
@@ -186,9 +154,35 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
           d="M10 88 Q20 85 30 88 Q25 90 20 92 Q15 90 10 88"
           fill="url(#trailGradient)"
           className={animated ? 'animate-pulse' : ''}
+          opacity="0.4"
+          style={{
+            animationDuration: animated ? '2.5s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
+            animationDelay: animated ? '1s' : undefined
+          }}
+        />
+        
+        {/* Additional Moving Air Currents */}
+        <path
+          d="M25 65 Q35 62 45 65 Q40 67 35 68 Q30 67 25 65"
+          fill="url(#trailGradient)"
+          className={animated ? 'animate-pulse' : ''}
           opacity="0.3"
           style={{
-            animationDelay: animated ? '1s' : undefined
+            animationDuration: animated ? '1.8s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
+            animationDelay: animated ? '0.3s' : undefined
+          }}
+        />
+        <path
+          d="M30 72 Q40 69 50 72 Q45 74 40 75 Q35 74 30 72"
+          fill="url(#trailGradient)"
+          className={animated ? 'animate-pulse' : ''}
+          opacity="0.35"
+          style={{
+            animationDuration: animated ? '2.2s' : undefined,
+            animationIterationCount: animated ? 'infinite' : undefined,
+            animationDelay: animated ? '0.7s' : undefined
           }}
         />
 
