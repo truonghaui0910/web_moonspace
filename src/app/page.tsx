@@ -1,24 +1,66 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { signIn, getSession, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import Logo from '@/components/Logo'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status === 'loading') return // Still loading
+    if (session) {
+      router.push('/channels') // Redirect if already logged in
+    }
+  }, [session, status, router])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // TODO: Implement login logic here
-    console.log('Login attempt:', { email, password })
+    try {
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      })
 
-    // Simulate API call
-    setTimeout(() => {
+      if (result?.ok) {
+        router.push('/channels')
+      } else {
+        console.error('Login failed:', result?.error)
+        // You can add error handling here
+      }
+    } catch (error) {
+      console.error('Login error:', error)
+    } finally {
       setIsLoading(false)
-    }, 2000)
+    }
+  }
+
+  const handleGoogleSignIn = () => {
+    signIn('google', { callbackUrl: '/channels' })
+  }
+
+  const handleGitHubSignIn = () => {
+    signIn('github', { callbackUrl: '/channels' })
+  }
+
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    )
+  }
+
+  if (session) {
+    return null // Will redirect
   }
 
   return (
@@ -221,6 +263,34 @@ export default function LoginPage() {
                   'Sign In'
                 )}
               </button>
+
+              {/* Divider */}
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-white/30"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-black text-gray-400">Or continue with</span>
+                </div>
+              </div>
+
+              {/* Social Login Buttons */}
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={handleGoogleSignIn}
+                  className="w-full bg-white/10 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200"
+                >
+                  Google
+                </button>
+                <button
+                  type="button"
+                  onClick={handleGitHubSignIn}
+                  className="w-full bg-white/10 backdrop-blur-sm border border-white/30 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200"
+                >
+                  GitHub
+                </button>
+              </div>
             </form>
 
 
