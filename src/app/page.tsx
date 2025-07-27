@@ -24,35 +24,16 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Shooting stars */}
+      {/* Diagonal light streaks */}
       <div className="absolute inset-0">
-        {/* Shooting star 1 - White */}
-        <div className="absolute top-10 -left-10 animate-shooting-star-1">
-          <div className="w-2 h-2 bg-white rounded-full"></div>
-          <div className="absolute top-0.5 -left-20 w-20 h-0.5 bg-gradient-to-r from-transparent via-white to-white opacity-60 transform -rotate-12"></div>
-          <div className="absolute top-0.5 -left-40 w-40 h-px bg-gradient-to-r from-transparent via-white/40 to-white/70 opacity-40 transform -rotate-12"></div>
-        </div>
+        {/* Light streak 1 - White diagonal */}
+        <div className="absolute top-20 left-10 w-screen h-0.5 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 animate-light-streak-1"></div>
         
-        {/* Shooting star 2 - Light Blue */}
-        <div className="absolute top-32 -left-20 animate-shooting-star-2">
-          <div className="w-2.5 h-2.5 bg-sky-200 rounded-full"></div>
-          <div className="absolute top-1 -left-24 w-24 h-0.5 bg-gradient-to-r from-transparent via-sky-200 to-sky-200 opacity-70 transform -rotate-12"></div>
-          <div className="absolute top-1 -left-48 w-48 h-px bg-gradient-to-r from-transparent via-sky-200/40 to-sky-200/80 opacity-50 transform -rotate-12"></div>
-        </div>
+        {/* Light streak 2 - Blue diagonal */}
+        <div className="absolute top-40 right-20 w-screen h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent opacity-50 animate-light-streak-2"></div>
         
-        {/* Shooting star 3 - Yellow */}
-        <div className="absolute top-64 -left-16 animate-shooting-star-3">
-          <div className="w-1.5 h-1.5 bg-yellow-200 rounded-full"></div>
-          <div className="absolute top-0.5 -left-16 w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-200 to-yellow-200 opacity-60 transform -rotate-12"></div>
-          <div className="absolute top-0.5 -left-32 w-32 h-px bg-gradient-to-r from-transparent via-yellow-200/40 to-yellow-200/70 opacity-40 transform -rotate-12"></div>
-        </div>
-        
-        {/* Shooting star 4 - Purple */}
-        <div className="absolute top-96 -left-12 animate-shooting-star-4">
-          <div className="w-2 h-2 bg-purple-200 rounded-full"></div>
-          <div className="absolute top-0.5 -left-28 w-28 h-0.5 bg-gradient-to-r from-transparent via-purple-200 to-purple-200 opacity-65 transform -rotate-6"></div>
-          <div className="absolute top-0.5 -left-56 w-56 h-px bg-gradient-to-r from-transparent via-purple-200/40 to-purple-200/75 opacity-45 transform -rotate-6"></div>
-        </div>
+        {/* Light streak 3 - Green diagonal */}
+        <div className="absolute top-60 left-0 w-screen h-0.5 bg-gradient-to-r from-transparent via-emerald-300 to-transparent opacity-40 animate-light-streak-3"></div>
       </div>
 
       {/* Starry background */}
