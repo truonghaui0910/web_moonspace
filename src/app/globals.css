@@ -35,69 +35,63 @@ body {
   animation: twinkle 2s ease-in-out infinite;
 }
 
-/* Diagonal light streak animations */
-@keyframes lightStreak1 {
+/* Static light streak fade-in animations */
+@keyframes lightStreakFadeIn1 {
   0% { 
-    transform: translateX(-120vw) translateY(-60vh) rotate(45deg);
     opacity: 0;
+    transform: scale(0.5) rotate(45deg);
   }
-  20% { 
+  50% { 
     opacity: 1;
-  }
-  80% { 
-    opacity: 1;
+    transform: scale(1) rotate(45deg);
   }
   100% { 
-    transform: translateX(120vw) translateY(60vh) rotate(45deg);
     opacity: 0;
+    transform: scale(0.8) rotate(45deg);
   }
 }
 
-@keyframes lightStreak2 {
+@keyframes lightStreakFadeIn2 {
   0% { 
-    transform: translateX(-120vw) translateY(-60vh) rotate(-45deg);
     opacity: 0;
+    transform: scale(0.3) rotate(-45deg);
   }
-  25% { 
-    opacity: 1;
-  }
-  75% { 
-    opacity: 1;
+  40% { 
+    opacity: 0.9;
+    transform: scale(1.1) rotate(-45deg);
   }
   100% { 
-    transform: translateX(120vw) translateY(60vh) rotate(-45deg);
     opacity: 0;
+    transform: scale(0.7) rotate(-45deg);
   }
 }
 
-@keyframes lightStreak3 {
+@keyframes lightStreakFadeIn3 {
   0% { 
-    transform: translateX(-120vw) translateY(-60vh) rotate(30deg);
     opacity: 0;
+    transform: scale(0.4) rotate(30deg);
   }
-  30% { 
+  60% { 
     opacity: 1;
-  }
-  70% { 
-    opacity: 1;
+    transform: scale(1.2) rotate(30deg);
   }
   100% { 
-    transform: translateX(120vw) translateY(60vh) rotate(30deg);
     opacity: 0;
+    transform: scale(0.6) rotate(30deg);
   }
 }
 
 .animate-light-streak-1 {
-  animation: lightStreak1 6s linear infinite;
-  animation-delay: 3s;
+  animation: lightStreakFadeIn1 4s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
 .animate-light-streak-2 {
-  animation: lightStreak2 8s linear infinite;
-  animation-delay: 8s;
+  animation: lightStreakFadeIn2 5s ease-in-out infinite;
+  animation-delay: 6s;
 }
 
 .animate-light-streak-3 {
-  animation: lightStreak3 7s linear infinite;
-  animation-delay: 15s;
+  animation: lightStreakFadeIn3 3.5s ease-in-out infinite;
+  animation-delay: 10s;
 }

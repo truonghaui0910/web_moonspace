@@ -24,16 +24,21 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Diagonal light streaks */}
+      {/* Static diagonal light streaks */}
       <div className="absolute inset-0">
-        {/* Light streak 1 - White diagonal */}
-        <div className="absolute top-20 left-10 w-screen h-0.5 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 animate-light-streak-1"></div>
+        {/* Light streak 1 - White diagonal across top */}
+        <div className="absolute top-20 left-10 w-96 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 animate-light-streak-1 transform rotate-45 origin-left"></div>
         
-        {/* Light streak 2 - Blue diagonal */}
-        <div className="absolute top-40 right-20 w-screen h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent opacity-50 animate-light-streak-2"></div>
+        {/* Light streak 2 - Blue diagonal in middle */}
+        <div className="absolute top-1/2 right-20 w-80 h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent opacity-50 animate-light-streak-2 transform -rotate-45 origin-right"></div>
         
-        {/* Light streak 3 - Green diagonal */}
-        <div className="absolute top-60 left-0 w-screen h-0.5 bg-gradient-to-r from-transparent via-emerald-300 to-transparent opacity-40 animate-light-streak-3"></div>
+        {/* Light streak 3 - Green diagonal at bottom */}
+        <div className="absolute bottom-32 left-1/4 w-72 h-0.5 bg-gradient-to-r from-transparent via-emerald-300 to-transparent opacity-40 animate-light-streak-3 transform rotate-30 origin-left"></div>
+        
+        {/* Additional light streaks for more depth */}
+        <div className="absolute top-1/3 left-1/3 w-64 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent opacity-30 animate-light-streak-1 transform rotate-60 origin-center" style={{ animationDelay: '4s' }}></div>
+        
+        <div className="absolute bottom-1/4 right-1/3 w-56 h-0.5 bg-gradient-to-r from-transparent via-yellow-300 to-transparent opacity-35 animate-light-streak-2 transform -rotate-30 origin-center" style={{ animationDelay: '12s' }}></div>
       </div>
 
       {/* Starry background */}
