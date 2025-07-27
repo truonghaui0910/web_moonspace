@@ -26,7 +26,7 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
       onMouseLeave={() => setIsHovered(false)}
     >
       <Image
-        src="/attached_assets/8ed1288e-c430-4f91-a0b9-af65908d9ddd_1753626337553.png"
+        src="/logo.png"
         alt="Moonspace Logo"
         width={200}
         height={200}
