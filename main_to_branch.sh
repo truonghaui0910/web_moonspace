@@ -1,5 +1,5 @@
-Đây là phiên bản script đã cập nhật từ master sang main và xóa tất cả icon:
-bash#!/bin/bash
+
+#!/bin/bash
 echo "Syncing main to replit-agent branch..."
 
 # Check for git locks first
