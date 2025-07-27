@@ -35,135 +35,219 @@ body {
   animation: twinkle 2s ease-in-out infinite;
 }
 
-/* Falling star animations at 120 degree angle (top-right to bottom-left) */
+/* Falling star animations at 25 degree angle - dot expanding to line then disappearing */
 @keyframes fallingStar1 {
   0% { 
-    opacity: 0;
-    transform: translateX(200px) translateY(-300px) rotate(120deg);
-  }
-  5% { 
     opacity: 1;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(25deg);
   }
-  95% { 
+  20% { 
     opacity: 1;
+    width: 40px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
+  }
+  80% { 
+    opacity: 1;
+    width: 40px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
   100% { 
     opacity: 0;
-    transform: translateX(-400px) translateY(400px) rotate(120deg);
+    width: 40px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
 }
 
 @keyframes fallingStar2 {
   0% { 
-    opacity: 0;
-    transform: translateX(150px) translateY(-350px) rotate(120deg);
+    opacity: 0.9;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(25deg);
   }
-  8% { 
-    opacity: 0.8;
+  25% { 
+    opacity: 0.9;
+    width: 35px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
-  92% { 
-    opacity: 0.8;
+  75% { 
+    opacity: 0.9;
+    width: 35px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
   100% { 
     opacity: 0;
-    transform: translateX(-350px) translateY(450px) rotate(120deg);
+    width: 35px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
 }
 
 @keyframes fallingStar3 {
   0% { 
-    opacity: 0;
-    transform: translateX(300px) translateY(-250px) rotate(120deg);
+    opacity: 0.8;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(25deg);
   }
-  3% { 
-    opacity: 1;
+  15% { 
+    opacity: 0.8;
+    width: 30px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
-  97% { 
-    opacity: 1;
+  85% { 
+    opacity: 0.8;
+    width: 30px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
   100% { 
     opacity: 0;
-    transform: translateX(-300px) translateY(350px) rotate(120deg);
+    width: 30px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
 }
 
 @keyframes fallingStar4 {
   0% { 
-    opacity: 0;
-    transform: translateX(250px) translateY(-400px) rotate(120deg);
+    opacity: 0.7;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(25deg);
   }
-  10% { 
-    opacity: 0.9;
+  30% { 
+    opacity: 0.7;
+    width: 45px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
-  90% { 
-    opacity: 0.9;
+  70% { 
+    opacity: 0.7;
+    width: 45px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
   100% { 
     opacity: 0;
-    transform: translateX(-450px) translateY(500px) rotate(120deg);
+    width: 45px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
 }
 
 @keyframes fallingStar5 {
   0% { 
-    opacity: 0;
-    transform: translateX(100px) translateY(-200px) rotate(120deg);
+    opacity: 0.6;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(25deg);
   }
-  7% { 
-    opacity: 0.7;
+  18% { 
+    opacity: 0.6;
+    width: 28px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
-  93% { 
-    opacity: 0.7;
+  82% { 
+    opacity: 0.6;
+    width: 28px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
   100% { 
     opacity: 0;
-    transform: translateX(-300px) translateY(300px) rotate(120deg);
+    width: 28px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
 }
 
 @keyframes fallingStar6 {
   0% { 
-    opacity: 0;
-    transform: translateX(350px) translateY(-450px) rotate(120deg);
+    opacity: 0.5;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(25deg);
   }
-  6% { 
-    opacity: 0.6;
+  22% { 
+    opacity: 0.5;
+    width: 38px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
-  94% { 
-    opacity: 0.6;
+  78% { 
+    opacity: 0.5;
+    width: 38px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
   100% { 
     opacity: 0;
-    transform: translateX(-500px) translateY(550px) rotate(120deg);
+    width: 38px;
+    height: 1px;
+    border-radius: 0;
+    transform: rotate(25deg);
   }
 }
 
 .animate-falling-star-1 {
-  animation: fallingStar1 4s linear infinite;
-  animation-delay: 0.5s;
+  animation: fallingStar1 3s ease-out infinite;
+  animation-delay: 1s;
 }
 
 .animate-falling-star-2 {
-  animation: fallingStar2 3.5s linear infinite;
-  animation-delay: 2s;
+  animation: fallingStar2 2.5s ease-out infinite;
+  animation-delay: 3s;
 }
 
 .animate-falling-star-3 {
-  animation: fallingStar3 2.8s linear infinite;
-  animation-delay: 4s;
+  animation: fallingStar3 2.8s ease-out infinite;
+  animation-delay: 5s;
 }
 
 .animate-falling-star-4 {
-  animation: fallingStar4 4.2s linear infinite;
-  animation-delay: 6s;
+  animation: fallingStar4 3.2s ease-out infinite;
+  animation-delay: 7s;
 }
 
 .animate-falling-star-5 {
-  animation: fallingStar5 3.2s linear infinite;
-  animation-delay: 8s;
+  animation: fallingStar5 2.3s ease-out infinite;
+  animation-delay: 9s;
 }
 
 .animate-falling-star-6 {
-  animation: fallingStar6 3.8s linear infinite;
-  animation-delay: 10s;
+  animation: fallingStar6 3.5s ease-out infinite;
+  animation-delay: 11s;
 }
