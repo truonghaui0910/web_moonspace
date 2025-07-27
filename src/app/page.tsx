@@ -166,17 +166,17 @@ export default function LoginPage() {
               {/* Email field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
-                  Email
+                  Username/Email
                 </label>
-                <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent backdrop-blur-sm"
-                  placeholder="your@email.com"
-                />
+                                 <input
+                   id="email"
+                   type="text"
+                   value={email}
+                   onChange={(e) => setEmail(e.target.value)}
+                   required
+                   className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none backdrop-blur-sm"
+                   placeholder="Username or email"
+                 />
               </div>
 
               {/* Password field */}
@@ -184,19 +184,19 @@ export default function LoginPage() {
                 <label htmlFor="password" className="block text-sm font-medium text-gray-200 mb-2">
                   Password
                 </label>
-                <input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent backdrop-blur-sm"
-                  placeholder="••••••••"
-                />
+                                 <input
+                   id="password"
+                   type="password"
+                   value={password}
+                   onChange={(e) => setPassword(e.target.value)}
+                   required
+                   className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none backdrop-blur-sm"
+                   placeholder="••••••••"
+                 />
               </div>
 
               {/* Remember me */}
-              <div className="flex items-center justify-between">
+              <div className="flex items-center">
                 <label className="flex items-center">
                   <input
                     type="checkbox"
@@ -204,9 +204,6 @@ export default function LoginPage() {
                   />
                   <span className="ml-2 text-sm text-gray-300">Remember me</span>
                 </label>
-                <a href="#" className="text-sm text-green-400 hover:text-green-300 transition-colors">
-                  Forgot password?
-                </a>
               </div>
 
               {/* Login button */}
@@ -226,15 +223,7 @@ export default function LoginPage() {
               </button>
             </form>
 
-            {/* Sign up link */}
-            <div className="text-center mt-6">
-              <p className="text-gray-300">
-                Don't have an account?{' '}
-                <a href="#" className="text-green-400 hover:text-green-300 font-medium transition-colors">
-                  Sign up now
-                </a>
-              </p>
-            </div>
+
           </div>
         </div>
       </div>
