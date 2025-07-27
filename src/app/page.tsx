@@ -26,17 +26,17 @@ export default function LoginPage() {
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Shooting stars */}
       <div className="absolute inset-0">
-        {/* Shooting star 1 */}
-        <div className="absolute top-10 -left-10 w-1 h-1 bg-white rounded-full shadow-white shadow-lg animate-shooting-star-1"></div>
+        {/* Shooting star 1 - White */}
+        <div className="absolute top-10 -left-10 w-2 h-2 bg-white rounded-full animate-shooting-star-1"></div>
         
-        {/* Shooting star 2 */}
-        <div className="absolute top-32 -left-20 w-1.5 h-1.5 bg-blue-200 rounded-full shadow-blue-200 shadow-lg animate-shooting-star-2"></div>
+        {/* Shooting star 2 - Light Blue */}
+        <div className="absolute top-32 -left-20 w-2.5 h-2.5 bg-sky-200 rounded-full animate-shooting-star-2"></div>
         
-        {/* Shooting star 3 */}
-        <div className="absolute top-64 -left-16 w-0.5 h-0.5 bg-yellow-200 rounded-full shadow-yellow-200 shadow-sm animate-shooting-star-3"></div>
+        {/* Shooting star 3 - Yellow */}
+        <div className="absolute top-64 -left-16 w-1.5 h-1.5 bg-yellow-200 rounded-full animate-shooting-star-3"></div>
         
-        {/* Shooting star 4 */}
-        <div className="absolute top-96 -left-12 w-1 h-1 bg-purple-200 rounded-full shadow-purple-200 shadow-md animate-shooting-star-4"></div>
+        {/* Shooting star 4 - Purple */}
+        <div className="absolute top-96 -left-12 w-2 h-2 bg-purple-200 rounded-full animate-shooting-star-4"></div>
       </div>
 
       {/* Starry background */}
