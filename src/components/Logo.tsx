@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -34,173 +33,120 @@ export default function Logo({ size = 'md', animated = false, className = '' }: 
       >
         {/* Gradient Definitions */}
         <defs>
-          <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#22c55e" />
-            <stop offset="50%" stopColor="#16a34a" />
-            <stop offset="100%" stopColor="#15803d" />
-          </linearGradient>
-          
-          <radialGradient id="flameGradient" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#fbbf24" />
-            <stop offset="50%" stopColor="#f59e0b" />
-            <stop offset="100%" stopColor="#d97706" />
+          <radialGradient id="moonGradient" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" stopColor="#4ade80" />
+            <stop offset="50%" stopColor="#22c55e" />
+            <stop offset="100%" stopColor="#16a34a" />
           </radialGradient>
 
-          <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#22c55e" stopOpacity="0" />
-            <stop offset="50%" stopColor="#16a34a" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#15803d" stopOpacity="1" />
+          <radialGradient id="planetGradient" cx="40%" cy="40%" r="60%">
+            <stop offset="0%" stopColor="#34d399" />
+            <stop offset="70%" stopColor="#22c55e" />
+            <stop offset="100%" stopColor="#15803d" />
+          </radialGradient>
+
+          <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#22c55e" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#16a34a" stopOpacity="1" />
+            <stop offset="100%" stopColor="#22c55e" stopOpacity="0.8" />
           </linearGradient>
         </defs>
 
-        {/* Rocket Body - Main cylindrical body - Static */}
-        <rect
-          x="42"
-          y="30"
-          width="16"
-          height="35"
-          rx="2"
-          fill="url(#rocketGradient)"
-        />
+        {/* Background */}
+        <rect width="100" height="100" fill="#22c55e" />
 
-        {/* Rocket Nose Cone - Sharp pointed tip - Static */}
-        <path
-          d="M42 30 L50 15 L58 30 Z"
-          fill="#059669"
-        />
-
-        {/* Rocket Window - Static */}
+        {/* Moon with craters */}
         <circle
-          cx="50"
-          cy="40"
-          r="3"
-          fill="#dcfce7"
-          stroke="#16a34a"
-          strokeWidth="1"
-        />
-
-        {/* Left Wing - Static */}
-        <path
-          d="M42 55 L30 65 L42 65 Z"
-          fill="#16a34a"
-        />
-
-        {/* Right Wing - Static */}
-        <path
-          d="M58 55 L70 65 L58 65 Z"
-          fill="#16a34a"
-        />
-
-        {/* Rocket Engine Nozzles - Static */}
-        <rect
-          x="44"
-          y="65"
-          width="4"
-          height="6"
-          fill="#15803d"
-        />
-        <rect
-          x="52"
-          y="65"
-          width="4"
-          height="6"
-          fill="#15803d"
-        />
-
-        {/* Moving Rocket Flames */}
-        <path
-          d="M44 71 Q46 80 48 71 Q46 76 44 71"
-          fill="url(#flameGradient)"
-          className={animated ? 'animate-ping' : ''}
+          cx="25"
+          cy="45"
+          r="18"
+          fill="url(#moonGradient)"
+          className={animated ? 'animate-pulse' : ''}
           style={{
-            animationDuration: animated ? '0.8s' : undefined,
+            animationDuration: animated ? '3s' : undefined,
             animationIterationCount: animated ? 'infinite' : undefined
           }}
         />
-        <path
-          d="M52 71 Q54 80 56 71 Q54 76 52 71"
-          fill="url(#flameGradient)"
-          className={animated ? 'animate-ping' : ''}
+
+        {/* Moon craters */}
+        <ellipse cx="22" cy="38" rx="3" ry="4" fill="#16a34a" opacity="0.6" />
+        <ellipse cx="30" cy="42" rx="2" ry="2.5" fill="#16a34a" opacity="0.6" />
+        <ellipse cx="20" cy="50" rx="4" ry="3" fill="#16a34a" opacity="0.6" />
+        <ellipse cx="28" cy="52" rx="1.5" ry="2" fill="#16a34a" opacity="0.6" />
+        <ellipse cx="25" cy="35" rx="1" ry="1" fill="#16a34a" opacity="0.6" />
+
+        {/* Planet with ring */}
+        <circle
+          cx="75"
+          cy="35"
+          r="12"
+          fill="url(#planetGradient)"
+          className={animated ? 'animate-spin' : ''}
           style={{
-            animationDuration: animated ? '0.8s' : undefined,
+            animationDuration: animated ? '20s' : undefined,
             animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.2s' : undefined
+            transformOrigin: '75px 35px'
           }}
         />
 
-        {/* Moving Air/Smoke Trail Effects */}
-        <path
-          d="M20 75 Q30 70 40 75 Q35 78 30 80 Q25 78 20 75"
-          fill="url(#trailGradient)"
+        {/* Planet ring */}
+        <ellipse
+          cx="75"
+          cy="35"
+          rx="18"
+          ry="6"
+          fill="none"
+          stroke="url(#ringGradient)"
+          strokeWidth="2"
           className={animated ? 'animate-pulse' : ''}
-          opacity="0.7"
-          style={{
-            animationDuration: animated ? '1.5s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined
-          }}
-        />
-        <path
-          d="M15 82 Q25 78 35 82 Q30 85 25 87 Q20 85 15 82"
-          fill="url(#trailGradient)"
-          className={animated ? 'animate-pulse' : ''}
-          opacity="0.5"
           style={{
             animationDuration: animated ? '2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.5s' : undefined
-          }}
-        />
-        <path
-          d="M10 88 Q20 85 30 88 Q25 90 20 92 Q15 90 10 88"
-          fill="url(#trailGradient)"
-          className={animated ? 'animate-pulse' : ''}
-          opacity="0.4"
-          style={{
-            animationDuration: animated ? '2.5s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '1s' : undefined
-          }}
-        />
-        
-        {/* Additional Moving Air Currents */}
-        <path
-          d="M25 65 Q35 62 45 65 Q40 67 35 68 Q30 67 25 65"
-          fill="url(#trailGradient)"
-          className={animated ? 'animate-pulse' : ''}
-          opacity="0.3"
-          style={{
-            animationDuration: animated ? '1.8s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.3s' : undefined
-          }}
-        />
-        <path
-          d="M30 72 Q40 69 50 72 Q45 74 40 75 Q35 74 30 72"
-          fill="url(#trailGradient)"
-          className={animated ? 'animate-pulse' : ''}
-          opacity="0.35"
-          style={{
-            animationDuration: animated ? '2.2s' : undefined,
-            animationIterationCount: animated ? 'infinite' : undefined,
-            animationDelay: animated ? '0.7s' : undefined
+            animationIterationCount: animated ? 'infinite' : undefined
           }}
         />
 
+        {/* Musical note symbol */}
+        <g transform="translate(45, 45)">
+          {/* Note stem */}
+          <rect x="8" y="-5" width="1.5" height="15" fill="#16a34a" />
+
+          {/* Note head */}
+          <ellipse cx="8" cy="10" rx="3" ry="2" fill="#16a34a" />
+
+          {/* Flag */}
+          <path d="M9.5 -5 Q15 -3 15 2 Q12 0 9.5 2 Z" fill="#16a34a" />
+        </g>
+
         {/* Stars */}
-        <circle cx="20" cy="20" r="1" fill="#22c55e" className={animated ? 'animate-twinkle' : ''} />
-        <circle cx="80" cy="25" r="1" fill="#16a34a" className={animated ? 'animate-twinkle' : ''} 
-          style={{ animationDelay: animated ? '1s' : undefined }} />
-        <circle cx="15" cy="40" r="1" fill="#059669" className={animated ? 'animate-twinkle' : ''} 
-          style={{ animationDelay: animated ? '2s' : undefined }} />
-        <circle cx="85" cy="45" r="1" fill="#22c55e" className={animated ? 'animate-twinkle' : ''} 
-          style={{ animationDelay: animated ? '1.5s' : undefined }} />
+        <g className={animated ? 'animate-twinkle' : ''}>
+          <path d="M15 20 L16 22 L18 22 L16.5 23.5 L17 25.5 L15 24.5 L13 25.5 L13.5 23.5 L12 22 L14 22 Z" 
+                fill="#4ade80" opacity="0.8" />
+        </g>
+
+        <g className={animated ? 'animate-twinkle' : ''} 
+           style={{ animationDelay: animated ? '1s' : undefined }}>
+          <path d="M85 55 L86 57 L88 57 L86.5 58.5 L87 60.5 L85 59.5 L83 60.5 L83.5 58.5 L82 57 L84 57 Z" 
+                fill="#4ade80" opacity="0.8" />
+        </g>
+
+        <g className={animated ? 'animate-twinkle' : ''} 
+           style={{ animationDelay: animated ? '2s' : undefined }}>
+          <path d="M60 15 L61 17 L63 17 L61.5 18.5 L62 20.5 L60 19.5 L58 20.5 L58.5 18.5 L57 17 L59 17 Z" 
+                fill="#4ade80" opacity="0.8" />
+        </g>
+
+        <g className={animated ? 'animate-twinkle' : ''} 
+           style={{ animationDelay: animated ? '1.5s' : undefined }}>
+          <path d="M20 75 L21 77 L23 77 L21.5 78.5 L22 80.5 L20 79.5 L18 80.5 L18.5 78.5 L17 77 L19 77 Z" 
+                fill="#4ade80" opacity="0.8" />
+        </g>
 
         {/* Company Name */}
         <text 
           x="50" 
-          y="95" 
+          y="90" 
           fontSize="8" 
-          fill="#16a34a" 
+          fill="#15803d" 
           fontFamily="Arial, sans-serif" 
           fontWeight="bold"
           textAnchor="middle"
