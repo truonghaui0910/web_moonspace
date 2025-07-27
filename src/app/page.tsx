@@ -40,7 +40,7 @@ export default function LoginPage() {
       </div>
 
       {/* Starry background */}
-      <div className="absolute inset-0"></div>
+      <div className="absolute inset-0">
         {/* Large bright stars */}
         <div className="absolute top-20 left-10 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm"></div>
         <div className="absolute top-32 right-20 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-white shadow-sm" style={{ animationDelay: '1s' }}></div>
