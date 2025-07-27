@@ -80,49 +80,72 @@ export default function LoginPage() {
         <div className="absolute top-106 left-3/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '0.1s' }}></div>
         <div className="absolute top-14 right-5/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.9s' }}></div>
         
-        {/* Extra small twinkling stars scattered - more density */}
-        {Array.from({ length: 200 }, (_, i) => (
-          <div
-            key={i}
-            className="absolute w-px h-px bg-white rounded-full animate-twinkle-dot"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              opacity: Math.random() * 0.8 + 0.2
-            }}
-          ></div>
-        ))}
+        {/* Extra small twinkling stars scattered - fixed positions */}
+        {Array.from({ length: 200 }, (_, i) => {
+          const top = (i * 7.3) % 100;
+          const left = (i * 11.7) % 100;
+          const delay = (i * 0.02) % 4;
+          const opacity = 0.2 + (i % 8) * 0.1;
+          
+          return (
+            <div
+              key={i}
+              className="absolute w-px h-px bg-white rounded-full animate-twinkle-dot"
+              style={{
+                top: `${top}%`,
+                left: `${left}%`,
+                animationDelay: `${delay}s`,
+                opacity: opacity
+              }}
+            ></div>
+          );
+        })}
         
         {/* More twinkling dot stars */}
-        {Array.from({ length: 150 }, (_, i) => (
-          <div
-            key={`extra-${i}`}
-            className="absolute w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              opacity: Math.random() * 0.9 + 0.1,
-              animationDuration: `${Math.random() * 2 + 1.5}s`
-            }}
-          ></div>
-        ))}
+        {Array.from({ length: 150 }, (_, i) => {
+          const top = (i * 13.1) % 100;
+          const left = (i * 17.3) % 100;
+          const delay = (i * 0.033) % 5;
+          const opacity = 0.1 + (i % 9) * 0.1;
+          const duration = 1.5 + (i % 5) * 0.4;
+          
+          return (
+            <div
+              key={`extra-${i}`}
+              className="absolute w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot"
+              style={{
+                top: `${top}%`,
+                left: `${left}%`,
+                animationDelay: `${delay}s`,
+                opacity: opacity,
+                animationDuration: `${duration}s`
+              }}
+            ></div>
+          );
+        })}
         
         {/* Tiny twinkling stars for depth */}
-        {Array.from({ length: 80 }, (_, i) => (
-          <div
-            key={`tiny-${i}`}
-            className="absolute w-0.5 h-0.5 bg-blue-100 rounded-full animate-twinkle-dot"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              opacity: Math.random() * 0.6 + 0.3,
-              animationDuration: `${Math.random() * 3 + 2}s`
-            }}
-          ></div>
-        ))}
+        {Array.from({ length: 80 }, (_, i) => {
+          const top = (i * 19.7) % 100;
+          const left = (i * 23.1) % 100;
+          const delay = (i * 0.063) % 5;
+          const opacity = 0.3 + (i % 6) * 0.1;
+          const duration = 2 + (i % 3) * 1;
+          
+          return (
+            <div
+              key={`tiny-${i}`}
+              className="absolute w-0.5 h-0.5 bg-blue-100 rounded-full animate-twinkle-dot"
+              style={{
+                top: `${top}%`,
+                left: `${left}%`,
+                animationDelay: `${delay}s`,
+                opacity: opacity,
+                animationDuration: `${duration}s`
+              }}
+            ></div>
+          );
+        })}
       </div>
 
       {/* Login form container */}
