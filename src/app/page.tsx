@@ -8,16 +8,6 @@ export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  // Mouse tracking for parallax effect
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    setMousePosition({
-      x: (e.clientX - rect.left - rect.width / 2) / rect.width,
-      y: (e.clientY - rect.top - rect.height / 2) / rect.height
-    })
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -33,70 +23,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div 
-      className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black"
-      onMouseMove={handleMouseMove}
-    >
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
       
 
-      {/* Floating space elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Background layer - slowest movement */}
-        <div 
-          className="absolute inset-0 transition-transform duration-1000 ease-out"
-          style={{
-            transform: `translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`
-          }}
-        >
-          {/* Distant planets/orbs */}
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-xl animate-float-slow"></div>
-          <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-gradient-to-br from-green-500/15 to-teal-500/15 rounded-full blur-lg animate-float-slow-reverse"></div>
-          <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-to-br from-pink-500/25 to-purple-500/25 rounded-full blur-md animate-float-medium"></div>
-        </div>
-
-        {/* Middle layer - medium movement */}
-        <div 
-          className="absolute inset-0 transition-transform duration-700 ease-out"
-          style={{
-            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`
-          }}
-        >
-          {/* Floating particles */}
-          {Array.from({ length: 15 }, (_, i) => (
-            <div
-              key={`particle-${i}`}
-              className="absolute w-1 h-1 bg-white/30 rounded-full animate-float-particle"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 10}s`,
-                animationDuration: `${Math.random() * 8 + 12}s`
-              }}
-            ></div>
-          ))}
-        </div>
-
-        {/* Foreground layer - fastest movement */}
-        <div 
-          className="absolute inset-0 transition-transform duration-500 ease-out"
-          style={{
-            transform: `translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px)`
-          }}
-        >
-          {/* Nebula clouds */}
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-drift-slow"></div>
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tr from-green-500/8 to-blue-500/8 rounded-full blur-3xl animate-drift-slow-reverse"></div>
-          <div className="absolute top-1/3 left-2/3 w-64 h-64 bg-gradient-to-bl from-pink-500/12 to-orange-500/12 rounded-full blur-2xl animate-drift-medium"></div>
-        </div>
-      </div>
-
       {/* Sparkling starry background */}
-      <div 
-        className="absolute inset-0 transition-transform duration-1000 ease-out"
-        style={{
-          transform: `translate(${mousePosition.x * 15}px, ${mousePosition.y * 15}px)`
-        }}
-      >
+      <div className="absolute inset-0">
         {/* Small 4-pointed stars - no animation */}
         <div className="absolute top-16 left-12 star-4-point">✦</div>
         <div className="absolute top-32 right-20 star-4-point">✦</div>
@@ -204,12 +135,7 @@ export default function LoginPage() {
       </div>
 
       {/* Login form container */}
-      <div 
-        className="relative z-10 flex items-center justify-center min-h-screen p-4 transition-transform duration-700 ease-out"
-        style={{
-          transform: `translate(${mousePosition.x * 5}px, ${mousePosition.y * 5}px)`
-        }}
-      >
+      <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="flex justify-center mb-8">
