@@ -12,8 +12,7 @@ const handler = NextAuth({
       name: 'Credentials',
       credentials: {
         emailOrUsername: { label: 'Email or Username', type: 'text' },
-        password: { label: 'Password', type: 'password' },
-        rememberMe: { label: 'Remember Me', type: 'checkbox' }
+        password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
         if (!credentials?.emailOrUsername || !credentials?.password) {
@@ -59,24 +58,11 @@ const handler = NextAuth({
     signIn: '/',
   },
   callbacks: {
-    async jwt({ token, user, account }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id
-        token.username = (user as any).username
+        token.username = user.username
       }
-      
-      // Set token expiry based on remember me
-      if (account) {
-        const rememberMe = account.rememberMe === 'true'
-        if (rememberMe) {
-          // 1 year for remember me
-          token.exp = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 365)
-        } else {
-          // 2 months default
-          token.exp = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 60)
-        }
-      }
-      
       return token
     },
     async session({ session, token }) {
@@ -95,8 +81,7 @@ const handler = NextAuth({
     }
   },
   session: {
-    strategy: 'jwt',
-    maxAge: 60 * 60 * 24 * 60, // 2 months default
+    strategy: 'jwt'
   }
 })
 

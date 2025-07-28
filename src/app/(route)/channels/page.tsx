@@ -44,12 +44,6 @@ export default function ChannelsPage() {
               Welcome, {session.user?.name || session.user?.email}
             </div>
             <button
-              onClick={() => router.push('/admin/sessions')}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
-            >
-              Manage Sessions
-            </button>
-            <button
               onClick={() => signOut({ callbackUrl: '/' })}
               className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
             >
