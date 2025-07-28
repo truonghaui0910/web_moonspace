@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react'
 import { signIn, getSession, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 import Logo from '@/components/Logo'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [rememberMe, setRememberMe] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const { data: session, status } = useSession()
   const router = useRouter()
@@ -27,17 +29,31 @@ export default function LoginPage() {
       const result = await signIn('credentials', {
         emailOrUsername: email,
         password,
+        rememberMe: rememberMe.toString(),
         redirect: false,
       })
 
       if (result?.ok) {
+        toast.success('Đăng nhập thành công!')
         router.push('/channels')
       } else {
-        console.error('Login failed:', result?.error)
-        // You can add error handling here
+        // Handle specific error messages
+        let errorMessage = 'Đăng nhập thất bại'
+        
+        if (result?.error === 'INVALID_CREDENTIALS') {
+          errorMessage = 'Email/Username hoặc mật khẩu không đúng'
+        } else if (result?.error === 'ACCOUNT_DISABLED') {
+          errorMessage = 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.'
+        } else if (result?.error === 'CredentialsSignin') {
+          // This is the generic NextAuth error, check if it's from our custom errors
+          errorMessage = 'Email/Username hoặc mật khẩu không đúng'
+        }
+        
+        toast.error(errorMessage)
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Login error:', error)
+      toast.error('Có lỗi xảy ra khi đăng nhập. Vui lòng thử lại.')
     } finally {
       setIsLoading(false)
     }
@@ -239,6 +255,8 @@ export default function LoginPage() {
                 <label className="flex items-center">
                   <input
                     type="checkbox"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
                     className="w-4 h-4 text-green-600 bg-white/10 border-white/30 rounded focus:ring-green-500 focus:ring-2"
                   />
                   <span className="ml-2 text-sm text-gray-300">Remember me</span>
@@ -249,7 +267,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-4 rounded-lg font-medium hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-4 rounded-lg font-medium hover:from-green-600 hover:to-emerald-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center">
