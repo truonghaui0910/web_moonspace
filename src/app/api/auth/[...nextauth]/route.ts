@@ -29,19 +29,19 @@ const handler = NextAuth({
           })
 
           if (!user) {
-            return null
+            throw new Error('INVALID_CREDENTIALS')
           }
 
           if (user && user.status === 0) {
-            // User is disabled, return null to deny login
-            return null
+            // User is disabled, return specific error
+            throw new Error('ACCOUNT_DISABLED')
           }
 
           // Verify password
           const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
 
           if (!isPasswordValid) {
-            return null
+            throw new Error('INVALID_CREDENTIALS')
           }
 
           return {
@@ -50,9 +50,10 @@ const handler = NextAuth({
             name: user.name || user.username,
             username: user.username
           }
-        } catch (error) {
+        } catch (error: any) {
           console.error('Auth error:', error)
-          return null
+          // Re-throw the error to be handled by NextAuth
+          throw error
         }
       }
     })
