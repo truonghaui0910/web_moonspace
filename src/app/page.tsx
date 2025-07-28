@@ -8,6 +8,7 @@ import Logo from '@/components/Logo'
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [rememberMe, setRememberMe] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const { data: session, status } = useSession()
   const router = useRouter()
@@ -27,6 +28,7 @@ export default function LoginPage() {
       const result = await signIn('credentials', {
         emailOrUsername: email,
         password,
+        rememberMe: rememberMe.toString(),
         redirect: false,
       })
 
@@ -239,6 +241,8 @@ export default function LoginPage() {
                 <label className="flex items-center">
                   <input
                     type="checkbox"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
                     className="w-4 h-4 text-green-600 bg-white/10 border-white/30 rounded focus:ring-green-500 focus:ring-2"
                   />
                   <span className="ml-2 text-sm text-gray-300">Remember me</span>
