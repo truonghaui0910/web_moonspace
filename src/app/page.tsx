@@ -34,26 +34,26 @@ export default function LoginPage() {
       })
 
       if (result?.ok) {
-        toast.success('Đăng nhập thành công!')
+        toast.success('Login successful!')
         router.push('/channels')
       } else {
         // Handle specific error messages
-        let errorMessage = 'Đăng nhập thất bại'
+        let errorMessage = 'Login failed'
         
         if (result?.error === 'INVALID_CREDENTIALS') {
-          errorMessage = 'Email/Username hoặc mật khẩu không đúng'
+          errorMessage = 'Invalid email/username or password'
         } else if (result?.error === 'ACCOUNT_DISABLED') {
-          errorMessage = 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.'
+          errorMessage = 'Your account has been disabled. Please contact administrator.'
         } else if (result?.error === 'CredentialsSignin') {
           // This is the generic NextAuth error, check if it's from our custom errors
-          errorMessage = 'Email/Username hoặc mật khẩu không đúng'
+          errorMessage = 'Invalid email/username or password'
         }
         
         toast.error(errorMessage)
       }
     } catch (error: any) {
       console.error('Login error:', error)
-      toast.error('Có lỗi xảy ra khi đăng nhập. Vui lòng thử lại.')
+      toast.error('An error occurred during login. Please try again.')
     } finally {
       setIsLoading(false)
     }
