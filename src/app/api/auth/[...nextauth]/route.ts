@@ -3,11 +3,9 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { prisma } from '@/lib/prisma'
 
 const handler = NextAuth({
-  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       id: 'credentials',
@@ -61,24 +59,30 @@ const handler = NextAuth({
     signIn: '/',
   },
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      // Set session expiry based on remember me
-      if (account && credentials) {
-        const rememberMe = (credentials as any).rememberMe === 'true'
+    async jwt({ token, user, account }) {
+      if (user) {
+        token.id = user.id
+        token.username = (user as any).username
+      }
+      
+      // Set token expiry based on remember me
+      if (account) {
+        const rememberMe = account.rememberMe === 'true'
         if (rememberMe) {
           // 1 year for remember me
-          account.expires_at = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 365)
+          token.exp = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 365)
         } else {
           // 2 months default
-          account.expires_at = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 60)
+          token.exp = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 60)
         }
       }
-      return true
+      
+      return token
     },
-    async session({ session, user }) {
-      if (user) {
-        session.user.id = user.id
-        session.user.username = (user as any).username
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id as string
+        session.user.username = token.username as string
       }
       return session
     },
@@ -91,7 +95,7 @@ const handler = NextAuth({
     }
   },
   session: {
-    strategy: 'database',
+    strategy: 'jwt',
     maxAge: 60 * 60 * 24 * 60, // 2 months default
   }
 })
