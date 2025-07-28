@@ -1,5 +1,3 @@
-
-
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
@@ -34,9 +32,14 @@ const handler = NextAuth({
             return null
           }
 
+          if (user && user.status === 0) {
+            // User is disabled, return null to deny login
+            return null
+          }
+
           // Verify password
           const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
-          
+
           if (!isPasswordValid) {
             return null
           }
@@ -58,11 +61,37 @@ const handler = NextAuth({
     signIn: '/',
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
       if (user) {
         token.id = user.id
-        token.username = user.username
+        token.username = (user as any).username
       }
+
+      // Check user status on each token validation
+      if (token.id) {
+        const currentUser = await prisma.user.findUnique({
+          where: { id: token.id as string },
+          select: { status: true }
+        })
+
+        if (!currentUser || currentUser.status === 0) {
+          // User is disabled, invalidate token
+          return null
+        }
+      }
+
+      // Set token expiry based on remember me
+      if (account) {
+        const rememberMe = account.rememberMe === 'true'
+        if (rememberMe) {
+          // 1 year for remember me
+          token.exp = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 365)
+        } else {
+          // 2 months default
+          token.exp = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 60)
+        }
+      }
+
       return token
     },
     async session({ session, token }) {
@@ -86,4 +115,3 @@ const handler = NextAuth({
 })
 
 export { handler as GET, handler as POST }
-
