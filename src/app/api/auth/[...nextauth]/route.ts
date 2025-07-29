@@ -2,6 +2,34 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/prisma'
+import { JWT } from 'next-auth/jwt'
+
+// Extend the JWT interface to include custom properties
+declare module 'next-auth/jwt' {
+  interface JWT {
+    id?: string
+    username?: string
+    exp: number
+  }
+}
+
+// Optional: Extend the User interface if needed
+declare module 'next-auth' {
+  interface User {
+    id: string
+    username?: string
+  }
+
+  interface Session {
+    user: {
+      id: string
+      username: string
+      name?: string | null
+      email?: string | null
+      image?: string | null
+    }
+  }
+}
 
 const handler = NextAuth({
   providers: [
@@ -62,7 +90,7 @@ const handler = NextAuth({
     signIn: '/',
   },
   callbacks: {
-    async jwt({ token, user, account }) {
+    async jwt({ token, user, account }): Promise<JWT> {
       if (user) {
         token.id = user.id
         token.username = (user as any).username
@@ -76,8 +104,13 @@ const handler = NextAuth({
         })
 
         if (!currentUser || currentUser.status === 0) {
-          // User is disabled, invalidate token
-          return null
+          // User is disabled, clear token data but still return valid JWT structure
+          return {
+            ...token,
+            id: undefined,
+            username: undefined,
+            exp: 0 // Force immediate expiry
+          }
         }
       }
 
@@ -96,11 +129,20 @@ const handler = NextAuth({
       return token
     },
     async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id as string
-        session.user.username = token.username as string
+      // Ensure session.user exists
+      if (!session.user) {
+        session.user = {} as any
       }
-      return session
+
+      // Only set session data if token has valid user data
+      if (token.id && token.exp > Math.floor(Date.now() / 1000)) {
+        session.user.id = token.id
+        session.user.username = token.username || ''
+        return session
+      } else {
+        // Token is invalid/expired, return null to force sign out
+        return null
+      }
     },
     async redirect({ url, baseUrl }) {
       // Redirect to channels after successful login
@@ -112,6 +154,12 @@ const handler = NextAuth({
   },
   session: {
     strategy: 'jwt'
+  },
+  events: {
+    async signOut({ token }) {
+      // Optional: Log sign out events
+      console.log('User signed out:', token?.id)
+    }
   }
 })
 
