@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17-alpine
+    container_name: moonspace_postgres
+    environment:
+      POSTGRES_DB: moonspace_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: moonspacedb_pass123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    restart: unless-stopped
+
+  # Adminer (Database Management)
+  adminer:
+    image: adminer:4.8.1
+    container_name: moonspace_adminer
+    ports:
+      - "8083:8080"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  # Next.js Application
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: moonspace_app
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:moonspacedb_pass123@postgres:5432/moonspace_db
+      - NEXTAUTH_SECRET=your-secret-key-here
+      - NEXTAUTH_URL=http://localhost:3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - moonspace_network
+    restart: unless-stopped
+    volumes:
+      - ./src:/app/src:ro  # Mount source for development (optional)
+
+volumes:
+  postgres_data:
+
+networks:
+  moonspace_network:
+    driver: bridge
