@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { signIn, getSession, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import Logo from '@/components/Logo'
+import Logo from '@/components/common/Logo'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
