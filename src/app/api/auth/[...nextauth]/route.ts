@@ -140,8 +140,11 @@ const handler = NextAuth({
         session.user.username = token.username || ''
         return session
       } else {
-        // Token is invalid/expired, return null to force sign out
-        return null
+        // Token is invalid/expired, return empty session
+        return {
+          expires: new Date(0).toISOString(),
+          user: {}
+        }
       }
     },
     async redirect({ url, baseUrl }) {
