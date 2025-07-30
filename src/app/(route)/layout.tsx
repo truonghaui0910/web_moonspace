@@ -56,25 +56,25 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Left Sidebar */}
       <div className={`
-        fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-purple-800/90 to-purple-900/90 
-        backdrop-blur-xl border-r border-yellow-300/20 z-50 transform transition-transform duration-300
+        fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-slate-800/95 to-gray-900/95 
+        backdrop-blur-xl border-r border-emerald-400/20 z-50 transform transition-transform duration-300
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
-        <div className="p-6 border-b border-yellow-300/20">
+        <div className="p-6 border-b border-emerald-400/20">
           <div className="flex items-center space-x-3">
             <Logo size="sm" />
-            <h2 className="text-xl font-bold text-yellow-300">Moonspace</h2>
+            <h2 className="text-xl font-bold text-emerald-300">Moonspace</h2>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
             <button
               key={item.label}
               onClick={() => router.push(item.href)}
-              className="w-full flex items-center space-x-3 px-4 py-3 text-purple-100 hover:text-yellow-300 hover:bg-yellow-300/10 rounded-xl transition-all duration-200 group"
+              className="w-full flex items-center space-x-3 px-4 py-3 text-slate-200 hover:text-emerald-300 hover:bg-emerald-400/10 rounded-xl transition-all duration-200 group"
             >
               <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
               <span className="font-medium">{item.label}</span>
@@ -92,18 +92,18 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
         </nav>
 
         <div className="absolute bottom-4 left-4 right-4">
-          <div className="bg-purple-700/50 backdrop-blur-sm rounded-xl p-4 border border-yellow-300/20">
+          <div className="bg-slate-700/60 backdrop-blur-sm rounded-xl p-4 border border-emerald-400/20">
             <div className="flex items-center space-x-3 mb-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-purple-900 font-bold text-sm">
+              <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center">
+                <span className="text-slate-900 font-bold text-sm">
                   {session.user?.name?.[0] || session.user?.email?.[0]}
                 </span>
               </div>
               <div>
-                <div className="text-yellow-300 font-medium text-sm">
+                <div className="text-emerald-300 font-medium text-sm">
                   {session.user?.name || 'User'}
                 </div>
-                <div className="text-purple-200 text-xs">
+                <div className="text-slate-300 text-xs">
                   {session.user?.email}
                 </div>
               </div>
@@ -122,38 +122,38 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
       {/* Main Content Area */}
       <div className="lg:ml-64">
         {/* Top Bar */}
-        <div className="bg-purple-800/50 backdrop-blur-xl border-b border-yellow-300/20 p-4 sticky top-0 z-30">
+        <div className="bg-slate-800/60 backdrop-blur-xl border-b border-emerald-400/20 p-4 sticky top-0 z-30">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-2 text-yellow-300 hover:bg-yellow-300/10 rounded-lg transition-colors"
+                className="lg:hidden p-2 text-emerald-300 hover:bg-emerald-400/10 rounded-lg transition-colors"
               >
                 <Menu className="w-6 h-6" />
               </button>
               
               <div className="relative hidden md:block">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-300 w-4 h-4" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   type="text"
                   placeholder="Search channels, users..."
-                  className="pl-10 pr-4 py-2 bg-purple-700/50 border border-purple-500/30 rounded-xl text-purple-100 placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent w-80"
+                  className="pl-10 pr-4 py-2 bg-slate-700/60 border border-slate-600/40 rounded-xl text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent w-80"
                 />
               </div>
             </div>
 
             <div className="flex items-center space-x-4">
-              <button className="p-2 text-purple-200 hover:text-yellow-300 hover:bg-yellow-300/10 rounded-lg transition-colors relative">
+              <button className="p-2 text-slate-300 hover:text-emerald-300 hover:bg-emerald-400/10 rounded-lg transition-colors relative">
                 <Bell className="w-5 h-5" />
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full"></div>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full"></div>
               </button>
               
-              <button className="p-2 text-purple-200 hover:text-yellow-300 hover:bg-yellow-300/10 rounded-lg transition-colors">
+              <button className="p-2 text-slate-300 hover:text-emerald-300 hover:bg-emerald-400/10 rounded-lg transition-colors">
                 <UserPlus className="w-5 h-5" />
               </button>
 
-              <div className="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-purple-900 font-bold text-sm">
+              <div className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center">
+                <span className="text-slate-900 font-bold text-sm">
                   {session.user?.name?.[0] || session.user?.email?.[0]}
                 </span>
               </div>
