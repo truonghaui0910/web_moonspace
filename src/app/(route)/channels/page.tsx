@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -220,7 +219,7 @@ export default function ChannelsPage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-3">
               <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-500 hover:from-purple-400 hover:to-violet-400 text-white rounded-2xl transition-all duration-300 font-medium shadow-lg shadow-purple-500/20 group">
                 <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
@@ -236,7 +235,7 @@ export default function ChannelsPage() {
       </div>
 
       {/* Enhanced Controls */}
-      <div className="bg-gradient-to-r from-purple-800/30 to-violet-800/30 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6 shadow-xl shadow-purple-500/15"></div>
+      <div className="bg-gradient-to-r from-purple-800/30 to-violet-800/30 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6 shadow-xl shadow-purple-500/15">
         <div className="flex flex-col xl:flex-row gap-6 items-center justify-between">
           <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full">
             {/* Search */}
@@ -253,7 +252,7 @@ export default function ChannelsPage() {
                 />
               </div>
             </div>
-            
+
             {/* Filter */}
             <div className="relative">
               <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-300 w-4 h-4 z-10" />
@@ -294,7 +293,7 @@ export default function ChannelsPage() {
       </div>
 
       {/* Channels Table */}
-      <div className="bg-gradient-to-b from-purple-800/20 to-violet-800/20 backdrop-blur-xl rounded-2xl border border-purple-400/20 overflow-hidden shadow-2xl shadow-purple-500/25"></div>
+      <div className="bg-gradient-to-b from-purple-800/20 to-violet-800/20 backdrop-blur-xl rounded-2xl border border-purple-400/20 overflow-hidden shadow-2xl shadow-purple-500/25">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gradient-to-r from-purple-700/40 to-violet-700/40 border-b border-purple-400/30">
@@ -323,7 +322,7 @@ export default function ChannelsPage() {
               {filteredChannels.map((channel, index) => {
                 const statusConfig = getStatusConfig(channel.status)
                 const StatusIcon = statusConfig.icon
-                
+
                 return (
                   <tr 
                     key={channel.id}
@@ -339,7 +338,7 @@ export default function ChannelsPage() {
                         className="w-5 h-5 text-purple-500 bg-purple-700/40 border-purple-400/50 rounded-lg focus:ring-purple-400 focus:ring-2"
                       />
                     </td>
-                    
+
                     <td className="p-6">
                       <div className="flex items-center space-x-4">
                         <div className={`relative p-3 rounded-2xl ${channel.isPrivate ? 'bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-400/30' : 'bg-gradient-to-r from-purple-500/20 to-violet-500/20 border border-purple-400/30'}`}>
@@ -366,7 +365,7 @@ export default function ChannelsPage() {
                         </div>
                       </div>
                     </td>
-                    
+
                     <td className="p-6">
                       <div className="flex items-center space-x-2">
                         <div className="p-2 bg-purple-500/20 rounded-lg border border-purple-400/30">
@@ -375,7 +374,7 @@ export default function ChannelsPage() {
                         <span className="text-purple-200 capitalize font-medium">{channel.category}</span>
                       </div>
                     </td>
-                    
+
                     <td className="p-6">
                       <div className="flex items-center space-x-3">
                         <div className="flex items-center space-x-2 text-purple-200">
@@ -391,14 +390,14 @@ export default function ChannelsPage() {
                         </div>
                       </div>
                     </td>
-                    
+
                     <td className="p-6">
                       <div className={`inline-flex items-center space-x-2 px-3 py-2 rounded-xl text-sm font-medium border ${statusConfig.color} ${statusConfig.pulse ? 'animate-pulse' : ''}`}>
                         <StatusIcon className="w-4 h-4" />
                         <span className="capitalize">{channel.status}</span>
                       </div>
                     </td>
-                    
+
                     <td className="p-6">
                       <div className={`flex items-center space-x-2 ${getPriorityColor(channel.priority)}`}>
                         <div className={`w-3 h-3 rounded-full ${
@@ -408,14 +407,14 @@ export default function ChannelsPage() {
                         <span className="capitalize font-medium">{channel.priority}</span>
                       </div>
                     </td>
-                    
+
                     <td className="p-6">
                       <div className="flex items-center space-x-2 text-purple-300">
                         <Clock className="w-4 h-4" />
                         <span className="text-sm">{channel.lastActivity}</span>
                       </div>
                     </td>
-                    
+
                     <td className="p-6">
                       <div className="flex items-center space-x-2">
                         <button
@@ -425,12 +424,12 @@ export default function ChannelsPage() {
                           <UserCheck className="w-4 h-4 group-hover:scale-110 transition-transform" />
                           <span className="text-sm font-medium">Join</span>
                         </button>
-                        
+
                         <div className="relative group">
                           <button className="p-2 text-purple-400 hover:text-purple-200 hover:bg-purple-500/20 rounded-xl transition-all duration-300 border border-transparent hover:border-purple-400/30">
                             <MoreVertical className="w-5 h-5" />
                           </button>
-                          
+
                           <div className="absolute right-0 top-10 bg-gradient-to-b from-purple-800/90 to-violet-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto z-20 min-w-[160px]">
                             <button className="flex items-center space-x-3 px-4 py-3 text-purple-200 hover:text-purple-100 hover:bg-purple-500/20 w-full text-left rounded-t-xl transition-colors">
                               <Eye className="w-4 h-4" />
@@ -473,7 +472,7 @@ export default function ChannelsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-violet-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6 hover:border-purple-400/40 transition-all duration-300 shadow-xl shadow-purple-500/15 hover:shadow-2xl hover:shadow-purple-500/25"></div>
+          <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6 hover:border-purple-400/40 transition-all duration-300 shadow-xl shadow-purple-500/15 hover:shadow-2xl hover:shadow-purple-500/25">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-purple-300/80 text-sm font-medium">Total Channels</p>
@@ -489,10 +488,10 @@ export default function ChannelsPage() {
             </div>
           </div>
         </div>
-        
+
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-green-800/40 to-emerald-800/40 backdrop-blur-xl rounded-2xl border border-green-400/20 p-6 hover:border-green-400/40 transition-all duration-300 shadow-xl shadow-green-500/15 hover:shadow-2xl hover:shadow-green-500/25"></div>
+          <div className="relative bg-gradient-to-r from-green-800/40 to-emerald-800/40 backdrop-blur-xl rounded-2xl border border-green-400/20 p-6 hover:border-green-400/40 transition-all duration-300 shadow-xl shadow-green-500/15 hover:shadow-2xl hover:shadow-green-500/25">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-green-300/80 text-sm font-medium">Active Channels</p>
@@ -508,10 +507,10 @@ export default function ChannelsPage() {
             </div>
           </div>
         </div>
-        
+
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-blue-800/40 to-indigo-800/40 backdrop-blur-xl rounded-2xl border border-blue-400/20 p-6 hover:border-blue-400/40 transition-all duration-300 shadow-xl shadow-blue-500/15 hover:shadow-2xl hover:shadow-blue-500/25"></div>
+          <div className="relative bg-gradient-to-r from-blue-800/40 to-indigo-800/40 backdrop-blur-xl rounded-2xl border border-blue-400/20 p-6 hover:border-blue-400/40 transition-all duration-300 shadow-xl shadow-blue-500/15 hover:shadow-2xl hover:shadow-blue-500/25">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-blue-300/80 text-sm font-medium">Total Members</p>
@@ -527,10 +526,10 @@ export default function ChannelsPage() {
             </div>
           </div>
         </div>
-        
+
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-yellow-800/40 to-orange-800/40 backdrop-blur-xl rounded-2xl border border-yellow-400/20 p-6 hover:border-yellow-400/40 transition-all duration-300 shadow-xl shadow-yellow-500/15 hover:shadow-2xl hover:shadow-yellow-500/25"></div>
+          <div className="relative bg-gradient-to-r from-yellow-800/40 to-orange-800/40 backdrop-blur-xl rounded-2xl border border-yellow-400/20 p-6 hover:border-yellow-400/40 transition-all duration-300 shadow-xl shadow-yellow-500/15 hover:shadow-2xl hover:shadow-yellow-500/25">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-yellow-300/80 text-sm font-medium">Private Channels</p>
