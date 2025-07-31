@@ -256,7 +256,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
         </div>
 
         {/* Main Content Area */}
-        <main className={`p-6 ${themeClasses.background}`}>
+        <main className={`p-6`}>
           {children}
         </main>
       </div>
@@ -294,7 +294,7 @@ function getThemeClasses(theme: string) {
         input: 'bg-white',
         spinner: 'border-blue-400/30 border-t-blue-400',
         spinnerSecondary: 'border-blue-400/20 border-r-blue-400',
-        shadow: 'shadow-blue-500/15'
+        shadow: 'shadow-black/50'
       }
     case 'violet':
       return {
@@ -309,7 +309,7 @@ function getThemeClasses(theme: string) {
         input: 'bg-purple-800/40 border-purple-400/40',
         spinner: 'border-purple-400/30 border-t-purple-400',
         spinnerSecondary: 'border-violet-400/20 border-r-violet-400',
-        shadow: 'shadow-cyan-400/20'
+        shadow: 'shadow-black/50'
       }
     default:
       return getThemeClasses('dark')
