@@ -114,7 +114,7 @@ export default function ChannelsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[var(--bg-primary)]">
+      <div className="min-h-screen flex items-center justify-center bg-theme-primary">
         <div className="flex items-center justify-center space-x-4">
           <div className="relative">
             <div className="w-16 h-16 border-4 border-red-400/30 border-t-red-400 rounded-full animate-spin"></div>
