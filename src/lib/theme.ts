@@ -1,4 +1,3 @@
-
 export function getThemeClasses(theme: string) {
   switch (theme) {
     case 'dark':
@@ -11,7 +10,7 @@ export function getThemeClasses(theme: string) {
         textSecondary: 'text-gray-400',
         accent: 'bg-red-500',
         badge: 'bg-red-500 text-white',
-        border: 'border-gray-700/50',
+        border: 'border-gray-700',
         input: 'bg-gray-700/50',
         spinner: 'border-red-400/30 border-t-red-400',
         spinnerSecondary: 'border-red-400/20 border-r-red-400',
@@ -29,11 +28,11 @@ export function getThemeClasses(theme: string) {
         textSecondary: 'text-gray-600',
         accent: 'bg-blue-500',
         badge: 'bg-blue-500 text-white',
-        border: 'border-gray-200/50',
+        border: 'border-gray-200',
         input: 'bg-white',
         spinner: 'border-blue-400/30 border-t-blue-400',
         spinnerSecondary: 'border-blue-400/20 border-r-blue-400',
-        shadow: 'shadow-blue-500/15',
+        shadow: 'shadow-black/30',
         tableBorder: 'border-gray-200/30',
         tableHover: 'bg-gray-100/50'
       }
@@ -51,11 +50,11 @@ export function getThemeClasses(theme: string) {
         input: 'bg-purple-800/40 border-purple-400/40',
         spinner: 'border-purple-400/30 border-t-purple-400',
         spinnerSecondary: 'border-violet-400/20 border-r-violet-400',
-        shadow: 'shadow-cyan-400/20',
+        shadow: 'shadow-black/30',
         tableBorder: 'border-purple-400/10',
         tableHover: 'bg-purple-800/20'
       }
     default:
       return getThemeClasses('dark')
   }
-}
+} 

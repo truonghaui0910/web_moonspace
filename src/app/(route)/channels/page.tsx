@@ -14,7 +14,7 @@ import {
   Loader2
 } from 'lucide-react'
 import { useTheme } from '@/contexts/ThemeContext'
-import { getThemeClasses } from '@/utils/theme'
+import { getThemeClasses } from '@/lib/theme'
 
 export default function ChannelsPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -133,23 +133,23 @@ export default function ChannelsPage() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Stats Section Title */}
-      <div>
-        <h2 className={`text-xl font-bold ${themeClasses.textPrimary} mb-6`}>Recent Updates</h2>
-      </div>
+      {/* <div>
+        <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary} mb-4 sm:mb-6`}>Recent Updates</h2>
+      </div> */}
       
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-2">
-        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 -mt-2">
+        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-4 sm:p-6 shadow-xl ${themeClasses.shadow}`}>
           <div className="flex items-center justify-between">
             <div>
               <div className={`${themeClasses.textSecondary} text-sm font-medium mb-1`}>Total Sales</div>
-              <div className={`${themeClasses.textPrimary} text-2xl font-bold`}>$25,024</div>
+              <div className={`${themeClasses.textPrimary} text-xl sm:text-2xl font-bold`}>$25,024</div>
               <div className="text-green-400 text-sm mt-1">+3% since last hour</div>
             </div>
-            <div className={`w-12 h-12 ${themeClasses.accent} rounded-3xl flex items-center justify-center`}>
-              <Download className="w-6 h-6 text-white" />
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 ${themeClasses.accent} rounded-3xl flex items-center justify-center`}>
+              <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
           </div>
           <div className="mt-4">
@@ -162,15 +162,15 @@ export default function ChannelsPage() {
           </div>
         </div>
 
-        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
+        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-4 sm:p-6 shadow-xl ${themeClasses.shadow}`}>
           <div className="flex items-center justify-between">
             <div>
               <div className={`${themeClasses.textSecondary} text-sm font-medium mb-1`}>Total Expenses</div>
-              <div className={`${themeClasses.textPrimary} text-2xl font-bold`}>$14,160</div>
+              <div className={`${themeClasses.textPrimary} text-xl sm:text-2xl font-bold`}>$14,160</div>
               <div className="text-red-400 text-sm mt-1">-8% since last hour</div>
             </div>
-            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center">
-              <Upload className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-500 rounded-3xl flex items-center justify-center">
+              <Upload className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
           </div>
           <div className="mt-4">
@@ -183,15 +183,15 @@ export default function ChannelsPage() {
           </div>
         </div>
 
-        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
+        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-4 sm:p-6 shadow-xl ${themeClasses.shadow}`}>
           <div className="flex items-center justify-between">
             <div>
               <div className={`${themeClasses.textSecondary} text-sm font-medium mb-1`}>Total Income</div>
-              <div className={`${themeClasses.textPrimary} text-2xl font-bold`}>$10,864</div>
+              <div className={`${themeClasses.textPrimary} text-xl sm:text-2xl font-bold`}>$10,864</div>
               <div className="text-green-400 text-sm mt-1">+12% since last hour</div>
             </div>
-            <div className="w-12 h-12 bg-green-500 rounded-3xl flex items-center justify-center">
-              <Play className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-3xl flex items-center justify-center">
+              <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
           </div>
           <div className="mt-4">
@@ -203,40 +203,39 @@ export default function ChannelsPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      {/* Recent Orders Section */}
+      {/* Channels List Section */}
       <div>
-        <h2 className={`text-xl font-bold ${themeClasses.textPrimary} mb-6`}>Recent Orders</h2>
+        <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary} mb-4 sm:mb-6`}>Channels List</h2>
       </div>
       
-      {/* Recent Orders Table */}
+      {/* Channels List Table */}
       <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} shadow-xl ${themeClasses.shadow} -mt-2`}>
-
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-full">
             <thead>
               <tr className={`border-b ${themeClasses.tableBorder}`}>
-                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Product Name</th>
-                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Product Number</th>
-                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Payment</th>
-                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Status</th>
-                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Actions</th>
+                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Product Name</th>
+                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Product Number</th>
+                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Payment</th>
+                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Status</th>
+                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Actions</th>
               </tr>
             </thead>
             <tbody>
               {channels.map((channel, index) => (
                 <tr key={channel.id} className={`${index === channels.length - 1 ? '' : `border-b ${themeClasses.tableBorder}`} hover:${themeClasses.tableHover} transition-colors`}>
-                  <td className={`py-4 px-6 ${themeClasses.textPrimary} font-medium`}>{channel.name}</td>
-                  <td className={`py-4 px-6 ${themeClasses.textSecondary}`}>{channel.number}</td>
-                  <td className={`py-4 px-6 font-medium ${getPaymentColor(channel.payment)}`}>{channel.payment}</td>
-                  <td className="py-4 px-6">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(channel.status)}`}>
+                  <td className={`py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textPrimary} font-medium text-sm`}>{channel.name}</td>
+                  <td className={`py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} text-sm`}>{channel.number}</td>
+                  <td className={`py-3 sm:py-4 px-3 sm:px-6 font-medium ${getPaymentColor(channel.payment)} text-sm`}>{channel.payment}</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6">
+                    <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(channel.status)}`}>
                       {channel.status}
                     </span>
                   </td>
-                  <td className="py-4 px-6">
-                    <button className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
+                  <td className="py-3 sm:py-4 px-3 sm:px-6">
+                    <button className="text-blue-400 hover:text-blue-300 text-xs sm:text-sm font-medium transition-colors">
                       Details
                     </button>
                   </td>
@@ -248,27 +247,27 @@ export default function ChannelsPage() {
       </div>
 
       {/* Enhanced Controls */}
-      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
-        <div className="flex flex-col xl:flex-row gap-6 items-center justify-between">
-          <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full">
+      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-4 sm:p-6 shadow-xl ${themeClasses.shadow}`}>
+        <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 items-center justify-between">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-1 w-full">
             <button
               onClick={handleLogin}
               disabled={isLoading}
               className={`
-                flex items-center justify-center space-x-3 px-8 py-4 rounded-3xl font-semibold transition-all duration-300 
+                flex items-center justify-center space-x-2 sm:space-x-3 px-6 sm:px-8 py-3 sm:py-4 rounded-3xl font-semibold transition-all duration-300 
                 ${themeClasses.accent} text-white shadow-lg hover:shadow-xl transform hover:scale-105 
                 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
-                flex-1 sm:flex-none
+                flex-1 sm:flex-none text-sm sm:text-base
               `}
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
                   <span>Connecting...</span>
                 </>
               ) : (
                 <>
-                  <Play className="w-5 h-5" />
+                  <Play className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Connect to Channels</span>
                 </>
               )}
@@ -276,25 +275,25 @@ export default function ChannelsPage() {
 
             <button
               onClick={handleClear}
-              className="flex items-center justify-center space-x-3 px-8 py-4 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-3xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex-1 sm:flex-none"
+              className="flex items-center justify-center space-x-2 sm:space-x-3 px-6 sm:px-8 py-3 sm:py-4 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-3xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex-1 sm:flex-none text-sm sm:text-base"
             >
-              <RotateCcw className="w-5 h-5" />
+              <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Clear All</span>
             </button>
           </div>
 
-          <div className="flex flex-wrap gap-3 justify-center xl:justify-end">
-            <button className={`p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
-              <Settings className="w-5 h-5" />
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center xl:justify-end">
+            <button className={`p-2 sm:p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+              <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <button className={`p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
-              <Download className="w-5 h-5" />
+            <button className={`p-2 sm:p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <button className={`p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
-              <Upload className="w-5 h-5" />
+            <button className={`p-2 sm:p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+              <Upload className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <button className="p-3 text-red-400 hover:text-red-300 rounded-3xl transition-all duration-200 hover:bg-red-500/20">
-              <Trash2 className="w-5 h-5" />
+            <button className="p-2 sm:p-3 text-red-400 hover:text-red-300 rounded-3xl transition-all duration-200 hover:bg-red-500/20">
+              <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
