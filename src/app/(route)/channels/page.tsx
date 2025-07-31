@@ -132,7 +132,7 @@ export default function ChannelsPage() {
       {/* <div>
         <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary} mb-4 sm:mb-6`}>Recent Updates</h2>
       </div> */}
-      
+
       {/* Stats Cards */}
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 -mt-2">
         <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-4 sm:p-6 shadow-xl ${themeClasses.shadow}`}>
@@ -203,7 +203,7 @@ export default function ChannelsPage() {
       <div>
         <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6">Channels List</h2>
       </div>
-      
+
       {/* Channels List Table */}
       <div className="bg-[var(--bg-card)] backdrop-blur-xl rounded-3xl border border-[var(--border-color)] shadow-xl -mt-2">
         <div className="overflow-x-auto">
@@ -290,4 +290,3 @@ export default function ChannelsPage() {
     </div>
   )
 }
-

@@ -56,13 +56,16 @@ body.theme-violet {
   --text-primary: #e9d5ff;
   --text-secondary: #c4b5fd;
   --border-color: rgba(196, 181, 253, 0.2);
-  --accent-color: linear-gradient(to right, #8b5cf6, #8b5cf6);
-  --hover-bg: rgba(91, 33, 182, 0.2);
-  --sidebar-active: linear-gradient(to right, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0.3));
+  --accent-color: #8b5cf6;
+  --accent-gradient: linear-gradient(to right, #8b5cf6, #7c3aed);
+  --hover-bg: rgba(91, 33, 182, 0.15);
+  --sidebar-active-bg: rgba(139, 92, 246, 0.3);
+  --sidebar-active-gradient: linear-gradient(to right, rgba(139, 92, 246, 0.3), rgba(124, 58, 237, 0.3));
   --sidebar-hover: rgba(139, 92, 246, 0.15);
   --badge-bg: #8b5cf6;
   --badge-text: #ffffff;
   --input-bg: rgba(91, 33, 182, 0.4);
+  --input-border: rgba(196, 181, 253, 0.4);
   --spinner-primary: rgba(196, 181, 253, 0.3);
   --spinner-secondary: rgba(139, 92, 246, 0.2);
   --shadow: rgba(0, 0, 0, 0.3);
@@ -114,4 +117,24 @@ body.theme-violet {
 
 .shadow-theme {
   box-shadow: 0 25px 50px -12px var(--shadow);
+}
+
+/* Special classes for violet theme complex styles */
+body.theme-violet .bg-accent {
+  background: var(--accent-gradient);
+}
+
+body.theme-violet .bg-sidebar-active {
+  background: var(--sidebar-active-gradient);
+  border-left: 4px solid var(--accent-color);
+}
+
+body.theme-violet .bg-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+}
+
+body.theme-violet .input-violet {
+  background: var(--input-bg);
+  border-color: var(--input-border);
 }
