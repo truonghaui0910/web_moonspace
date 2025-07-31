@@ -85,7 +85,7 @@ export default function LoginPage() {
         {/* Small 4-pointed stars */}
         <div className="absolute top-32 right-20 star-4-point">✦</div>
         <div className="absolute top-64 right-1/3 star-4-point">✦</div>
-        <div className="absolute top-88 right-2/5 star-4-point animate-twinkle-dot">✦</div>
+        <div className="absolute top-68 right-60 star-4-point animate-twinkle-dot">✦</div>
 
         {/* Small bright sparkling dots */}
         <div className="absolute top-24 left-16 w-1.5 h-1.5 bg-white rounded-full animate-sparkle shadow-white shadow-sm" style={{ filter: 'drop-shadow(0 0 3px rgba(255,255,255,0.8))' }}></div>
