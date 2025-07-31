@@ -205,12 +205,12 @@ export default function ChannelsPage() {
         </div>
       </div> */}
 
-      {/* Recent Orders Section */}
+      {/* Channels List Section */}
       <div>
-        <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary} mb-4 sm:mb-6`}>Recent Orders</h2>
+        <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary} mb-4 sm:mb-6`}>Channels List</h2>
       </div>
       
-      {/* Recent Orders Table */}
+      {/* Channels List Table */}
       <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} shadow-xl ${themeClasses.shadow} -mt-2`}>
         <div className="overflow-x-auto">
           <table className="w-full min-w-full">
