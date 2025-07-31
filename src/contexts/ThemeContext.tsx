@@ -1,9 +1,9 @@
 
 'use client'
 
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-export type Theme = 'dark' | 'light' | 'violet'
+export type Theme = 'dark' | 'light' | 'cosmic'
 
 interface ThemeContextType {
   theme: Theme
@@ -12,23 +12,34 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const savedTheme = localStorage.getItem('theme') as Theme
     if (savedTheme) {
       setTheme(savedTheme)
     }
   }, [])
 
-  const handleSetTheme = (newTheme: Theme) => {
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem('theme', theme)
+    }
+  }, [theme, mounted])
+
+  if (!mounted) {
+    return (
+      <ThemeContext.Provider value={{ theme: 'dark', setTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    )
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme: handleSetTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   )
