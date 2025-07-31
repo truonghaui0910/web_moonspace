@@ -47,9 +47,11 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
   if (status === 'loading') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-950 via-indigo-950 to-violet-950 flex items-center justify-center">
-        <div className="relative">
-          <div className="w-20 h-20 border-4 border-purple-400/30 border-t-purple-400 rounded-full animate-spin"></div>
-          <div className="absolute inset-0 w-16 h-16 border-4 border-violet-400/20 border-r-violet-400 rounded-full animate-spin m-2" style={{animationDirection: 'reverse'}}></div>
+        <div className="flex flex-col items-center justify-center">
+          <div className="relative">
+            <div className="w-20 h-20 border-4 border-purple-400/30 border-t-purple-400 rounded-full animate-spin"></div>
+            <div className="absolute inset-0 w-16 h-16 border-4 border-violet-400/20 border-r-violet-400 rounded-full animate-spin m-2" style={{animationDirection: 'reverse'}}></div>
+          </div>
           <div className="mt-6 text-purple-300 text-xl font-medium text-center">Loading Moonspace...</div>
         </div>
       </div>
@@ -89,15 +91,15 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
         />
       )}
 
-      {/* Floating Left Sidebar */}
+      {/* Left Sidebar */}
       <div className={`
-        fixed top-4 left-4 bottom-4 w-80 z-50 transform transition-all duration-700 ease-out
+        fixed top-0 left-0 bottom-0 w-80 z-50 transform transition-all duration-700 ease-out
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
-        <div className="h-full bg-gradient-to-b from-purple-900/60 via-violet-900/50 to-indigo-900/60 backdrop-blur-2xl rounded-3xl border border-purple-400/30 shadow-2xl shadow-purple-500/10 relative overflow-hidden">
+        <div className="h-full bg-gradient-to-b from-purple-900/60 via-violet-900/50 to-indigo-900/60 backdrop-blur-2xl relative overflow-hidden shadow-2xl shadow-purple-500/20">
           {/* Sidebar Glow Effects */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-violet-500/10 rounded-3xl"></div>
-          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-purple-400/20 to-transparent rounded-t-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-violet-500/10"></div>
+          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-purple-400/20 to-transparent"></div>
           
           <div className="relative z-10 h-full flex flex-col">
             {/* Mobile Close Button */}
@@ -222,14 +224,22 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
         </div>
       </div>
 
-      {/* Floating Top Bar */}
-      <div className="fixed top-4 left-4 right-4 z-40 lg:left-96">
-        <div className="bg-purple-900/60 backdrop-blur-2xl rounded-3xl border border-purple-400/30 shadow-2xl shadow-purple-500/10 p-4 relative overflow-hidden">
+      {/* Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-40 lg:left-80">
+        <div className="bg-purple-900/60 backdrop-blur-2xl p-4 relative overflow-hidden shadow-2xl shadow-purple-500/20">
           {/* Topbar Glow Effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-violet-500/10 rounded-3xl"></div>
-          <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-purple-400/15 to-transparent rounded-t-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-violet-500/10"></div>
+          <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-purple-400/15 to-transparent"></div>
           
-          <div className="relative z-10 flex items-center justify-between">
+          <div className="relative z-10 flex items-center justify-between"></div>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="pt-20 lg:pl-80 relative">
+        <main className="p-8 min-h-screen">
+          {children}
+        </main>
             <div className="flex items-center space-x-6">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -280,20 +290,8 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="pt-24 lg:pl-96 relative">
-        <div className="bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-indigo-900/20 backdrop-blur-xl rounded-3xl border border-purple-400/20 shadow-2xl shadow-purple-500/5 min-h-[calc(100vh-8rem)] relative overflow-hidden">
-          {/* Content Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-violet-500/5 rounded-3xl"></div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-purple-400/10 to-transparent rounded-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-violet-400/10 to-transparent rounded-3xl"></div>
-          
-          <main className="relative z-10 p-8">
-            {children}
-          </main>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -202,7 +202,7 @@ export default function ChannelsPage() {
       {/* Animated Header */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-violet-500/10 rounded-3xl blur-xl"></div>
-        <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-3xl border border-purple-400/20 p-8">
+        <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-3xl border border-purple-400/20 p-8 shadow-2xl shadow-purple-500/20"></div>
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-300 via-violet-300 to-indigo-300 bg-clip-text text-transparent">
@@ -236,7 +236,7 @@ export default function ChannelsPage() {
       </div>
 
       {/* Enhanced Controls */}
-      <div className="bg-gradient-to-r from-purple-800/30 to-violet-800/30 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6">
+      <div className="bg-gradient-to-r from-purple-800/30 to-violet-800/30 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6 shadow-xl shadow-purple-500/15"></div>
         <div className="flex flex-col xl:flex-row gap-6 items-center justify-between">
           <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full">
             {/* Search */}
@@ -294,7 +294,7 @@ export default function ChannelsPage() {
       </div>
 
       {/* Channels Table */}
-      <div className="bg-gradient-to-b from-purple-800/20 to-violet-800/20 backdrop-blur-xl rounded-2xl border border-purple-400/20 overflow-hidden shadow-2xl">
+      <div className="bg-gradient-to-b from-purple-800/20 to-violet-800/20 backdrop-blur-xl rounded-2xl border border-purple-400/20 overflow-hidden shadow-2xl shadow-purple-500/25"></div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gradient-to-r from-purple-700/40 to-violet-700/40 border-b border-purple-400/30">
@@ -473,7 +473,7 @@ export default function ChannelsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-violet-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6 hover:border-purple-400/40 transition-all duration-300">
+          <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-2xl border border-purple-400/20 p-6 hover:border-purple-400/40 transition-all duration-300 shadow-xl shadow-purple-500/15 hover:shadow-2xl hover:shadow-purple-500/25"></div>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-purple-300/80 text-sm font-medium">Total Channels</p>
@@ -492,7 +492,7 @@ export default function ChannelsPage() {
         
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-green-800/40 to-emerald-800/40 backdrop-blur-xl rounded-2xl border border-green-400/20 p-6 hover:border-green-400/40 transition-all duration-300">
+          <div className="relative bg-gradient-to-r from-green-800/40 to-emerald-800/40 backdrop-blur-xl rounded-2xl border border-green-400/20 p-6 hover:border-green-400/40 transition-all duration-300 shadow-xl shadow-green-500/15 hover:shadow-2xl hover:shadow-green-500/25"></div>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-green-300/80 text-sm font-medium">Active Channels</p>
@@ -511,7 +511,7 @@ export default function ChannelsPage() {
         
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-blue-800/40 to-indigo-800/40 backdrop-blur-xl rounded-2xl border border-blue-400/20 p-6 hover:border-blue-400/40 transition-all duration-300">
+          <div className="relative bg-gradient-to-r from-blue-800/40 to-indigo-800/40 backdrop-blur-xl rounded-2xl border border-blue-400/20 p-6 hover:border-blue-400/40 transition-all duration-300 shadow-xl shadow-blue-500/15 hover:shadow-2xl hover:shadow-blue-500/25"></div>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-blue-300/80 text-sm font-medium">Total Members</p>
@@ -530,7 +530,7 @@ export default function ChannelsPage() {
         
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-r from-yellow-800/40 to-orange-800/40 backdrop-blur-xl rounded-2xl border border-yellow-400/20 p-6 hover:border-yellow-400/40 transition-all duration-300">
+          <div className="relative bg-gradient-to-r from-yellow-800/40 to-orange-800/40 backdrop-blur-xl rounded-2xl border border-yellow-400/20 p-6 hover:border-yellow-400/40 transition-all duration-300 shadow-xl shadow-yellow-500/15 hover:shadow-2xl hover:shadow-yellow-500/25"></div>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-yellow-300/80 text-sm font-medium">Private Channels</p>
