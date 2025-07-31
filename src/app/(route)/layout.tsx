@@ -28,22 +28,22 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
   }, [session, status, router])
 
   useEffect(() => {
-    setCurrentPath(window.location.pathname)
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname)
+    }
   }, [])
 
   if (status === 'loading') {
     return (
-      <div>Loading</div>
-      
-      // <div className={`min-h-screen flex items-center justify-center ${getThemeClasses(theme).background}`}>
-      //   <div className="flex flex-col items-center justify-center">
-      //     <div className="relative">
-      //       <div className={`w-20 h-20 border-4 ${getThemeClasses(theme).spinner} rounded-full animate-spin`}></div>
-      //       <div className={`absolute inset-0 w-16 h-16 border-4 ${getThemeClasses(theme).spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
-      //     </div>
-      //     <div className={`mt-6 ${getThemeClasses(theme).textPrimary} text-xl font-medium text-center`}>Loading Moonspace...</div>
-      //   </div>
-      // </div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+        <div className="flex flex-col items-center justify-center">
+          <div className="relative">
+            <div className="w-20 h-20 border-4 border-red-400/30 border-t-red-400 rounded-full animate-spin"></div>
+            <div className="absolute inset-0 w-16 h-16 border-4 border-red-400/20 border-r-red-400 rounded-full animate-spin m-2" style={{animationDirection: 'reverse'}}></div>
+          </div>
+          <div className="mt-6 text-white text-xl font-medium text-center">Loading Moonspace...</div>
+        </div>
+      </div>
     )
   }
 
@@ -51,10 +51,8 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
     return null
   }
 
-  const themeClasses = getThemeClasses(theme)
-
   return (
-    <div className={`min-h-screen flex overflow-hidden ${themeClasses.background}`}>
+    <div className="min-h-screen flex overflow-hidden bg-[var(--bg-primary)]">
       <Sidebar 
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}

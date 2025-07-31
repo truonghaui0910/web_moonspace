@@ -74,6 +74,43 @@ body {
   transform: scaleY(1.5);
 }
 
+/* Theme-based styles */
+/* Dark Theme */
+body.theme-dark {
+  --bg-primary: theme('colors.gray.900');
+  --bg-secondary: theme('colors.gray.800/50');
+  --bg-card: theme('colors.gray.800/50');
+  --text-primary: theme('colors.white');
+  --text-secondary: theme('colors.gray.400');
+  --border-color: theme('colors.gray.700');
+  --accent-color: theme('colors.red.500');
+  --hover-bg: theme('colors.gray.800/20');
+}
+
+/* Light Theme */
+body.theme-light {
+  --bg-primary: theme('colors.gray.50');
+  --bg-secondary: theme('colors.white/80');
+  --bg-card: theme('colors.white/80');
+  --text-primary: theme('colors.gray.900');
+  --text-secondary: theme('colors.gray.600');
+  --border-color: theme('colors.gray.200');
+  --accent-color: theme('colors.blue.500');
+  --hover-bg: theme('colors.gray.100/50');
+}
+
+/* Violet Theme */
+body.theme-violet {
+  --bg-primary: linear-gradient(to bottom right, theme('colors.gray.950'), theme('colors.purple.950'), theme('colors.indigo.950'));
+  --bg-secondary: theme('colors.purple.800/30');
+  --bg-card: theme('colors.purple.800/30');
+  --text-primary: theme('colors.purple.100');
+  --text-secondary: theme('colors.purple.300');
+  --border-color: theme('colors.purple.400/20');
+  --accent-color: linear-gradient(to right, theme('colors.purple.500'), theme('colors.violet.500'));
+  --hover-bg: theme('colors.purple.800/20');
+}
+
 /* Small sparkling dots animation */
 @keyframes twinkle-dot {
   0%, 100% { 
