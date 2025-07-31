@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useSession } from 'next-auth/react'
@@ -52,7 +51,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen flex overflow-hidden bg-[var(--bg-primary)]">
+    <div className="min-h-screen flex overflow-hidden bg-theme-primary">
       <Sidebar 
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
@@ -75,5 +74,3 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
     </div>
   )
 }
-
-

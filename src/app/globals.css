@@ -78,6 +78,11 @@ body.theme-violet {
   background: var(--bg-primary);
 }
 
+/* Special background class for gradient support */
+.bg-theme-primary {
+  background: var(--bg-primary);
+}
+
 .bg-secondary {
   background: var(--bg-secondary);
 }
