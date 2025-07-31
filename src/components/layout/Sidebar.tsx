@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useSession } from 'next-auth/react'
@@ -10,7 +11,6 @@ import {
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { useTheme } from '@/contexts/ThemeContext'
-import { getThemeClasses } from '@/lib/theme'
 
 interface SidebarProps {
   sidebarOpen: boolean
@@ -28,7 +28,6 @@ export default function Sidebar({
   const { data: session } = useSession()
   const router = useRouter()
   const { theme } = useTheme()
-  const themeClasses = getThemeClasses(theme)
 
   const sidebarItems = [
     { icon: Home, label: 'Dashboard', href: '/dashboard' },
@@ -50,13 +49,13 @@ export default function Sidebar({
         fixed top-0 left-0 bottom-0 w-80 sm:w-72 z-50 transform transition-all duration-300 ease-out
         lg:bg-transparent lg:border-r-0
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-        ${sidebarOpen ? `${themeClasses.cardBg} backdrop-blur-xl border-r ${themeClasses.border}` : ''}
+        ${sidebarOpen ? 'bg-card backdrop-blur-xl border-r border-theme' : ''}
       `}>
         <div className="h-full flex flex-col">
           {/* Mobile Close Button */}
           <button
             onClick={() => setSidebarOpen(false)}
-            className={`lg:hidden absolute top-4 right-4 p-2 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-xl transition-all duration-300 z-20 bg-black/20 backdrop-blur-sm`}
+            className="lg:hidden absolute top-4 right-4 p-2 text-secondary hover:text-primary rounded-xl transition-all duration-300 z-20 bg-black/20 backdrop-blur-sm"
           >
             <X className="w-5 h-5" />
           </button>
@@ -64,11 +63,11 @@ export default function Sidebar({
           {/* Logo Section */}
           <div className="p-4 sm:p-6">
             <div className="flex items-center space-x-3">
-              <div className={`w-10 h-10 ${themeClasses.accent} rounded-xl flex items-center justify-center`}>
+              <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
               <div>
-                <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary}`}>
+                <h2 className="text-lg sm:text-xl font-bold text-primary">
                   MOONSPACE
                 </h2>
               </div>
@@ -90,8 +89,8 @@ export default function Sidebar({
                     className={`
                       w-full flex items-center justify-between px-3 sm:px-4 py-3 rounded-2xl transition-all duration-200 group
                       ${isActive 
-                        ? `${themeClasses.sidebarActive} ${themeClasses.textPrimary}` 
-                        : `hover:${themeClasses.sidebarHover} ${themeClasses.textSecondary} hover:${themeClasses.textPrimary}`
+                        ? 'bg-sidebar-active text-primary' 
+                        : 'hover-bg text-secondary hover:text-primary'
                       }
                     `}
                   >
@@ -108,23 +107,23 @@ export default function Sidebar({
           {/* User Profile */}
           <div className="p-3 sm:p-4">
             <div className="flex items-center space-x-3 mb-3">
-              <div className={`w-10 h-10 ${themeClasses.accent} rounded-2xl flex items-center justify-center`}>
+              <div className="w-10 h-10 bg-accent rounded-2xl flex items-center justify-center">
                 <span className="text-white font-bold text-sm">
                   {session?.user?.name?.[0] || session?.user?.email?.[0]}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <div className={`${themeClasses.textPrimary} font-medium text-sm truncate`}>
+                <div className="text-primary font-medium text-sm truncate">
                   {session?.user?.name || 'User'}
                 </div>
-                <div className={`${themeClasses.textSecondary} text-xs truncate`}>
+                <div className="text-secondary text-xs truncate">
                   Admin
                 </div>
               </div>
             </div>
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
-              className={`w-full flex items-center justify-center space-x-2 px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-2xl transition-all duration-200`}
+              className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-2xl transition-all duration-200"
             >
               <LogOut className="w-4 h-4" />
               <span className="text-sm font-medium">Logout</span>
