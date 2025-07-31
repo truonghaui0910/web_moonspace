@@ -17,14 +17,8 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
   const { data: session, status } = useSession()
   const router = useRouter()
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [currentPath, setCurrentPath] = useState('')
-  const [isClient, setIsClient] = useState(false)
+  const [currentPath, setCurrentPath] = useState('/channels')
   const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setIsClient(true)
-    setCurrentPath(window.location.pathname)
-  }, [])
 
   useEffect(() => {
     if (status === 'loading') return
@@ -32,6 +26,10 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
       router.push('/')
     }
   }, [session, status, router])
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname)
+  }, [])
 
   if (status === 'loading') {
     return (
@@ -52,20 +50,6 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
   }
 
   const themeClasses = getThemeClasses(theme)
-
-  if (!isClient) {
-    return (
-      <div className={`min-h-screen flex items-center justify-center ${themeClasses.background}`}>
-        <div className="flex flex-col items-center justify-center">
-          <div className="relative">
-            <div className={`w-20 h-20 border-4 ${themeClasses.spinner} rounded-full animate-spin`}></div>
-            <div className={`absolute inset-0 w-16 h-16 border-4 ${themeClasses.spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
-          </div>
-          <div className={`mt-6 ${themeClasses.textPrimary} text-xl font-medium text-center`}>Loading Moonspace...</div>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className={`min-h-screen flex overflow-hidden ${themeClasses.background}`}>
