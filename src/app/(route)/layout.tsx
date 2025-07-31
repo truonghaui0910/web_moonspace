@@ -94,7 +94,6 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
       <div className={`
         fixed top-0 left-0 bottom-0 w-72 z-50 transform transition-all duration-300 ease-out
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-        ${themeClasses.sidebar}
       `}>
         <div className="h-full flex flex-col">
           {/* Mobile Close Button */}
@@ -106,14 +105,14 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
           </button>
 
           {/* Logo Section */}
-          <div className="p-6 border-b border-gray-700/50">
+          <div className="p-6">
             <div className="flex items-center space-x-3">
-              <div className={`w-10 h-10 ${themeClasses.accent} rounded-lg flex items-center justify-center`}>
-                <span className="text-white font-bold text-lg">E</span>
+              <div className={`w-10 h-10 ${themeClasses.accent} rounded-xl flex items-center justify-center`}>
+                <span className="text-white font-bold text-lg">M</span>
               </div>
               <div>
                 <h2 className={`text-xl font-bold ${themeClasses.textPrimary}`}>
-                  EGATOR
+                  MOONSPACE
                 </h2>
               </div>
             </div>
@@ -132,7 +131,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
                       setSidebarOpen(false)
                     }}
                     className={`
-                      w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 group
+                      w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-200 group
                       ${isActive 
                         ? `${themeClasses.sidebarActive} ${themeClasses.textPrimary}` 
                         : `hover:${themeClasses.sidebarHover} ${themeClasses.textSecondary} hover:${themeClasses.textPrimary}`
@@ -144,7 +143,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
                       <span className="font-medium">{item.label}</span>
                     </div>
                     {item.badge && (
-                      <span className={`px-2 py-1 text-xs font-bold ${themeClasses.badge} rounded-full`}>
+                      <span className={`px-3 py-1 text-xs font-bold ${themeClasses.badge} rounded-2xl`}>
                         {item.badge}
                       </span>
                     )}
@@ -154,52 +153,10 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
             })}
           </nav>
 
-          {/* Theme Switcher */}
-          <div className="px-4 py-4 border-t border-gray-700/50">
-            <div className="flex items-center justify-between mb-4">
-              <span className={`text-sm font-medium ${themeClasses.textSecondary}`}>Theme</span>
-            </div>
-            <div className="flex space-x-2">
-              <button
-                onClick={() => setTheme('dark')}
-                className={`p-2 rounded-lg transition-all duration-200 ${
-                  theme === 'dark' 
-                    ? `${themeClasses.accent} text-white` 
-                    : `${themeClasses.sidebarHover} ${themeClasses.textSecondary}`
-                }`}
-                title="Dark Theme"
-              >
-                <Moon className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => setTheme('light')}
-                className={`p-2 rounded-lg transition-all duration-200 ${
-                  theme === 'light' 
-                    ? `${themeClasses.accent} text-white` 
-                    : `${themeClasses.sidebarHover} ${themeClasses.textSecondary}`
-                }`}
-                title="Light Theme"
-              >
-                <Sun className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => setTheme('violet')}
-                className={`p-2 rounded-lg transition-all duration-200 ${
-                  theme === 'violet' 
-                    ? `${themeClasses.accent} text-white` 
-                    : `${themeClasses.sidebarHover} ${themeClasses.textSecondary}`
-                }`}
-                title="Violet Theme"
-              >
-                <Palette className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
           {/* User Profile */}
-          <div className="p-4 border-t border-gray-700/50">
+          <div className="p-4">
             <div className="flex items-center space-x-3 mb-3">
-              <div className={`w-10 h-10 ${themeClasses.accent} rounded-full flex items-center justify-center`}>
+              <div className={`w-10 h-10 ${themeClasses.accent} rounded-2xl flex items-center justify-center`}>
                 <span className="text-white font-bold text-sm">
                   {session.user?.name?.[0] || session.user?.email?.[0]}
                 </span>
@@ -215,7 +172,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
             </div>
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
-              className={`w-full flex items-center justify-center space-x-2 px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg transition-all duration-200`}
+              className={`w-full flex items-center justify-center space-x-2 px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-2xl transition-all duration-200`}
             >
               <LogOut className="w-4 h-4" />
               <span className="text-sm font-medium">Logout</span>
@@ -227,12 +184,12 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
       {/* Main Content */}
       <div className="flex-1 lg:ml-72">
         {/* Top Bar */}
-        <div className={`${themeClasses.topbar} p-4 border-b ${themeClasses.border}`}>
+        <div className="p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className={`lg:hidden p-2 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-lg transition-all duration-200`}
+                className={`lg:hidden p-2 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-2xl transition-all duration-200`}
               >
                 <Menu className="w-6 h-6" />
               </button>
@@ -244,18 +201,45 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
             </div>
 
             <div className="flex items-center space-x-4">
-              {/* Search */}
-              <div className="relative hidden md:block">
-                <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 ${themeClasses.textSecondary} w-4 h-4`} />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className={`pl-10 pr-4 py-2 w-64 ${themeClasses.input} border ${themeClasses.border} rounded-lg ${themeClasses.textPrimary} placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
-                />
+              {/* Theme Switcher */}
+              <div className="flex space-x-1">
+                <button
+                  onClick={() => setTheme('dark')}
+                  className={`p-2 rounded-2xl transition-all duration-200 ${
+                    theme === 'dark' 
+                      ? `${themeClasses.accent} text-white` 
+                      : `${themeClasses.textSecondary} hover:${themeClasses.textPrimary}`
+                  }`}
+                  title="Dark Theme"
+                >
+                  <Moon className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setTheme('light')}
+                  className={`p-2 rounded-2xl transition-all duration-200 ${
+                    theme === 'light' 
+                      ? `${themeClasses.accent} text-white` 
+                      : `${themeClasses.textSecondary} hover:${themeClasses.textPrimary}`
+                  }`}
+                  title="Light Theme"
+                >
+                  <Sun className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setTheme('violet')}
+                  className={`p-2 rounded-2xl transition-all duration-200 ${
+                    theme === 'violet' 
+                      ? `${themeClasses.accent} text-white` 
+                      : `${themeClasses.textSecondary} hover:${themeClasses.textPrimary}`
+                  }`}
+                  title="Violet Theme"
+                >
+                  <Palette className="w-4 h-4" />
+                </button>
               </div>
 
               {/* Notifications */}
-              <button className={`relative p-2 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-lg transition-all duration-200`}>
+              <button className={`relative p-2 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-2xl transition-all duration-200`}>
                 <Bell className="w-5 h-5" />
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
               </button>
@@ -268,7 +252,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
                   </div>
                   <div className={`text-xs ${themeClasses.textSecondary}`}>Admin</div>
                 </div>
-                <div className={`w-8 h-8 ${themeClasses.accent} rounded-full flex items-center justify-center`}>
+                <div className={`w-8 h-8 ${themeClasses.accent} rounded-2xl flex items-center justify-center`}>
                   <span className="text-white font-bold text-sm">
                     {session.user?.name?.[0] || session.user?.email?.[0]}
                   </span>
@@ -292,10 +276,8 @@ function getThemeClasses(theme: string) {
     case 'dark':
       return {
         background: 'bg-gray-900',
-        sidebar: 'bg-gray-800 border-r border-gray-700',
-        topbar: 'bg-gray-800',
         sidebarActive: 'bg-red-500/20 border-l-4 border-red-500',
-        sidebarHover: 'bg-gray-700/50',
+        sidebarHover: 'bg-red-500/10',
         textPrimary: 'text-white',
         textSecondary: 'text-gray-400',
         accent: 'bg-red-500',
@@ -308,10 +290,8 @@ function getThemeClasses(theme: string) {
     case 'light':
       return {
         background: 'bg-gray-50',
-        sidebar: 'bg-white border-r border-gray-200 shadow-lg',
-        topbar: 'bg-white',
         sidebarActive: 'bg-blue-500/10 border-l-4 border-blue-500',
-        sidebarHover: 'bg-gray-100',
+        sidebarHover: 'bg-blue-500/5',
         textPrimary: 'text-gray-900',
         textSecondary: 'text-gray-600',
         accent: 'bg-blue-500',
@@ -324,8 +304,6 @@ function getThemeClasses(theme: string) {
     case 'violet':
       return {
         background: 'bg-gradient-to-br from-gray-950 via-purple-950 to-indigo-950',
-        sidebar: 'bg-gradient-to-b from-purple-900/60 via-violet-900/50 to-indigo-900/60 backdrop-blur-2xl border-r border-purple-400/20',
-        topbar: 'bg-purple-900/60 backdrop-blur-2xl',
         sidebarActive: 'bg-gradient-to-r from-purple-500/30 to-violet-500/30 border-l-4 border-purple-400',
         sidebarHover: 'bg-purple-500/15',
         textPrimary: 'text-purple-100',

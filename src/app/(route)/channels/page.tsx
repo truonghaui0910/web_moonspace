@@ -2,262 +2,292 @@
 
 import { useState } from 'react'
 import { 
-  Plus,
-  Search,
-  MoreVertical,
-  TrendingUp,
-  TrendingDown,
-  Users,
-  DollarSign,
-  ShoppingCart
+  Play, 
+  Square, 
+  RotateCcw, 
+  Download,
+  Upload,
+  Settings,
+  Trash2,
+  Eye,
+  EyeOff,
+  Loader2
 } from 'lucide-react'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function ChannelsPage() {
   const [isLoading, setIsLoading] = useState(false)
+  const [channels, setChannels] = useState([
+    {
+      id: 1,
+      name: 'Foldable Mini Drone',
+      number: '80201',
+      payment: 'Due',
+      status: 'Pending',
+      type: 'Foldable'
+    },
+    {
+      id: 2,
+      name: 'LARVENDER KF102 Drone',
+      number: '95372',
+      payment: 'Refunded',
+      status: 'Delivered',
+      type: 'LARVENDER'
+    },
+    {
+      id: 3,
+      name: 'Ruko F11 Pro Drone',
+      number: '96312',
+      payment: 'Paid',
+      status: 'Pending',
+      type: 'Ruko'
+    },
+    {
+      id: 4,
+      name: 'Drone with Camera Drone',
+      number: '96859',
+      payment: 'Paid',
+      status: 'Delivered',
+      type: 'Camera'
+    },
+    {
+      id: 5,
+      name: 'GPS 4K Drone',
+      number: '72821',
+      payment: 'Paid',
+      status: 'Delivered',
+      type: 'GPS'
+    },
+    {
+      id: 6,
+      name: 'DJI Air 2S',
+      number: '81475',
+      payment: 'Due',
+      status: 'Pending',
+      type: 'DJI'
+    },
+    {
+      id: 7,
+      name: 'Lozenge Drone',
+      number: '05452',
+      payment: 'Paid',
+      status: 'Delivered',
+      type: 'Lozenge'
+    }
+  ])
   const { theme } = useTheme()
 
+  const handleLogin = () => {
+    setIsLoading(true)
+    // Simulate login process
+    setTimeout(() => {
+      setIsLoading(false)
+      console.log('Login process completed')
+    }, 2000)
+  }
+
+  const handleClear = () => {
+    setChannels([])
+    console.log('Channels cleared')
+  }
+
+  const getStatusColor = (status: string) => {
+    switch (status.toLowerCase()) {
+      case 'delivered':
+        return 'text-green-400 bg-green-400/20'
+      case 'pending':
+        return 'text-yellow-400 bg-yellow-400/20'
+      default:
+        return 'text-gray-400 bg-gray-400/20'
+    }
+  }
+
+  const getPaymentColor = (payment: string) => {
+    switch (payment.toLowerCase()) {
+      case 'paid':
+        return 'text-green-400'
+      case 'due':
+        return 'text-red-400'
+      case 'refunded':
+        return 'text-blue-400'
+      default:
+        return 'text-gray-400'
+    }
+  }
+
   const themeClasses = getThemeClasses(theme)
-
-  const statsCards = [
-    {
-      title: 'Total Sales',
-      value: '$25,024',
-      change: '+31%',
-      trend: 'up',
-      subtitle: 'Last 24 hours',
-      icon: DollarSign,
-      color: 'text-green-400',
-      bgColor: 'bg-green-500/20'
-    },
-    {
-      title: 'Total Expenses',
-      value: '$14,160', 
-      change: '-52%',
-      trend: 'down',
-      subtitle: 'Last 24 hours',
-      icon: TrendingDown,
-      color: 'text-red-400',
-      bgColor: 'bg-red-500/20'
-    },
-    {
-      title: 'Total Income',
-      value: '$10,864',
-      change: '+44%', 
-      trend: 'up',
-      subtitle: 'Last 24 hours',
-      icon: TrendingUp,
-      color: 'text-blue-400',
-      bgColor: 'bg-blue-500/20'
-    }
-  ]
-
-  const recentOrders = [
-    { id: 1, productName: 'Foldable Mini Drone', productNumber: 'SB001', payment: 'Due', status: 'Pending' },
-    { id: 2, productName: 'LARVENDER KF102 Drone', productNumber: '89743', payment: 'Refunded', status: 'Pending' },
-    { id: 3, productName: 'Ruko F11 Pro Drone', productNumber: '89533', payment: 'Due', status: 'Pending' },
-    { id: 4, productName: 'Drone with Camera Drone', productNumber: '86359', payment: 'Paid', status: 'Delivered' },
-    { id: 5, productName: 'GPS 4k Drone', productNumber: '22821', payment: 'Paid', status: 'Delivered' },
-    { id: 6, productName: 'DJI Air 2S', productNumber: '81475', payment: 'Due', status: 'Pending' },
-    { id: 7, productName: 'Lozenge Drone', productNumber: '00482', payment: 'Paid', status: 'Delivered' }
-  ]
-
-  const recentUpdates = [
-    {
-      name: 'Mike Tyson',
-      action: 'received his order of Night lion tech GPS drone.',
-      time: '3 Minutes Ago',
-      avatar: 'M',
-      bgColor: 'bg-red-500'
-    },
-    {
-      name: 'Diana Ayi',
-      action: 'declined her order of 2 DJI Air 2S.',
-      time: '6 Minutes Ago', 
-      avatar: 'D',
-      bgColor: 'bg-purple-500'
-    },
-    {
-      name: 'Mandy Roy',
-      action: 'received his order of LARVENDER KF102 Drone.',
-      time: '12 Minutes Ago',
-      avatar: 'M',
-      bgColor: 'bg-orange-500'
-    }
-  ]
-
-  const salesAnalytics = [
-    {
-      title: 'ONLINE ORDERS',
-      value: '3849',
-      change: '+39%',
-      subtitle: 'Last 24 Hours',
-      icon: ShoppingCart,
-      color: 'text-blue-400'
-    },
-    {
-      title: 'OFFLINE ORDERS', 
-      value: '1100',
-      change: '-17%',
-      subtitle: 'Last 24 Hours',
-      icon: Users,
-      color: 'text-red-400'
-    },
-    {
-      title: 'NEW CUSTOMER',
-      value: '849',
-      change: '+25%',
-      subtitle: 'Last 24 Hours', 
-      icon: Users,
-      color: 'text-green-400'
-    }
-  ]
 
   if (isLoading) {
     return (
       <div className={`min-h-screen flex items-center justify-center ${themeClasses.background}`}>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex items-center justify-center space-x-4">
           <div className="relative">
-            <div className={`w-20 h-20 border-4 ${themeClasses.spinner} rounded-full animate-spin`}></div>
-            <div className={`absolute inset-0 w-16 h-16 border-4 ${themeClasses.spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
+            <div className={`w-16 h-16 border-4 ${themeClasses.spinner} rounded-full animate-spin`}></div>
+            <div className={`absolute inset-0 w-12 h-12 border-4 ${themeClasses.spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
           </div>
-          <div className={`mt-6 ${themeClasses.textPrimary} text-xl font-medium`}>Loading...</div>
+          <div className={`${themeClasses.textPrimary} text-xl font-medium`}>Connecting to channels...</div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className={`space-y-6 ${themeClasses.background} min-h-screen`}>
+    <div className="space-y-8">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {statsCards.map((card, index) => (
-          <div key={index} className={`${themeClasses.card} p-6 rounded-xl border ${themeClasses.border} shadow-lg`}>
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <p className={`text-sm font-medium ${themeClasses.textSecondary}`}>{card.title}</p>
-                <p className={`text-3xl font-bold ${themeClasses.textPrimary} mt-2`}>{card.value}</p>
-                <div className="flex items-center space-x-2 mt-3">
-                  <span className={`text-sm font-medium ${card.color}`}>{card.change}</span>
-                  <span className={`text-xs ${themeClasses.textSecondary}`}>{card.subtitle}</span>
-                </div>
-              </div>
-              <div className={`w-16 h-16 ${card.bgColor} rounded-2xl flex items-center justify-center`}>
-                <card.icon className={`w-8 h-8 ${card.color}`} />
-              </div>
+        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
+          <div className="flex items-center justify-between">
+            <div>
+              <div className={`${themeClasses.textSecondary} text-sm font-medium mb-1`}>Total Sales</div>
+              <div className={`${themeClasses.textPrimary} text-2xl font-bold`}>$25,024</div>
+              <div className="text-green-400 text-sm mt-1">+3% since last hour</div>
+            </div>
+            <div className={`w-12 h-12 ${themeClasses.accent} rounded-3xl flex items-center justify-center`}>
+              <Download className="w-6 h-6 text-white" />
             </div>
           </div>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        {/* Recent Orders */}
-        <div className="xl:col-span-2">
-          <div className={`${themeClasses.card} rounded-xl border ${themeClasses.border} shadow-lg overflow-hidden`}>
-            <div className="p-6 border-b border-gray-700/50">
-              <div className="flex items-center justify-between">
-                <h3 className={`text-xl font-bold ${themeClasses.textPrimary}`}>Recent Orders</h3>
-                <button className={`px-4 py-2 ${themeClasses.button} rounded-lg transition-all duration-200`}>
-                  <Plus className="w-4 h-4 mr-2" />
-                  Add Product
-                </button>
+          <div className="mt-4">
+            <div className="flex items-center space-x-2">
+              <div className="flex-1 bg-gray-700/50 rounded-full h-2">
+                <div className="bg-green-400 h-2 rounded-full" style={{width: '61%'}}></div>
               </div>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className={`${themeClasses.tableHeader}`}>
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-medium">Product Name</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium">Product Number</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium">Payment</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium">Status</th>
-                    <th className="px-6 py-4 text-left text-sm font-medium"></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-700/50">
-                  {recentOrders.map((order) => (
-                    <tr key={order.id} className={`${themeClasses.tableRow} hover:${themeClasses.tableRowHover}`}>
-                      <td className={`px-6 py-4 text-sm font-medium ${themeClasses.textPrimary}`}>
-                        {order.productName}
-                      </td>
-                      <td className={`px-6 py-4 text-sm ${themeClasses.textSecondary}`}>
-                        {order.productNumber}
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className={`text-sm ${
-                          order.payment === 'Paid' ? 'text-green-400' :
-                          order.payment === 'Due' ? 'text-yellow-400' : 'text-red-400'
-                        }`}>
-                          {order.payment}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                          order.status === 'Delivered' 
-                            ? 'bg-green-500/20 text-green-400' 
-                            : 'bg-yellow-500/20 text-yellow-400'
-                        }`}>
-                          {order.status}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <button className={`text-blue-400 hover:text-blue-300 text-sm font-medium`}>
-                          Details
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <span className={`${themeClasses.textSecondary} text-xs`}>61%</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column */}
-        <div className="space-y-6">
-          {/* Recent Updates */}
-          <div className={`${themeClasses.card} rounded-xl border ${themeClasses.border} shadow-lg p-6`}>
-            <h3 className={`text-lg font-bold ${themeClasses.textPrimary} mb-6`}>Recent Updates</h3>
-            <div className="space-y-4">
-              {recentUpdates.map((update, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <div className={`w-10 h-10 ${update.bgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
-                    <span className="text-white font-bold text-sm">{update.avatar}</span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className={`text-sm ${themeClasses.textPrimary}`}>
-                      <span className="font-medium">{update.name}</span> {update.action}
-                    </p>
-                    <p className={`text-xs ${themeClasses.textSecondary} mt-1`}>{update.time}</p>
-                  </div>
-                </div>
-              ))}
+        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
+          <div className="flex items-center justify-between">
+            <div>
+              <div className={`${themeClasses.textSecondary} text-sm font-medium mb-1`}>Total Expenses</div>
+              <div className={`${themeClasses.textPrimary} text-2xl font-bold`}>$14,160</div>
+              <div className="text-red-400 text-sm mt-1">-8% since last hour</div>
+            </div>
+            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center">
+              <Upload className="w-6 h-6 text-white" />
             </div>
           </div>
-
-          {/* Sales Analytics */}
-          <div className={`${themeClasses.card} rounded-xl border ${themeClasses.border} shadow-lg p-6`}>
-            <h3 className={`text-lg font-bold ${themeClasses.textPrimary} mb-6`}>Sales Analytics</h3>
-            <div className="space-y-6">
-              {salesAnalytics.map((item, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 ${item.color === 'text-blue-400' ? 'bg-blue-500/20' : item.color === 'text-red-400' ? 'bg-red-500/20' : 'bg-green-500/20'} rounded-lg flex items-center justify-center`}>
-                      <item.icon className={`w-5 h-5 ${item.color}`} />
-                    </div>
-                    <div>
-                      <p className={`text-xs font-medium ${themeClasses.textSecondary}`}>{item.title}</p>
-                      <p className={`text-xs ${themeClasses.textSecondary}`}>{item.subtitle}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className={`text-lg font-bold ${themeClasses.textPrimary}`}>{item.value}</p>
-                    <p className={`text-sm ${item.color}`}>{item.change}</p>
-                  </div>
-                </div>
-              ))}
+          <div className="mt-4">
+            <div className="flex items-center space-x-2">
+              <div className="flex-1 bg-gray-700/50 rounded-full h-2">
+                <div className="bg-red-400 h-2 rounded-full" style={{width: '52%'}}></div>
+              </div>
+              <span className={`${themeClasses.textSecondary} text-xs`}>52%</span>
             </div>
+          </div>
+        </div>
+
+        <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
+          <div className="flex items-center justify-between">
+            <div>
+              <div className={`${themeClasses.textSecondary} text-sm font-medium mb-1`}>Total Income</div>
+              <div className={`${themeClasses.textPrimary} text-2xl font-bold`}>$10,864</div>
+              <div className="text-green-400 text-sm mt-1">+12% since last hour</div>
+            </div>
+            <div className="w-12 h-12 bg-green-500 rounded-3xl flex items-center justify-center">
+              <Play className="w-6 h-6 text-white" />
+            </div>
+          </div>
+          <div className="mt-4">
+            <div className="flex items-center space-x-2">
+              <div className="flex-1 bg-gray-700/50 rounded-full h-2">
+                <div className="bg-green-400 h-2 rounded-full" style={{width: '44%'}}></div>
+              </div>
+              <span className={`${themeClasses.textSecondary} text-xs`}>44%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Recent Orders Table */}
+      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} shadow-xl ${themeClasses.shadow}`}>
+        <div className="p-6 border-b border-gray-700/50">
+          <h2 className={`text-xl font-bold ${themeClasses.textPrimary}`}>Recent Orders</h2>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-gray-700/50">
+                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Product Name</th>
+                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Product Number</th>
+                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Payment</th>
+                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Status</th>
+                <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {channels.map((channel) => (
+                <tr key={channel.id} className="border-b border-gray-700/30 hover:bg-gray-800/30 transition-colors">
+                  <td className={`py-4 px-6 ${themeClasses.textPrimary} font-medium`}>{channel.name}</td>
+                  <td className={`py-4 px-6 ${themeClasses.textSecondary}`}>{channel.number}</td>
+                  <td className={`py-4 px-6 font-medium ${getPaymentColor(channel.payment)}`}>{channel.payment}</td>
+                  <td className="py-4 px-6">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(channel.status)}`}>
+                      {channel.status}
+                    </span>
+                  </td>
+                  <td className="py-4 px-6">
+                    <button className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
+                      Details
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Enhanced Controls */}
+      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
+        <div className="flex flex-col xl:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full">
+            <button
+              onClick={handleLogin}
+              disabled={isLoading}
+              className={`
+                flex items-center justify-center space-x-3 px-8 py-4 rounded-3xl font-semibold transition-all duration-300 
+                ${themeClasses.accent} text-white shadow-lg hover:shadow-xl transform hover:scale-105 
+                disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
+                flex-1 sm:flex-none
+              `}
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <span>Connecting...</span>
+                </>
+              ) : (
+                <>
+                  <Play className="w-5 h-5" />
+                  <span>Connect to Channels</span>
+                </>
+              )}
+            </button>
+
+            <button
+              onClick={handleClear}
+              className="flex items-center justify-center space-x-3 px-8 py-4 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-3xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex-1 sm:flex-none"
+            >
+              <RotateCcw className="w-5 h-5" />
+              <span>Clear All</span>
+            </button>
+          </div>
+
+          <div className="flex flex-wrap gap-3 justify-center xl:justify-end">
+            <button className={`p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+              <Settings className="w-5 h-5" />
+            </button>
+            <button className={`p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+              <Download className="w-5 h-5" />
+            </button>
+            <button className={`p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+              <Upload className="w-5 h-5" />
+            </button>
+            <button className="p-3 text-red-400 hover:text-red-300 rounded-3xl transition-all duration-200 hover:bg-red-500/20">
+              <Trash2 className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
@@ -270,42 +300,36 @@ function getThemeClasses(theme: string) {
     case 'dark':
       return {
         background: 'bg-gray-900',
-        card: 'bg-gray-800',
-        button: 'bg-red-500 hover:bg-red-600 text-white',
+        cardBg: 'bg-gray-800/50',
         textPrimary: 'text-white',
         textSecondary: 'text-gray-400',
-        border: 'border-gray-700',
-        tableHeader: 'bg-gray-700/50 text-gray-300',
-        tableRow: 'bg-gray-800',
-        tableRowHover: 'bg-gray-700/50',
+        accent: 'bg-red-500',
+        border: 'border-gray-700/50',
+        shadow: 'shadow-red-500/15',
         spinner: 'border-red-400/30 border-t-red-400',
         spinnerSecondary: 'border-red-400/20 border-r-red-400'
       }
     case 'light':
       return {
         background: 'bg-gray-50',
-        card: 'bg-white',
-        button: 'bg-blue-500 hover:bg-blue-600 text-white',
+        cardBg: 'bg-white/80',
         textPrimary: 'text-gray-900',
         textSecondary: 'text-gray-600',
-        border: 'border-gray-200',
-        tableHeader: 'bg-gray-50 text-gray-700',
-        tableRow: 'bg-white',
-        tableRowHover: 'bg-gray-50',
+        accent: 'bg-blue-500',
+        border: 'border-gray-200/50',
+        shadow: 'shadow-blue-500/15',
         spinner: 'border-blue-400/30 border-t-blue-400',
         spinnerSecondary: 'border-blue-400/20 border-r-blue-400'
       }
     case 'violet':
       return {
         background: 'bg-gradient-to-br from-gray-950 via-purple-950 to-indigo-950',
-        card: 'bg-gradient-to-r from-purple-800/30 to-violet-800/30 backdrop-blur-xl',
-        button: 'bg-gradient-to-r from-purple-500 to-violet-500 hover:from-purple-600 hover:to-violet-600 text-white',
+        cardBg: 'bg-purple-800/30',
         textPrimary: 'text-purple-100',
         textSecondary: 'text-purple-300',
+        accent: 'bg-gradient-to-r from-purple-500 to-violet-500',
         border: 'border-purple-400/20',
-        tableHeader: 'bg-purple-800/30 text-purple-200',
-        tableRow: 'bg-purple-800/20',
-        tableRowHover: 'bg-purple-700/30',
+        shadow: 'shadow-purple-500/15',
         spinner: 'border-purple-400/30 border-t-purple-400',
         spinnerSecondary: 'border-violet-400/20 border-r-violet-400'
       }
