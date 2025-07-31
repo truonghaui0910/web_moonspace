@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useSession } from 'next-auth/react'
@@ -188,7 +187,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
               >
                 <Menu className="w-6 h-6" />
               </button>
-              
+
               <div>
                 {/* Dashboard title removed */}
               </div>
@@ -264,5 +263,3 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
     </div>
   )
 }
-
-
