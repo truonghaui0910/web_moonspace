@@ -133,8 +133,13 @@ export default function ChannelsPage() {
 
   return (
     <div className="space-y-8">
+      {/* Stats Section Title */}
+      <div>
+        <h2 className={`text-xl font-bold ${themeClasses.textPrimary} mb-6`}>Recent Updates</h2>
+      </div>
+      
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-2">
         <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-6 shadow-xl ${themeClasses.shadow}`}>
           <div className="flex items-center justify-between">
             <div>
@@ -199,11 +204,13 @@ export default function ChannelsPage() {
         </div>
       </div>
 
+      {/* Recent Orders Section */}
+      <div>
+        <h2 className={`text-xl font-bold ${themeClasses.textPrimary} mb-6`}>Recent Orders</h2>
+      </div>
+      
       {/* Recent Orders Table */}
-      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} shadow-xl ${themeClasses.shadow}`}>
-        <div className="p-6 border-b border-gray-700/50">
-          <h2 className={`text-xl font-bold ${themeClasses.textPrimary}`}>Recent Orders</h2>
-        </div>
+      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} shadow-xl ${themeClasses.shadow} -mt-2`}>
 
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -305,7 +312,7 @@ function getThemeClasses(theme: string) {
         textSecondary: 'text-gray-400',
         accent: 'bg-red-500',
         border: 'border-gray-700/50',
-        shadow: 'shadow-red-500/15',
+        shadow: 'shadow-black/50',
         spinner: 'border-red-400/30 border-t-red-400',
         spinnerSecondary: 'border-red-400/20 border-r-red-400'
       }
@@ -329,7 +336,7 @@ function getThemeClasses(theme: string) {
         textSecondary: 'text-purple-300',
         accent: 'bg-gradient-to-r from-purple-500 to-violet-500',
         border: 'border-purple-400/20',
-        shadow: 'shadow-purple-500/15',
+        shadow: 'shadow-cyan-400/20',
         spinner: 'border-purple-400/30 border-t-purple-400',
         spinnerSecondary: 'border-violet-400/20 border-r-violet-400'
       }

@@ -69,13 +69,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
 
   const sidebarItems = [
     { icon: Home, label: 'Dashboard', href: '/dashboard' },
-    { icon: Users, label: 'Customers', href: '/customers' },
-    { icon: Hash, label: 'Orders', href: '/orders' },
-    { icon: Activity, label: 'Analytics', href: '/analytics' },
-    { icon: MessageSquare, label: 'Messages', href: '/messages', badge: '26' },
-    { icon: Users, label: 'Products', href: '/products' },
-    { icon: Settings, label: 'Reports', href: '/reports' },
-    { icon: Settings, label: 'Settings', href: '/settings' },
+    { icon: Hash, label: 'Channels', href: '/channels' },
   ]
 
   const themeClasses = getThemeClasses(theme)
@@ -196,7 +190,6 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
               
               <div>
                 <h1 className={`text-2xl font-bold ${themeClasses.textPrimary}`}>Dashboard</h1>
-                <p className={`text-sm ${themeClasses.textSecondary}`}>mm / dd / yyyy</p>
               </div>
             </div>
 
@@ -285,7 +278,8 @@ function getThemeClasses(theme: string) {
         border: 'border-gray-700',
         input: 'bg-gray-700/50',
         spinner: 'border-red-400/30 border-t-red-400',
-        spinnerSecondary: 'border-red-400/20 border-r-red-400'
+        spinnerSecondary: 'border-red-400/20 border-r-red-400',
+        shadow: 'shadow-black/50'
       }
     case 'light':
       return {
@@ -299,11 +293,14 @@ function getThemeClasses(theme: string) {
         border: 'border-gray-200',
         input: 'bg-white',
         spinner: 'border-blue-400/30 border-t-blue-400',
-        spinnerSecondary: 'border-blue-400/20 border-r-blue-400'
+        spinnerSecondary: 'border-blue-400/20 border-r-blue-400',
+        shadow: 'shadow-blue-500/15'
       }
     case 'violet':
       return {
         background: 'bg-gradient-to-br from-gray-950 via-purple-950 to-indigo-950',
+        sidebarBg: '',
+        topbarBg: '',
         sidebarActive: 'bg-gradient-to-r from-purple-500/30 to-violet-500/30 border-l-4 border-purple-400',
         sidebarHover: 'bg-purple-500/15',
         textPrimary: 'text-purple-100',
@@ -313,7 +310,8 @@ function getThemeClasses(theme: string) {
         border: 'border-purple-400/20',
         input: 'bg-purple-800/40 border-purple-400/40',
         spinner: 'border-purple-400/30 border-t-purple-400',
-        spinnerSecondary: 'border-violet-400/20 border-r-violet-400'
+        spinnerSecondary: 'border-violet-400/20 border-r-violet-400',
+        shadow: 'shadow-cyan-400/20'
       }
     default:
       return getThemeClasses('dark')
