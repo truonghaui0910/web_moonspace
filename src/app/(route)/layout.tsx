@@ -231,15 +231,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-violet-500/10"></div>
           <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-purple-400/15 to-transparent"></div>
           
-          <div className="relative z-10 flex items-center justify-between"></div>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="pt-20 lg:pl-80 relative">
-        <main className="p-8 min-h-screen">
-          {children}
-        </main>
+          <div className="relative z-10 flex items-center justify-between">
             <div className="flex items-center space-x-6">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -290,9 +282,14 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
               </div>
             </div>
           </div>
-            </div>
-          </div>
         </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="pt-20 lg:pl-80 relative">
+        <main className="p-8 min-h-screen">
+          {children}
+        </main>
       </div>
     </div>
   )

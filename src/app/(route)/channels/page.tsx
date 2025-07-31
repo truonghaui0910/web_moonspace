@@ -201,7 +201,7 @@ export default function ChannelsPage() {
       {/* Animated Header */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-violet-500/10 rounded-3xl blur-xl"></div>
-        <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-3xl border border-purple-400/20 p-8 shadow-2xl shadow-purple-500/20"></div>
+        <div className="relative bg-gradient-to-r from-purple-800/40 to-violet-800/40 backdrop-blur-xl rounded-3xl border border-purple-400/20 p-8 shadow-2xl shadow-purple-500/20">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-300 via-violet-300 to-indigo-300 bg-clip-text text-transparent">
