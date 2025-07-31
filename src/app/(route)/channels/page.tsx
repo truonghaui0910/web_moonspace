@@ -215,7 +215,7 @@ export default function ChannelsPage() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-700/50">
+              <tr className={`border-b ${themeClasses.tableBorder}`}>
                 <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Product Name</th>
                 <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Product Number</th>
                 <th className={`text-left py-4 px-6 ${themeClasses.textSecondary} font-medium text-sm`}>Payment</th>
@@ -224,8 +224,8 @@ export default function ChannelsPage() {
               </tr>
             </thead>
             <tbody>
-              {channels.map((channel) => (
-                <tr key={channel.id} className="border-b border-gray-700/30 hover:bg-gray-800/30 transition-colors">
+              {channels.map((channel, index) => (
+                <tr key={channel.id} className={`${index === channels.length - 1 ? '' : `border-b ${themeClasses.tableBorder}`} hover:${themeClasses.tableHover} transition-colors`}>
                   <td className={`py-4 px-6 ${themeClasses.textPrimary} font-medium`}>{channel.name}</td>
                   <td className={`py-4 px-6 ${themeClasses.textSecondary}`}>{channel.number}</td>
                   <td className={`py-4 px-6 font-medium ${getPaymentColor(channel.payment)}`}>{channel.payment}</td>
@@ -314,7 +314,9 @@ function getThemeClasses(theme: string) {
         border: 'border-gray-700/50',
         shadow: 'shadow-black/50',
         spinner: 'border-red-400/30 border-t-red-400',
-        spinnerSecondary: 'border-red-400/20 border-r-red-400'
+        spinnerSecondary: 'border-red-400/20 border-r-red-400',
+        tableBorder: 'border-gray-700/20',
+        tableHover: 'bg-gray-800/20'
       }
     case 'light':
       return {
@@ -326,7 +328,9 @@ function getThemeClasses(theme: string) {
         border: 'border-gray-200/50',
         shadow: 'shadow-blue-500/15',
         spinner: 'border-blue-400/30 border-t-blue-400',
-        spinnerSecondary: 'border-blue-400/20 border-r-blue-400'
+        spinnerSecondary: 'border-blue-400/20 border-r-blue-400',
+        tableBorder: 'border-gray-200/30',
+        tableHover: 'bg-gray-100/50'
       }
     case 'violet':
       return {
@@ -338,7 +342,9 @@ function getThemeClasses(theme: string) {
         border: 'border-purple-400/20',
         shadow: 'shadow-cyan-400/20',
         spinner: 'border-purple-400/30 border-t-purple-400',
-        spinnerSecondary: 'border-violet-400/20 border-r-violet-400'
+        spinnerSecondary: 'border-violet-400/20 border-r-violet-400',
+        tableBorder: 'border-purple-400/10',
+        tableHover: 'bg-purple-800/20'
       }
     default:
       return getThemeClasses('dark')

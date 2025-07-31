@@ -189,7 +189,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
               </button>
               
               <div>
-                <h1 className={`text-2xl font-bold ${themeClasses.textPrimary}`}>Dashboard</h1>
+                {/* Dashboard title removed */}
               </div>
             </div>
 
@@ -256,7 +256,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
         </div>
 
         {/* Main Content Area */}
-        <main className={`p-6 ${themeClasses.background}`}>
+        <main className={`p-6`}>
           {children}
         </main>
       </div>
@@ -269,8 +269,8 @@ function getThemeClasses(theme: string) {
     case 'dark':
       return {
         background: 'bg-gray-900',
-        sidebarActive: 'bg-red-500/20 border-l-4 border-red-500',
-        sidebarHover: 'bg-red-500/10',
+        sidebarActive: 'bg-blue-500/20 border-l-4 border-blue-500',
+        sidebarHover: 'bg-blue-500/10',
         textPrimary: 'text-white',
         textSecondary: 'text-gray-400',
         accent: 'bg-red-500',
@@ -294,13 +294,11 @@ function getThemeClasses(theme: string) {
         input: 'bg-white',
         spinner: 'border-blue-400/30 border-t-blue-400',
         spinnerSecondary: 'border-blue-400/20 border-r-blue-400',
-        shadow: 'shadow-blue-500/15'
+        shadow: 'shadow-black/50'
       }
     case 'violet':
       return {
         background: 'bg-gradient-to-br from-gray-950 via-purple-950 to-indigo-950',
-        sidebarBg: '',
-        topbarBg: '',
         sidebarActive: 'bg-gradient-to-r from-purple-500/30 to-violet-500/30 border-l-4 border-purple-400',
         sidebarHover: 'bg-purple-500/15',
         textPrimary: 'text-purple-100',
@@ -311,7 +309,7 @@ function getThemeClasses(theme: string) {
         input: 'bg-purple-800/40 border-purple-400/40',
         spinner: 'border-purple-400/30 border-t-purple-400',
         spinnerSecondary: 'border-violet-400/20 border-r-violet-400',
-        shadow: 'shadow-cyan-400/20'
+        shadow: 'shadow-black/50'
       }
     default:
       return getThemeClasses('dark')
