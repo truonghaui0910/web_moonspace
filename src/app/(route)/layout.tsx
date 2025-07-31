@@ -256,7 +256,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
         </div>
 
         {/* Main Content Area */}
-        <main className={`p-6 ${themeClasses.background}`}>
+        <main className={`p-6`}>
           {children}
         </main>
       </div>
