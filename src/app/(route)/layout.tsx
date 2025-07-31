@@ -23,7 +23,9 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
 
   useEffect(() => {
     setIsClient(true)
-    setCurrentPath(window.location.pathname)
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname)
+    }
   }, [])
 
   useEffect(() => {
@@ -55,13 +57,13 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
 
   if (!isClient) {
     return (
-      <div className={`min-h-screen flex items-center justify-center ${themeClasses.background}`}>
+      <div className="min-h-screen flex items-center justify-center bg-gray-900">
         <div className="flex flex-col items-center justify-center">
           <div className="relative">
-            <div className={`w-20 h-20 border-4 ${themeClasses.spinner} rounded-full animate-spin`}></div>
-            <div className={`absolute inset-0 w-16 h-16 border-4 ${themeClasses.spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
+            <div className="w-20 h-20 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
+            <div className="absolute inset-0 w-16 h-16 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin m-2" style={{animationDirection: 'reverse'}}></div>
           </div>
-          <div className={`mt-6 ${themeClasses.textPrimary} text-xl font-medium text-center`}>Loading Moonspace...</div>
+          <div className="mt-6 text-white text-xl font-medium text-center">Loading Moonspace...</div>
         </div>
       </div>
     )
