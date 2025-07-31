@@ -50,7 +50,7 @@ body.theme-light {
 
 /* Violet Theme */
 body.theme-violet {
-  --bg-primary: linear-gradient(to bottom right, #030712, #581c87, #312e81);
+  --bg-primary: linear-gradient(to bottom right, #030712, #3b0764, #1e1b4b);
   --bg-secondary: rgba(91, 33, 182, 0.3);
   --bg-card: rgba(91, 33, 182, 0.3);
   --text-primary: #e9d5ff;
