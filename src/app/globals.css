@@ -1,91 +1,140 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Theme-based styles */
+/* Dark Theme */
+body.theme-dark {
+  --bg-primary: #111827;
+  --bg-secondary: rgba(31, 41, 55, 0.5);
+  --bg-card: rgba(31, 41, 55, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --border-color: #374151;
+  --accent-color: #ef4444;
+  --hover-bg: rgba(31, 41, 55, 0.2);
+  --sidebar-active: rgba(59, 130, 246, 0.2);
+  --sidebar-hover: rgba(59, 130, 246, 0.1);
+  --badge-bg: #ef4444;
+  --badge-text: #ffffff;
+  --input-bg: rgba(55, 65, 81, 0.5);
+  --spinner-primary: rgba(239, 68, 68, 0.3);
+  --spinner-secondary: rgba(239, 68, 68, 0.2);
+  --shadow: rgba(0, 0, 0, 0.5);
+  --table-border: rgba(55, 65, 81, 0.2);
+  --table-hover: rgba(31, 41, 55, 0.2);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Light Theme */
+body.theme-light {
+  --bg-primary: #f9fafb;
+  --bg-secondary: rgba(255, 255, 255, 0.8);
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  --accent-color: #3b82f6;
+  --hover-bg: rgba(243, 244, 246, 0.5);
+  --sidebar-active: rgba(59, 130, 246, 0.1);
+  --sidebar-hover: rgba(59, 130, 246, 0.05);
+  --badge-bg: #3b82f6;
+  --badge-text: #ffffff;
+  --input-bg: #ffffff;
+  --spinner-primary: rgba(59, 130, 246, 0.3);
+  --spinner-secondary: rgba(59, 130, 246, 0.2);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --table-border: rgba(229, 231, 235, 0.3);
+  --table-hover: rgba(243, 244, 246, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Violet Theme */
+body.theme-violet {
+  --bg-primary: linear-gradient(to bottom right, #030712, #581c87, #312e81);
+  --bg-secondary: rgba(91, 33, 182, 0.3);
+  --bg-card: rgba(91, 33, 182, 0.3);
+  --text-primary: #e9d5ff;
+  --text-secondary: #c4b5fd;
+  --border-color: rgba(196, 181, 253, 0.2);
+  --accent-color: #8b5cf6;
+  --accent-gradient: linear-gradient(to right, #8b5cf6, #7c3aed);
+  --hover-bg: rgba(91, 33, 182, 0.15);
+  --sidebar-active-bg: rgba(139, 92, 246, 0.3);
+  --sidebar-active-gradient: linear-gradient(to right, rgba(139, 92, 246, 0.3), rgba(124, 58, 237, 0.3));
+  --sidebar-hover: rgba(139, 92, 246, 0.15);
+  --badge-bg: #8b5cf6;
+  --badge-text: #ffffff;
+  --input-bg: rgba(91, 33, 182, 0.4);
+  --input-border: rgba(196, 181, 253, 0.4);
+  --spinner-primary: rgba(196, 181, 253, 0.3);
+  --spinner-secondary: rgba(139, 92, 246, 0.2);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --table-border: rgba(196, 181, 253, 0.1);
+  --table-hover: rgba(91, 33, 182, 0.2);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Utility classes using CSS variables */
+.bg-primary {
+  background: var(--bg-primary);
 }
 
-/* Custom animations for logo */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
+.bg-secondary {
+  background: var(--bg-secondary);
 }
 
-.animate-twinkle {
-  animation: twinkle 2s ease-in-out infinite;
+.bg-card {
+  background: var(--bg-card);
 }
 
-/* Sparkling star animations */
-@keyframes sparkle {
-  0%, 100% { 
-    opacity: 0.3; 
-    transform: scale(0.8) rotate(0deg);
-    filter: brightness(0.8);
-  }
-  25% { 
-    opacity: 1; 
-    transform: scale(1.3) rotate(90deg);
-    filter: brightness(1.5);
-  }
-  50% { 
-    opacity: 0.6; 
-    transform: scale(1.1) rotate(180deg);
-    filter: brightness(1.2);
-  }
-  75% { 
-    opacity: 1; 
-    transform: scale(1.4) rotate(270deg);
-    filter: brightness(1.6);
-  }
+.text-primary {
+  color: var(--text-primary);
 }
 
-.animate-sparkle {
-  animation: sparkle 3s ease-in-out infinite;
+.text-secondary {
+  color: var(--text-secondary);
 }
 
-/* Small 4-pointed star styling */
-.star-4-point {
-  color: white;
-  font-size: 12px;
-  text-shadow: 0 0 4px rgba(255,255,255,0.6), 0 0 6px rgba(255,255,255,0.4);
-  filter: drop-shadow(0 0 2px rgba(255,255,255,0.7));
-  transform: scaleY(1.5);
+.border-theme {
+  border-color: var(--border-color);
 }
 
-/* Small sparkling dots animation */
-@keyframes twinkle-dot {
-  0%, 100% { 
-    opacity: 0.2; 
-    transform: scale(0.5);
-  }
-  50% { 
-    opacity: 1; 
-    transform: scale(1.2);
-  }
+.bg-accent {
+  background: var(--accent-color);
 }
 
-.animate-twinkle-dot {
-  animation: twinkle-dot 2s ease-in-out infinite;
+.bg-sidebar-active {
+  background: var(--sidebar-active);
+  border-left: 4px solid var(--accent-color);
+}
+
+.bg-sidebar-hover {
+  background: var(--sidebar-hover);
+}
+
+.hover-bg:hover {
+  background: var(--hover-bg);
+}
+
+.shadow-theme {
+  box-shadow: 0 25px 50px -12px var(--shadow);
+}
+
+/* Special classes for violet theme complex styles */
+body.theme-violet .bg-accent {
+  background: var(--accent-gradient);
+}
+
+body.theme-violet .bg-sidebar-active {
+  background: var(--sidebar-active-gradient);
+  border-left: 4px solid var(--accent-color);
+}
+
+body.theme-violet .bg-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+}
+
+body.theme-violet .input-violet {
+  background: var(--input-bg);
+  border-color: var(--input-border);
 }

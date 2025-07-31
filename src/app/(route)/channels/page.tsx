@@ -13,8 +13,6 @@ import {
   EyeOff,
   Loader2
 } from 'lucide-react'
-import { useTheme } from '@/contexts/ThemeContext'
-import { getThemeClasses } from '@/lib/theme'
 
 export default function ChannelsPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -76,8 +74,6 @@ export default function ChannelsPage() {
       type: 'Lozenge'
     }
   ])
-  const { theme } = useTheme()
-
   const handleLogin = () => {
     setIsLoading(true)
     // Simulate login process
@@ -116,17 +112,15 @@ export default function ChannelsPage() {
     }
   }
 
-  const themeClasses = getThemeClasses(theme)
-
   if (isLoading) {
     return (
-      <div className={`min-h-screen flex items-center justify-center ${themeClasses.background}`}>
+      <div className="min-h-screen flex items-center justify-center bg-[var(--bg-primary)]">
         <div className="flex items-center justify-center space-x-4">
           <div className="relative">
-            <div className={`w-16 h-16 border-4 ${themeClasses.spinner} rounded-full animate-spin`}></div>
-            <div className={`absolute inset-0 w-12 h-12 border-4 ${themeClasses.spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
+            <div className="w-16 h-16 border-4 border-red-400/30 border-t-red-400 rounded-full animate-spin"></div>
+            <div className="absolute inset-0 w-12 h-12 border-4 border-red-400/20 border-r-red-400 rounded-full animate-spin m-2" style={{animationDirection: 'reverse'}}></div>
           </div>
-          <div className={`${themeClasses.textPrimary} text-xl font-medium`}>Connecting to channels...</div>
+          <div className="text-[var(--text-primary)] text-xl font-medium">Connecting to channels...</div>
         </div>
       </div>
     )
@@ -138,7 +132,7 @@ export default function ChannelsPage() {
       {/* <div>
         <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary} mb-4 sm:mb-6`}>Recent Updates</h2>
       </div> */}
-      
+
       {/* Stats Cards */}
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 -mt-2">
         <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-4 sm:p-6 shadow-xl ${themeClasses.shadow}`}>
@@ -207,27 +201,27 @@ export default function ChannelsPage() {
 
       {/* Channels List Section */}
       <div>
-        <h2 className={`text-lg sm:text-xl font-bold ${themeClasses.textPrimary} mb-4 sm:mb-6`}>Channels List</h2>
+        <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6">Channels List</h2>
       </div>
-      
+
       {/* Channels List Table */}
-      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} shadow-xl ${themeClasses.shadow} -mt-2`}>
+      <div className="bg-[var(--bg-card)] backdrop-blur-xl rounded-3xl border border-[var(--border-color)] shadow-xl -mt-2">
         <div className="overflow-x-auto">
           <table className="w-full min-w-full">
             <thead>
-              <tr className={`border-b ${themeClasses.tableBorder}`}>
-                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Product Name</th>
-                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Product Number</th>
-                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Payment</th>
-                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Status</th>
-                <th className={`text-left py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} font-medium text-xs sm:text-sm`}>Actions</th>
+              <tr className="border-b border-[var(--border-color)]">
+                <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-[var(--text-secondary)] font-medium text-xs sm:text-sm">Product Name</th>
+                <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-[var(--text-secondary)] font-medium text-xs sm:text-sm">Product Number</th>
+                <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-[var(--text-secondary)] font-medium text-xs sm:text-sm">Payment</th>
+                <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-[var(--text-secondary)] font-medium text-xs sm:text-sm">Status</th>
+                <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-[var(--text-secondary)] font-medium text-xs sm:text-sm">Actions</th>
               </tr>
             </thead>
             <tbody>
               {channels.map((channel, index) => (
-                <tr key={channel.id} className={`${index === channels.length - 1 ? '' : `border-b ${themeClasses.tableBorder}`} hover:${themeClasses.tableHover} transition-colors`}>
-                  <td className={`py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textPrimary} font-medium text-sm`}>{channel.name}</td>
-                  <td className={`py-3 sm:py-4 px-3 sm:px-6 ${themeClasses.textSecondary} text-sm`}>{channel.number}</td>
+                <tr key={channel.id} className={`${index === channels.length - 1 ? '' : 'border-b border-[var(--border-color)]'} hover:bg-[var(--hover-bg)] transition-colors`}>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-[var(--text-primary)] font-medium text-sm">{channel.name}</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-[var(--text-secondary)] text-sm">{channel.number}</td>
                   <td className={`py-3 sm:py-4 px-3 sm:px-6 font-medium ${getPaymentColor(channel.payment)} text-sm`}>{channel.payment}</td>
                   <td className="py-3 sm:py-4 px-3 sm:px-6">
                     <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(channel.status)}`}>
@@ -247,18 +241,13 @@ export default function ChannelsPage() {
       </div>
 
       {/* Enhanced Controls */}
-      <div className={`${themeClasses.cardBg} backdrop-blur-xl rounded-3xl border ${themeClasses.border} p-4 sm:p-6 shadow-xl ${themeClasses.shadow}`}>
+      <div className="bg-[var(--bg-card)] backdrop-blur-xl rounded-3xl border border-[var(--border-color)] p-4 sm:p-6 shadow-xl">
         <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 items-center justify-between">
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-1 w-full">
             <button
               onClick={handleLogin}
               disabled={isLoading}
-              className={`
-                flex items-center justify-center space-x-2 sm:space-x-3 px-6 sm:px-8 py-3 sm:py-4 rounded-3xl font-semibold transition-all duration-300 
-                ${themeClasses.accent} text-white shadow-lg hover:shadow-xl transform hover:scale-105 
-                disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
-                flex-1 sm:flex-none text-sm sm:text-base
-              `}
+              className="flex items-center justify-center space-x-2 sm:space-x-3 px-6 sm:px-8 py-3 sm:py-4 rounded-3xl font-semibold transition-all duration-300 bg-[var(--accent-color)] text-white shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex-1 sm:flex-none text-sm sm:text-base"
             >
               {isLoading ? (
                 <>
@@ -283,13 +272,13 @@ export default function ChannelsPage() {
           </div>
 
           <div className="flex flex-wrap gap-2 sm:gap-3 justify-center xl:justify-end">
-            <button className={`p-2 sm:p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+            <button className="p-2 sm:p-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-3xl transition-all duration-200 hover:bg-[var(--hover-bg)]">
               <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <button className={`p-2 sm:p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+            <button className="p-2 sm:p-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-3xl transition-all duration-200 hover:bg-[var(--hover-bg)]">
               <Download className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <button className={`p-2 sm:p-3 ${themeClasses.textSecondary} hover:${themeClasses.textPrimary} rounded-3xl transition-all duration-200 hover:bg-gray-700/50`}>
+            <button className="p-2 sm:p-3 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-3xl transition-all duration-200 hover:bg-[var(--hover-bg)]">
               <Upload className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button className="p-2 sm:p-3 text-red-400 hover:text-red-300 rounded-3xl transition-all duration-200 hover:bg-red-500/20">
@@ -301,4 +290,3 @@ export default function ChannelsPage() {
     </div>
   )
 }
-
