@@ -189,7 +189,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
               </button>
               
               <div>
-                <h1 className={`text-2xl font-bold ${themeClasses.textPrimary}`}>Dashboard</h1>
+                {/* Dashboard title removed */}
               </div>
             </div>
 
@@ -269,8 +269,8 @@ function getThemeClasses(theme: string) {
     case 'dark':
       return {
         background: 'bg-gray-900',
-        sidebarActive: 'bg-red-500/20 border-l-4 border-red-500',
-        sidebarHover: 'bg-red-500/10',
+        sidebarActive: 'bg-blue-500/20 border-l-4 border-blue-500',
+        sidebarHover: 'bg-blue-500/10',
         textPrimary: 'text-white',
         textSecondary: 'text-gray-400',
         accent: 'bg-red-500',
@@ -299,8 +299,6 @@ function getThemeClasses(theme: string) {
     case 'violet':
       return {
         background: 'bg-gradient-to-br from-gray-950 via-purple-950 to-indigo-950',
-        sidebarBg: '',
-        topbarBg: '',
         sidebarActive: 'bg-gradient-to-r from-purple-500/30 to-violet-500/30 border-l-4 border-purple-400',
         sidebarHover: 'bg-purple-500/15',
         textPrimary: 'text-purple-100',
