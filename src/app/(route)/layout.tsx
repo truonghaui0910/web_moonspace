@@ -33,15 +33,17 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
 
   if (status === 'loading') {
     return (
-      <div className={`min-h-screen flex items-center justify-center ${getThemeClasses(theme).background}`}>
-        <div className="flex flex-col items-center justify-center">
-          <div className="relative">
-            <div className={`w-20 h-20 border-4 ${getThemeClasses(theme).spinner} rounded-full animate-spin`}></div>
-            <div className={`absolute inset-0 w-16 h-16 border-4 ${getThemeClasses(theme).spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
-          </div>
-          <div className={`mt-6 ${getThemeClasses(theme).textPrimary} text-xl font-medium text-center`}>Loading Moonspace...</div>
-        </div>
-      </div>
+      <div>Loading</div>
+      
+      // <div className={`min-h-screen flex items-center justify-center ${getThemeClasses(theme).background}`}>
+      //   <div className="flex flex-col items-center justify-center">
+      //     <div className="relative">
+      //       <div className={`w-20 h-20 border-4 ${getThemeClasses(theme).spinner} rounded-full animate-spin`}></div>
+      //       <div className={`absolute inset-0 w-16 h-16 border-4 ${getThemeClasses(theme).spinnerSecondary} rounded-full animate-spin m-2`} style={{animationDirection: 'reverse'}}></div>
+      //     </div>
+      //     <div className={`mt-6 ${getThemeClasses(theme).textPrimary} text-xl font-medium text-center`}>Loading Moonspace...</div>
+      //   </div>
+      // </div>
     )
   }
 
