@@ -77,7 +77,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-950 via-purple-950 to-indigo-950">
 
 
       {/* Sparkling starry background */}
