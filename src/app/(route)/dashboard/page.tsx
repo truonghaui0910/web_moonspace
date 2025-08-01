@@ -42,7 +42,7 @@ import {
   Key
 } from 'lucide-react'
 
-export default function ChannelsPage() {
+export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [selectedChannels, setSelectedChannels] = useState(new Set())
   const [showBulkActions, setShowBulkActions] = useState(false)
@@ -419,8 +419,8 @@ export default function ChannelsPage() {
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Channel Management</h1>
-            <p className="text-[var(--text-secondary)]">Manage your YouTube channels and analyze performance</p>
+            <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Dashboard</h1>
+            <p className="text-[var(--text-secondary)]">Overview and manage your YouTube channels performance</p>
           </div>
           
           <div className="flex items-center space-x-3">
