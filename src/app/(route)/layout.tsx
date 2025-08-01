@@ -33,11 +33,18 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
     }
   }, [])
 
+  // Prevent hydration mismatch during initial render
+  const [isClient, setIsClient] = useState(false)
+  
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   if (status === 'loading') {
     return <Loading text="Loading Moonspace..." />
   }
 
-  if (!session) {
+  if (!session || !isClient) {
     return null
   }
 
