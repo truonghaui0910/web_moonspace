@@ -167,6 +167,19 @@ model Notification {
   @@map("notifications")
 }
 
+model Server {
+  id        Int      @id @default(autoincrement())
+  username  String?
+  host_url  String
+  status    Int      @default(1)
+  kasm_id   String?
+  kasm_info String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("servers")
+}
+
 enum Role {
   ADMIN
   EDITOR
