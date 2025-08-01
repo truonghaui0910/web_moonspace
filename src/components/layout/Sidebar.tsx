@@ -7,7 +7,8 @@ import {
   Hash, 
   Home,
   LogOut,
-  X
+  X,
+  Database
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { useTheme } from '@/contexts/ThemeContext'
@@ -30,8 +31,9 @@ export default function Sidebar({
   const { theme } = useTheme()
 
   const sidebarItems = [
-    { icon: Home, label: 'Dashboard', href: '/dashboard' },
+    // { icon: Home, label: 'Dashboard', href: '/dashboard' },
     { icon: Hash, label: 'Channels', href: '/channels' },
+    { icon: Database, label: 'Servers', href: '/servers' },
   ]
 
   return (

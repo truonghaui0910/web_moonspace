@@ -7,6 +7,7 @@ import { useTheme } from '@/contexts/ThemeContext'
 import { getThemeClasses } from '@/lib/theme'
 import Sidebar from '@/components/layout/Sidebar'
 import Navbar from '@/components/layout/Navbar'
+import Loading from '@/components/ui/Loading'
 
 interface RouteLayoutProps {
   children: React.ReactNode
@@ -33,17 +34,7 @@ export default function RouteLayout({ children }: RouteLayoutProps) {
   }, [])
 
   if (status === 'loading') {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
-        <div className="flex flex-col items-center justify-center">
-          <div className="relative">
-            <div className="w-20 h-20 border-4 border-red-400/30 border-t-red-400 rounded-full animate-spin"></div>
-            <div className="absolute inset-0 w-16 h-16 border-4 border-red-400/20 border-r-red-400 rounded-full animate-spin m-2" style={{animationDirection: 'reverse'}}></div>
-          </div>
-          <div className="mt-6 text-white text-xl font-medium text-center">Loading Moonspace...</div>
-        </div>
-      </div>
-    )
+    return <Loading text="Loading Moonspace..." />
   }
 
   if (!session) {
