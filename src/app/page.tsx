@@ -134,10 +134,12 @@ export default function LoginPage() {
         <div className="absolute top-106 left-3/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '0.1s' }}></div>
         <div className="absolute top-14 right-5/8 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-dot" style={{ animationDelay: '1.9s' }}></div>
 
-        {/* Extra small twinkling stars scattered - fixed positions */}
+        {/* Extra small twinkling stars scattered - random positions */}
         {Array.from({ length: 200 }, (_, i) => {
-          const top = (i * 7.3) % 100;
-          const left = (i * 11.7) % 100;
+          // Create more random distribution, avoiding edges
+          const seed = i * 12345;
+          const top = 10 + ((seed * 7.3) % 80); // Keep between 10-90%
+          const left = 10 + ((seed * 11.7) % 80); // Keep between 10-90%
           const delay = (i * 0.02) % 4;
           const opacity = 0.2 + (i % 8) * 0.1;
 
@@ -157,8 +159,10 @@ export default function LoginPage() {
 
         {/* More twinkling dot stars */}
         {Array.from({ length: 150 }, (_, i) => {
-          const top = (i * 13.1) % 100;
-          const left = (i * 17.3) % 100;
+          // Better random distribution
+          const seed = i * 98765;
+          const top = 15 + ((seed * 13.1) % 70); // Keep between 15-85%
+          const left = 15 + ((seed * 17.3) % 70); // Keep between 15-85%
           const delay = (i * 0.033) % 5;
           const opacity = 0.1 + (i % 9) * 0.1;
           const duration = 1.5 + (i % 5) * 0.4;
@@ -180,8 +184,10 @@ export default function LoginPage() {
 
         {/* Tiny twinkling stars for depth */}
         {Array.from({ length: 80 }, (_, i) => {
-          const top = (i * 19.7) % 100;
-          const left = (i * 23.1) % 100;
+          // Random positioning away from edges
+          const seed = i * 54321;
+          const top = 20 + ((seed * 19.7) % 60); // Keep between 20-80%
+          const left = 20 + ((seed * 23.1) % 60); // Keep between 20-80%
           const delay = (i * 0.063) % 5;
           const opacity = 0.3 + (i % 6) * 0.1;
           const duration = 2 + (i % 3) * 1;
